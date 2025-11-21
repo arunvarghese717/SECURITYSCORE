@@ -1,18 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Contact Us | MySecurity Scores</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | MySecurity Scores</title>
+    <meta name="description" content="Get in touch with the MySecurity Scores team for support, security consulting, partnership inquiries, or media requests in 2026.">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: #0A0A0F;
+            color: #FFFFFF;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #fff, #667eea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: #A3A3B8;
+        }
+        ul, ol {
+            margin-bottom: 20px;
+            padding-left: 30px;
+        }
+        li {
+            margin-bottom: 10px;
+            font-size: 1.05rem;
+            color: #A3A3B8;
+        }
+        .nav {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+        }
+        .nav a {
+            color: #0066FF;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+        .cta-box {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        .cta-button {
+            background: linear-gradient(135deg, #0066FF, #8B5CF6);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 15px;
+        }
+        /* Form Specific Styling to match dark theme */
+        form {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 10px;
+            display: grid;
+            gap: 20px;
+        }
+        label {
+            display: block;
+            font-size: 1rem;
+            margin-bottom: 5px;
+            color: #667eea;
+        }
+        input[type="text"], input[type="email"], textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            border-radius: 6px;
+            background: rgba(0, 0, 0, 0.3);
+            color: #FFFFFF;
+            font-size: 1rem;
+            box-sizing: border-box;
+            margin-top: 5px;
+        }
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        .contact-button {
+            background: linear-gradient(135deg, #0066FF, #8B5CF6);
+            color: white;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 15px;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-  <h1>Contact Us</h1>
-  <p>If you have any questions about MySecurity Scores, please email us: <a href="mailto:499dbdef43bf4e6bb7f9a01c8a5625da@domainsbyproxy.com">499dbdef43bf4e6bb7f9a01c8a5625da@domainsbyproxy.com</a></p>
-  <form method="post" action="mailto:499dbdef43bf4e6bb7f9a01c8a5625da@domainsbyproxy.com">
-    <label>Your Name: <input type="text" name="name" required></label><br>
-    <label>Your Email: <input type="email" name="email" required></label><br>
-    <label>Your Message: <textarea name="message" required></textarea></label><br>
-    <button type="submit">Send</button>
-  </form>
+    <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="security-guide.html">Security Guide</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <article>
+        <h1>Contact Us</h1>
+        
+        <p><em>Last updated: November 21, 2026 | Response time: 24-48 hours</em></p>
+        
+        <p>We are here to help you secure your business. Whether you have questions about a security report, need enterprise consulting, or are interested in partnership opportunities, please reach out via the form below or use one of our dedicated email addresses.</p>
+
+        <h2>Direct Email Inquiries</h2>
+        
+        <p>For convenience, you can email us directly:</p>
+        
+        <ul>
+            <li>**General & Support:** <a href="mailto:support@mysecurityscores.com" style="color: #0066FF;">support@mysecurityscores.com</a></li>
+            <li>**Media & Partnerships:** <a href="mailto:partnerships@mysecurityscores.com" style="color: #0066FF;">partnerships@mysecurityscores.com</a></li>
+        </ul>
+        
+        <p>Alternatively, use the contact form below. **Note:** Since this is a static demonstration, the form is set up for basic mail submission; a live site would use server-side processing.</p>
+
+        <form method="post" action="mailto:support@mysecurityscores.com" enctype="text/plain">
+            <label for="name">Your Name:</label> 
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Your Email:</label> 
+            <input type="email" id="email" name="email" required>
+            
+            <label for="subject">Subject (e.g., Support, Sales, Inquiry):</label> 
+            <input type="text" id="subject" name="subject">
+            
+            <label for="message">Your Message:</label> 
+            <textarea id="message" name="message" required></textarea>
+            
+            <button type="submit" class="contact-button">Send Secure Message</button>
+        </form>
+    </article>
+
+    <footer style="margin-top: 60px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center;">
+        <p style="color: #666;">© 2026 MySecurity Scores. All rights reserved.</p>
+        <p><a href="privacy.html" style="color: #0066FF;">Privacy Policy</a> | <a href="terms.html" style="color: #0066FF;">Terms</a> | <a href="contact.html" style="color: #0066FF;">Contact</a></p>
+    </footer>
 </body>
 </html>
