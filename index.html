@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MySecurity Scores - Free Enterprise Security Assessment | 95% Accuracy</title>
-<meta name="description" content="Get instant security assessment with 95%+ accuracy. Free Secuirty scorecard checker.  Free enterprise-grade security scoring platform trusted by 1000+ businesses. Start your cybersecurity scan now.">
-<meta name="keywords" content="security assessment, app secuirty score, free security score checker, my security score card, cybersecurity score, security scanner, website security check, enterprise security analysis">
+<meta name="description" content="Get instant security assessment with 95%+ accuracy. Free Security scorecard checker. Free enterprise-grade security scoring platform trusted by 1000+ businesses. Start your cybersecurity scan now.">
+<meta name="keywords" content="security assessment, app security score, free security score checker, my security score card, cybersecurity score, security scanner, website security check, enterprise security analysis">
 <meta name="author" content="MySecurity Scores">
 <meta name="robots" content="index, follow">
 <!-- Enhanced Website Schema with AggregateRating -->
@@ -224,8 +224,8 @@ body::before {
     font-weight: 800;
     background: linear-gradient(135deg, #fff 0%, #667eea 50%, #00f2fe 100%);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin-bottom: 24px;
     letter-spacing: -2px;
     animation: fadeInUp 1s ease;
@@ -466,6 +466,7 @@ body::before {
     margin-bottom: 12px;
     background: linear-gradient(135deg, #fff, var(--primary-blue));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -1139,6 +1140,172 @@ body::before {
 ::-webkit-scrollbar-thumb:hover {
     background: var(--primary-blue);
 }
+
+/* Enhanced visual effects */
+.content-article, .faq-item {
+    animation: fadeInUp 0.6s ease-out;
+    animation-fill-mode: both;
+}
+
+.content-article:nth-child(1) { animation-delay: 0.1s; }
+.content-article:nth-child(2) { animation-delay: 0.2s; }
+.content-article:nth-child(3) { animation-delay: 0.3s; }
+.content-article:nth-child(4) { animation-delay: 0.4s; }
+.content-article:nth-child(5) { animation-delay: 0.5s; }
+
+.faq-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.faq-item:hover {
+    transform: translateX(8px);
+    border-color: rgba(102, 126, 234, 0.5);
+}
+
+.faq-item h4 span:last-child {
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active h4 span:last-child {
+    transform: rotate(45deg);
+}
+
+.faq-item.active p {
+    display: block !important;
+    animation: fadeInUp 0.3s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Enhanced card hover effects */
+.content-article:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(102, 126, 234, 0.4);
+    border-color: rgba(102, 126, 234, 0.5);
+}
+
+/* Smooth transitions for all interactive elements */
+a, button, .feature-card, .resource-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced gradient text animations */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.heading-1, .section-title {
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
+}
+
+/* Particle effect background */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(2px 2px at 20% 30%, rgba(102, 126, 234, 0.3), transparent),
+        radial-gradient(2px 2px at 60% 70%, rgba(139, 92, 246, 0.3), transparent),
+        radial-gradient(1px 1px at 50% 50%, rgba(16, 185, 129, 0.3), transparent);
+    background-size: 200% 200%;
+    animation: particleMove 20s ease infinite;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+@keyframes particleMove {
+    0%, 100% { background-position: 0% 0%, 100% 100%, 50% 50%; }
+    50% { background-position: 100% 100%, 0% 0%, 50% 50%; }
+}
+
+/* Enhanced loading animations */
+.spinner {
+    position: relative;
+}
+
+.spinner::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: var(--primary-purple);
+    animation: spin 1.5s linear infinite;
+}
+
+/* Improved button ripple effect */
+.scan-btn, .download-btn, .cta-button {
+    position: relative;
+    overflow: hidden;
+}
+
+.scan-btn:active::after, .download-btn:active::after, .cta-button:active::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%);
+    animation: ripple 0.6s ease-out;
+}
+
+@keyframes ripple {
+    to {
+        width: 300px;
+        height: 300px;
+        opacity: 0;
+    }
+}
+
+/* Enhanced focus states for accessibility */
+input:focus, select:focus, button:focus {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 2px;
+}
+
+/* Smooth page transitions */
+* {
+    scroll-behavior: smooth;
+}
+
+/* Enhanced card entrance animations */
+.main-card, .article-card, .resource-card {
+    animation: cardEntrance 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes cardEntrance {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
 </style>
 
 </head>
@@ -1252,8 +1419,6 @@ body::before {
 </div>
 
 <!-- END OF CONTENT SECTION -->
-
-</div> <!-- Closing header div -->
 
 <!-- ✨ NEW CONTENT SECTION - INSERT HERE ✨ -->
 <nav style="background: rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.1); padding: 15px 0; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px);">
@@ -1401,15 +1566,184 @@ body::before {
         </div>
     </div>
 </div>
+
+<!-- Comprehensive Security Guide Section -->
+<div class="container" style="margin-bottom: 80px;">
+    <section style="margin: 60px 0;">
+        <h2 style="font-size: 2.5rem; text-align: center; margin-bottom: 24px; background: linear-gradient(135deg, #fff, #667eea); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800;">
+            📖 Complete Guide to Enterprise Security Assessment
+        </h2>
+        
+        <div style="max-width: 900px; margin: 0 auto;">
+            <article class="content-article" style="background: var(--bg-card); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 24px; padding: 48px; margin-bottom: 32px; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
+                <h3 style="font-size: 1.8rem; color: #fff; margin-bottom: 20px; font-weight: 700;">Understanding Security Scoring: A Comprehensive Overview</h3>
+                <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 20px; font-size: 1.05rem;">
+                    Security scoring has become an essential tool for organizations to evaluate their cybersecurity posture and identify potential vulnerabilities. Our platform utilizes advanced algorithms that analyze multiple security dimensions including network security, web application protection, email security, third-party risk management, compliance adherence, and data protection measures.
+                </p>
+                <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 20px; font-size: 1.05rem;">
+                    The scoring methodology combines real-time threat intelligence from over 12 leading security platforms, including SecurityScorecard, BitSight, UpGuard, RiskRecon, and others. This multi-source approach ensures 95%+ accuracy by cross-verifying findings and eliminating false positives through AI-powered correlation analysis.
+                </p>
+                <h4 style="font-size: 1.4rem; color: #667eea; margin: 32px 0 16px; font-weight: 700;">Key Security Dimensions Analyzed</h4>
+                <ul style="color: var(--text-secondary); line-height: 1.8; margin-left: 24px; margin-bottom: 20px; font-size: 1.05rem;">
+                    <li style="margin-bottom: 12px;"><strong style="color: #fff;">Network Security:</strong> SSL/TLS certificate validation, DNS security configuration, IP reputation analysis, and network infrastructure assessment</li>
+                    <li style="margin-bottom: 12px;"><strong style="color: #fff;">Web Application Security:</strong> Security headers analysis, CORS policy validation, vulnerability scanning, and API security assessment</li>
+                    <li style="margin-bottom: 12px;"><strong style="color: #fff;">Email Security:</strong> SPF, DKIM, and DMARC configuration validation, phishing protection mechanisms, and email server reputation</li>
+                    <li style="margin-bottom: 12px;"><strong style="color: #fff;">Third-Party Risk:</strong> Vendor security assessment, supply chain analysis, dependency vulnerability scanning, and continuous monitoring</li>
+                    <li style="margin-bottom: 12px;"><strong style="color: #fff;">Compliance & Governance:</strong> SOC 2, ISO 27001, GDPR compliance verification, privacy policy analysis, and audit validation</li>
+                    <li style="margin-bottom: 12px;"><strong style="color: #fff;">Data Protection:</strong> Encryption standards verification, key management assessment, data classification procedures, and backup security</li>
+                </ul>
+            </article>
+
+            <article class="content-article" style="background: var(--bg-card); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 24px; padding: 48px; margin-bottom: 32px;">
+                <h3 style="font-size: 1.8rem; color: #fff; margin-bottom: 20px; font-weight: 700;">How Multi-Source Verification Enhances Accuracy</h3>
+                <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 20px; font-size: 1.05rem;">
+                    Traditional security assessment tools rely on single data sources, which can lead to incomplete or inaccurate results. Our platform revolutionizes this approach by implementing cross-verification across multiple independent security intelligence providers.
+                </p>
+                <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 20px; font-size: 1.05rem;">
+                    Each security metric is verified against at least three independent sources. For example, SSL/TLS certificate validation checks Certificate Transparency logs, Shodan network intelligence, and Censys internet scanner simultaneously. This multi-layered approach significantly reduces false positives and provides a more accurate security posture assessment.
+                </p>
+                <div style="background: rgba(102, 126, 234, 0.1); border-left: 4px solid #667eea; padding: 20px; border-radius: 8px; margin: 24px 0;">
+                    <p style="color: #fff; font-weight: 600; margin-bottom: 8px;">💡 Pro Tip:</p>
+                    <p style="color: var(--text-secondary); margin: 0; font-size: 1.05rem;">
+                        When evaluating vendor security, always supplement automated assessments with direct vendor questionnaires and professional security audits for critical systems.
+                    </p>
+                </div>
+            </article>
+
+            <article class="content-article" style="background: var(--bg-card); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 24px; padding: 48px; margin-bottom: 32px;">
+                <h3 style="font-size: 1.8rem; color: #fff; margin-bottom: 20px; font-weight: 700;">Understanding Security Score Grades</h3>
+                <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 20px; font-size: 1.05rem;">
+                    Our security scoring system uses a letter-grade scale (A+ through F) combined with numerical scores (0-1000) to provide comprehensive security posture evaluation. Here's what each grade means:
+                </p>
+                <div style="display: grid; gap: 16px; margin: 24px 0;">
+                    <div style="background: rgba(16, 185, 129, 0.1); border-left: 4px solid #10B981; padding: 16px; border-radius: 8px;">
+                        <strong style="color: #10B981; font-size: 1.2rem;">A+ / A (900-1000 points):</strong>
+                        <p style="color: var(--text-secondary); margin: 8px 0 0; font-size: 1.05rem;">Outstanding security excellence with industry-leading best practices. Comprehensive protection across all security dimensions with minimal vulnerabilities.</p>
+                    </div>
+                    <div style="background: rgba(0, 102, 255, 0.1); border-left: 4px solid #0066FF; padding: 16px; border-radius: 8px;">
+                        <strong style="color: #0066FF; font-size: 1.2rem;">B+ / B (750-899 points):</strong>
+                        <p style="color: var(--text-secondary); margin: 8px 0 0; font-size: 1.05rem;">Good to very good security implementation with solid protection measures. Above industry standards with minor areas for improvement.</p>
+                    </div>
+                    <div style="background: rgba(255, 149, 0, 0.1); border-left: 4px solid #FF9500; padding: 16px; border-radius: 8px;">
+                        <strong style="color: #FF9500; font-size: 1.2rem;">C (650-749 points):</strong>
+                        <p style="color: var(--text-secondary); margin: 8px 0 0; font-size: 1.05rem;">Adequate security posture meeting basic requirements. Several areas need attention to improve overall security posture.</p>
+                    </div>
+                    <div style="background: rgba(255, 59, 48, 0.1); border-left: 4px solid #FF3B30; padding: 16px; border-radius: 8px;">
+                        <strong style="color: #FF3B30; font-size: 1.2rem;">D / F (Below 650 points):</strong>
+                        <p style="color: var(--text-secondary); margin: 8px 0 0; font-size: 1.05rem;">Security improvements needed with critical gaps requiring immediate action. Significant vulnerabilities present across multiple security dimensions.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="content-article" style="background: var(--bg-card); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 24px; padding: 48px; margin-bottom: 32px;">
+                <h3 style="font-size: 1.8rem; color: #fff; margin-bottom: 20px; font-weight: 700;">Best Practices for Continuous Security Monitoring</h3>
+                <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 20px; font-size: 1.05rem;">
+                    Security assessment is not a one-time activity but an ongoing process. Organizations should implement continuous monitoring strategies to maintain strong security posture:
+                </p>
+                <ol style="color: var(--text-secondary); line-height: 1.8; margin-left: 24px; margin-bottom: 20px; font-size: 1.05rem;">
+                    <li style="margin-bottom: 12px;"><strong style="color: #fff;">Regular Assessments:</strong> Conduct security assessments quarterly or whenever significant infrastructure changes occur</li>
+                    <li style="margin-bottom: 12px;"><strong style="color: #fff;">Automated Monitoring:</strong> Implement automated security monitoring tools that provide real-time alerts for security posture changes</li>
+                    <li style="margin-bottom: 12px;"><strong style="color: #fff;">Vendor Risk Management:</strong> Continuously monitor third-party vendors and suppliers for security posture changes</li>
+                    <li style="margin-bottom: 12px;"><strong style="color: #fff;">Compliance Tracking:</strong> Regularly verify compliance certifications and ensure they remain current</li>
+                    <li style="margin-bottom: 12px;"><strong style="color: #fff;">Threat Intelligence Integration:</strong> Stay updated with latest threat intelligence feeds and CVE databases</li>
+                    <li style="margin-bottom: 12px;"><strong style="color: #fff;">Incident Response Planning:</strong> Maintain updated incident response procedures and conduct regular security drills</li>
+                </ol>
+            </article>
+
+            <article class="content-article" style="background: var(--bg-card); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 24px; padding: 48px;">
+                <h3 style="font-size: 1.8rem; color: #fff; margin-bottom: 20px; font-weight: 700;">Industry-Specific Security Considerations</h3>
+                <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 20px; font-size: 1.05rem;">
+                    Different industries face unique security challenges and regulatory requirements. Our platform tailors security assessments based on industry sector:
+                </p>
+                <div style="display: grid; gap: 20px; margin-top: 24px;">
+                    <div style="background: rgba(139, 92, 246, 0.1); padding: 20px; border-radius: 12px; border: 1px solid rgba(139, 92, 246, 0.3);">
+                        <h4 style="color: #8B5CF6; font-size: 1.3rem; margin-bottom: 12px; font-weight: 700;">🏥 Healthcare (HIPAA Compliance)</h4>
+                        <p style="color: var(--text-secondary); line-height: 1.8; font-size: 1.05rem;">Enhanced focus on patient data protection, encryption standards, access controls, and breach notification procedures. HIPAA compliance validation and medical device security assessment.</p>
+                    </div>
+                    <div style="background: rgba(0, 102, 255, 0.1); padding: 20px; border-radius: 12px; border: 1px solid rgba(0, 102, 255, 0.3);">
+                        <h4 style="color: #0066FF; font-size: 1.3rem; margin-bottom: 12px; font-weight: 700;">💳 Financial Services (PCI DSS, SOX)</h4>
+                        <p style="color: var(--text-secondary); line-height: 1.8; font-size: 1.05rem;">Payment card data protection, financial transaction security, regulatory compliance (PCI DSS, SOX), fraud prevention mechanisms, and audit trail requirements.</p>
+                    </div>
+                    <div style="background: rgba(16, 185, 129, 0.1); padding: 20px; border-radius: 12px; border: 1px solid rgba(16, 185, 129, 0.3);">
+                        <h4 style="color: #10B981; font-size: 1.3rem; margin-bottom: 12px; font-weight: 700;">🎓 Education (FERPA Compliance)</h4>
+                        <p style="color: var(--text-secondary); line-height: 1.8; font-size: 1.05rem;">Student data protection, FERPA compliance validation, educational technology security, and research data safeguarding requirements.</p>
+                    </div>
+                    <div style="background: rgba(255, 149, 0, 0.1); padding: 20px; border-radius: 12px; border: 1px solid rgba(255, 149, 0, 0.3);">
+                        <h4 style="color: #FF9500; font-size: 1.3rem; margin-bottom: 12px; font-weight: 700;">🏛️ Government (FedRAMP, FISMA)</h4>
+                        <p style="color: var(--text-secondary); line-height: 1.8; font-size: 1.05rem;">Federal security requirements, FedRAMP compliance, FISMA validation, classified information handling, and government cloud security standards.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- FAQ Section -->
+            <div style="margin-top: 60px;">
+                <h2 style="font-size: 2.5rem; text-align: center; margin-bottom: 40px; background: linear-gradient(135deg, #fff, #10B981); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800;">
+                    ❓ Frequently Asked Questions
+                </h2>
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <div class="faq-item" style="background: var(--bg-card); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 16px; padding: 24px; margin-bottom: 16px; cursor: pointer; transition: all 0.3s ease;">
+                        <h4 style="font-size: 1.2rem; color: #fff; margin-bottom: 12px; font-weight: 700; display: flex; justify-content: space-between; align-items: center;">
+                            <span>How accurate are the security assessments?</span>
+                            <span style="font-size: 1.5rem;">+</span>
+                        </h4>
+                        <p style="color: var(--text-secondary); line-height: 1.8; font-size: 1.05rem; display: none;">
+                            Our platform achieves 95%+ accuracy through multi-source verification across 12+ leading security platforms. Each security metric is cross-verified against at least three independent sources, significantly reducing false positives through AI-powered correlation analysis. The platform continuously improves accuracy through machine learning algorithms that learn from historical data and threat intelligence feeds.
+                        </p>
+                    </div>
+                    <div class="faq-item" style="background: var(--bg-card); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 16px; padding: 24px; margin-bottom: 16px; cursor: pointer; transition: all 0.3s ease;">
+                        <h4 style="font-size: 1.2rem; color: #fff; margin-bottom: 12px; font-weight: 700; display: flex; justify-content: space-between; align-items: center;">
+                            <span>What data sources are used for security assessment?</span>
+                            <span style="font-size: 1.5rem;">+</span>
+                        </h4>
+                        <p style="color: var(--text-secondary); line-height: 1.8; font-size: 1.05rem; display: none;">
+                            We integrate with leading security intelligence platforms including SecurityScorecard, BitSight Security Ratings, UpGuard Cyber Risk Platform, RiskRecon Intelligence, NIST Vulnerability Database, CVE Security Database, Shodan Network Intelligence, Censys Internet Scanner, Certificate Transparency logs, AlienVault OTX, VirusTotal Intelligence, and Vulners Database. All sources are publicly disclosed in our methodology section for complete transparency.
+                        </p>
+                    </div>
+                    <div class="faq-item" style="background: var(--bg-card); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 16px; padding: 24px; margin-bottom: 16px; cursor: pointer; transition: all 0.3s ease;">
+                        <h4 style="font-size: 1.2rem; color: #fff; margin-bottom: 12px; font-weight: 700; display: flex; justify-content: space-between; align-items: center;">
+                            <span>How often should I run security assessments?</span>
+                            <span style="font-size: 1.5rem;">+</span>
+                        </h4>
+                        <p style="color: var(--text-secondary); line-height: 1.8; font-size: 1.05rem; display: none;">
+                            We recommend running security assessments quarterly for most organizations, or whenever significant infrastructure changes occur. For high-risk environments or critical systems, monthly assessments may be appropriate. Our platform supports continuous monitoring with real-time alerts for security posture changes, enabling proactive risk management.
+                        </p>
+                    </div>
+                    <div class="faq-item" style="background: var(--bg-card); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 16px; padding: 24px; margin-bottom: 16px; cursor: pointer; transition: all 0.3s ease;">
+                        <h4 style="font-size: 1.2rem; color: #fff; margin-bottom: 12px; font-weight: 700; display: flex; justify-content: space-between; align-items: center;">
+                            <span>Can I use this for vendor risk assessment?</span>
+                            <span style="font-size: 1.5rem;">+</span>
+                        </h4>
+                        <p style="color: var(--text-secondary); line-height: 1.8; font-size: 1.05rem; display: none;">
+                            Yes, our platform is specifically designed for vendor and third-party risk assessment. It provides comprehensive security posture evaluation including compliance verification, third-party dependency analysis, and continuous monitoring capabilities. However, for critical vendor relationships, we recommend supplementing automated assessments with direct vendor security questionnaires and professional security audits.
+                        </p>
+                    </div>
+                    <div class="faq-item" style="background: var(--bg-card); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 16px; padding: 24px; margin-bottom: 16px; cursor: pointer; transition: all 0.3s ease;">
+                        <h4 style="font-size: 1.2rem; color: #fff; margin-bottom: 12px; font-weight: 700; display: flex; justify-content: space-between; align-items: center;">
+                            <span>What compliance standards are verified?</span>
+                            <span style="font-size: 1.5rem;">+</span>
+                        </h4>
+                        <p style="color: var(--text-secondary); line-height: 1.8; font-size: 1.05rem; display: none;">
+                            Our platform verifies compliance with major standards including SOC 2 Type II, ISO 27001, GDPR, HIPAA (for healthcare), PCI DSS (for financial services), FERPA (for education), FedRAMP and FISMA (for government). Compliance verification includes cross-referencing with official certification databases and accreditation bodies to ensure accuracy.
+                        </p>
+                    </div>
+                    <div class="faq-item" style="background: var(--bg-card); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 16px; padding: 24px; margin-bottom: 16px; cursor: pointer; transition: all 0.3s ease;">
+                        <h4 style="font-size: 1.2rem; color: #fff; margin-bottom: 12px; font-weight: 700; display: flex; justify-content: space-between; align-items: center;">
+                            <span>Is my data secure when using this platform?</span>
+                            <span style="font-size: 1.5rem;">+</span>
+                        </h4>
+                        <p style="color: var(--text-secondary); line-height: 1.8; font-size: 1.05rem; display: none;">
+                            Absolutely. We use industry-standard encryption (TLS 1.3+) for all data transmission, implement strict access controls, and follow security best practices. Assessment data is processed securely and we never store sensitive credentials. All assessments are based on publicly available information and publicly disclosed security practices.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
 <!-- ✨ END OF NEW CONTENT SECTION ✨ -->
 
 <div class="container">
     <div class="main-card">
-        <h2 class="card-title">ADVANCED SECURITY ASSESSMENT</h2>
-
-
-    <div class="container">
-        <div class="main-card">
             <!-- Progress ring for visual engagement -->
             <div class="progress-ring" id="progressRing">
                 <svg viewBox="0 0 40 40">
@@ -2936,6 +3270,22 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// FAQ toggle functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const isActive = this.classList.contains('active');
+            // Close all FAQ items
+            faqItems.forEach(faq => faq.classList.remove('active'));
+            // Toggle current item
+            if (!isActive) {
+                this.classList.add('active');
+            }
+        });
+    });
+});
 
     </script>
 <div class="footer-links" style="text-align:center; margin:32px 0;">
