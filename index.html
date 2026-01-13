@@ -872,6 +872,294 @@ body {
 }
 
 /* ============================================
+   INTERACTIVE ASSESSMENT STYLES
+   ============================================ */
+.assessment-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.assessment-progress {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.progress-label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--slate-100);
+}
+
+.progress-count {
+    font-size: 0.95rem;
+    color: var(--slate-400);
+    font-family: var(--font-mono);
+}
+
+.progress-bar-container {
+    height: 12px;
+    background: var(--slate-700);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: var(--primary-gradient);
+    border-radius: 20px;
+    width: 0%;
+    transition: width 0.5s ease;
+}
+
+.assessment-category {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+}
+
+.assessment-category:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: var(--glass-shadow);
+}
+
+.category-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--slate-100);
+}
+
+.category-icon {
+    font-size: 1.8rem;
+}
+
+.category-score {
+    margin-left: auto;
+    background: var(--slate-700);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-family: var(--font-mono);
+    color: var(--slate-300);
+}
+
+.assessment-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.assessment-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.assessment-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--glass-border);
+}
+
+.assessment-checkbox {
+    display: none;
+}
+
+.checkbox-custom {
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--slate-600);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+    margin-top: 2px;
+}
+
+.assessment-checkbox:checked + .checkbox-custom {
+    background: var(--primary-gradient);
+    border-color: transparent;
+}
+
+.assessment-checkbox:checked + .checkbox-custom::after {
+    content: '✓';
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.item-text {
+    flex: 1;
+    color: var(--slate-300);
+    line-height: 1.6;
+    user-select: none;
+}
+
+.assessment-checkbox:checked ~ .item-text {
+    color: var(--slate-100);
+}
+
+.assessment-results {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 3rem;
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.results-header h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--slate-100);
+}
+
+.overall-score {
+    font-size: 4rem;
+    font-weight: 900;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 2rem;
+}
+
+.results-breakdown {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.result-category {
+    background: rgba(255, 255, 255, 0.02);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+}
+
+.result-category h4 {
+    font-size: 0.9rem;
+    color: var(--slate-400);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.result-category-score {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--slate-100);
+}
+
+.result-category-label {
+    font-size: 0.85rem;
+    color: var(--slate-500);
+    margin-top: 0.25rem;
+}
+
+.results-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.readiness-level {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+.level-excellent {
+    background: linear-gradient(135deg, #10b981, #34d399);
+    color: white;
+}
+
+.level-good {
+    background: linear-gradient(135deg, #3b82f6, #60a5fa);
+    color: white;
+}
+
+.level-fair {
+    background: linear-gradient(135deg, #f59e0b, #fbbf24);
+    color: white;
+}
+
+.level-poor {
+    background: linear-gradient(135deg, #ef4444, #f87171);
+    color: white;
+}
+
+/* ============================================
+   NEWSLETTER STYLES
+   ============================================ */
+.newsletter-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.newsletter-input {
+    flex: 1;
+    padding: 1rem 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    color: var(--slate-100);
+    font-size: 1rem;
+    font-family: var(--font-primary);
+    transition: all 0.3s ease;
+}
+
+.newsletter-input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--rich-purple);
+}
+
+.newsletter-input::placeholder {
+    color: var(--slate-500);
+}
+
+/* ============================================
    SCROLLBAR STYLING
    ============================================ */
 ::-webkit-scrollbar {
@@ -890,6 +1178,87 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
 }
+
+/* ============================================
+   READING PROGRESS BAR
+   ============================================ */
+.reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background: var(--primary-gradient);
+    z-index: 9999;
+    transition: width 0.1s ease;
+}
+
+/* ============================================
+   BACK TO TOP BUTTON
+   ============================================ */
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    background: var(--primary-gradient);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 25px rgba(102, 126, 234, 0.6);
+}
+
+.back-to-top:active {
+    transform: translateY(-2px);
+}
+
+/* ============================================
+   RESPONSIVE UPDATES
+   ============================================ */
+@media (max-width: 768px) {
+    .newsletter-form {
+        flex-direction: column;
+    }
+    
+    .assessment-item {
+        padding: 0.75rem;
+    }
+    
+    .results-actions {
+        flex-direction: column;
+    }
+    
+    .results-actions button {
+        width: 100%;
+    }
+    
+    .back-to-top {
+        bottom: 1rem;
+        right: 1rem;
+        width: 45px;
+        height: 45px;
+    }
+}
 </style>
 </head>
 <body>
@@ -900,15 +1269,23 @@ body {
         <div class="gradient-orb orb-3"></div>
     </div>
 
+    <!-- Reading Progress Bar -->
+    <div class="reading-progress" id="readingProgress"></div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">
+        <span>↑</span>
+    </button>
+
     <!-- Navigation -->
     <nav class="main-nav">
         <div class="nav-container">
-            <div class="nav-logo">
+            <a href="/" class="nav-logo" style="text-decoration: none;">
                 <span>🛡️</span>
                 <span>CyberSec Hub</span>
-            </div>
+            </a>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li><a href="#guides">Guides</a></li>
                 <li><a href="#frameworks">Frameworks</a></li>
                 <li><a href="#resources">Resources</a></li>
@@ -929,8 +1306,8 @@ body {
             Learn from industry experts and implement world-class security practices.
         </p>
         <div class="hero-cta">
-            <a href="#guides" class="btn-primary">Start Learning</a>
-            <a href="#resources" class="btn-secondary">Browse Resources</a>
+            <a href="#assessment" class="btn-primary">📋 Take Assessment</a>
+            <a href="#guides" class="btn-secondary">Browse Guides</a>
         </div>
     </section>
 
@@ -953,6 +1330,219 @@ body {
             <div class="stat-label">Led Content</div>
         </div>
     </div>
+
+    <!-- Interactive Security Readiness Assessment -->
+    <section class="section" id="assessment" style="background: var(--slate-800); padding: 4rem 0;">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">🎯 Interactive Tool</span>
+                <h2 class="section-title">Security Readiness Self-Assessment</h2>
+                <p class="section-description">
+                    Evaluate your organization's security posture with our comprehensive checklist. 
+                    Get instant insights based on industry best practices.
+                </p>
+            </div>
+
+            <div class="assessment-container">
+                <div class="assessment-progress">
+                    <div class="progress-header">
+                        <span class="progress-label">Assessment Progress</span>
+                        <span class="progress-count">0 / 20 completed</span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill" id="assessmentProgress"></div>
+                    </div>
+                </div>
+
+                <div class="assessment-categories">
+                    <!-- Access Control -->
+                    <div class="assessment-category">
+                        <h3 class="category-title">
+                            <span class="category-icon">🔐</span>
+                            <span>Access Control & Authentication</span>
+                            <span class="category-score" id="score-access">0/5</span>
+                        </h3>
+                        <div class="assessment-items">
+                            <label class="assessment-item">
+                                <input type="checkbox" class="assessment-checkbox" data-category="access">
+                                <span class="checkbox-custom"></span>
+                                <span class="item-text">Multi-Factor Authentication (MFA) enforced for all users</span>
+                            </label>
+                            <label class="assessment-item">
+                                <input type="checkbox" class="assessment-checkbox" data-category="access">
+                                <span class="checkbox-custom"></span>
+                                <span class="item-text">Strong password policy (12+ chars, complexity requirements)</span>
+                            </label>
+                            <label class="assessment-item">
+                                <input type="checkbox" class="assessment-checkbox" data-category="access">
+                                <span class="checkbox-custom"></span>
+                                <span class="item-text">Regular access reviews and privilege audits conducted</span>
+                            </label>
+                            <label class="assessment-item">
+                                <input type="checkbox" class="assessment-checkbox" data-category="access">
+                                <span class="checkbox-custom"></span>
+                                <span class="item-text">Privileged Access Management (PAM) solution implemented</span>
+                            </label>
+                            <label class="assessment-item">
+                                <input type="checkbox" class="assessment-checkbox" data-category="access">
+                                <span class="checkbox-custom"></span>
+                                <span class="item-text">Single Sign-On (SSO) deployed across critical applications</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Network Security -->
+                    <div class="assessment-category">
+                        <h3 class="category-title">
+                            <span class="category-icon">🌐</span>
+                            <span>Network Security</span>
+                            <span class="category-score" id="score-network">0/5</span>
+                        </h3>
+                        <div class="assessment-items">
+                            <label class="assessment-item">
+                                <input type="checkbox" class="assessment-checkbox" data-category="network">
+                                <span class="checkbox-custom"></span>
+                                <span class="item-text">Next-generation firewall with IPS/IDS capabilities</span>
+                            </label>
+                            <label class="assessment-item">
+                                <input type="checkbox" class="assessment-checkbox" data-category="network">
+                                <span class="checkbox-custom"></span>
+                                <span class="item-text">Network segmentation and VLANs properly configured</span>
+                            </label>
+                            <label class="assessment-item">
+                                <input type="checkbox" class="assessment-checkbox" data-category="network">
+                                <span class="checkbox-custom"></span>
+                                <span class="item-text">Secure VPN with MFA for remote access</span>
+                            </label>
+                            <label class="assessment-item">
+                                <input type="checkbox" class="assessment-checkbox" data-category="network">
+                                <span class="checkbox-custom"></span>
+                                <span class="item-text">DDoS protection and traffic filtering enabled</span>
+                            </label>
+                            <label class="assessment-item">
+                                <input type="checkbox" class="assessment-checkbox" data-category="network">
+                                <span class="checkbox-custom"></span>
+                                <span class="item-text">Wireless networks secured with WPA3 and 802.1X</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Data Protection -->
+                    <div class="assessment-category">
+                        <h3 class="category-title">
+                            <span class="category-icon">🔒</span>
+                            <span>Data Protection</span>
+                            <span class="category-score" id="score-data">0/5</span>
+                        </h3>
+                        <div class="assessment-items">
+                            <label class="assessment-item">
+                                <input type="checkbox" class="assessment-checkbox" data-category="data">
+                                <span class="checkbox-custom"></span>
+                                <span class="item-text">Data encryption at rest (AES-256 or equivalent)</span>
+                            </label>
+                            <label class="assessment-item">
+                                <input type="checkbox" class="assessment-checkbox" data-category="data">
+                                <span class="checkbox-custom"></span>
+                                <span class="item-text">TLS 1.3 enforced for data in transit</span>
+                            </label>
+                            <label class="assessment-item">
+                                <input type="checkbox" class="assessment-checkbox" data-category="data">
+                                <span class="checkbox-custom"></span>
+                                <span class="item-text">Regular encrypted backups with tested restoration procedures</span>
+                            </label>
+                            <label class="assessment-item">
+                                <input type="checkbox" class="assessment-checkbox" data-category="data">
+                                <span class="checkbox-custom"></span>
+                                <span class="item-text">Data Loss Prevention (DLP) solution deployed</span>
+                            </label>
+                            <label class="assessment-item">
+                                <input type="checkbox" class="assessment-checkbox" data-category="data">
+                                <span class="checkbox-custom"></span>
+                                <span class="item-text">Data classification policy implemented and enforced</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Monitoring & Response -->
+                    <div class="assessment-category">
+                        <h3 class="category-title">
+                            <span class="category-icon">📊</span>
+                            <span>Monitoring & Incident Response</span>
+                            <span class="category-score" id="score-monitoring">0/5</span>
+                        </h3>
+                        <div class="assessment-items">
+                            <label class="assessment-item">
+                                <input type="checkbox" class="assessment-checkbox" data-category="monitoring">
+                                <span class="checkbox-custom"></span>
+                                <span class="item-text">24/7 Security Operations Center (SOC) or SIEM monitoring</span>
+                            </label>
+                            <label class="assessment-item">
+                                <input type="checkbox" class="assessment-checkbox" data-category="monitoring">
+                                <span class="checkbox-custom"></span>
+                                <span class="item-text">Centralized log management with retention policies</span>
+                            </label>
+                            <label class="assessment-item">
+                                <input type="checkbox" class="assessment-checkbox" data-category="monitoring">
+                                <span class="checkbox-custom"></span>
+                                <span class="item-text">Documented incident response plan with defined roles</span>
+                            </label>
+                            <label class="assessment-item">
+                                <input type="checkbox" class="assessment-checkbox" data-category="monitoring">
+                                <span class="checkbox-custom"></span>
+                                <span class="item-text">Regular incident response drills and tabletop exercises</span>
+                            </label>
+                            <label class="assessment-item">
+                                <input type="checkbox" class="assessment-checkbox" data-category="monitoring">
+                                <span class="checkbox-custom"></span>
+                                <span class="item-text">Threat intelligence feeds integrated into security tools</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="assessment-results" id="assessmentResults">
+                    <div class="results-header">
+                        <h3>Your Security Readiness Score</h3>
+                        <div class="overall-score" id="overallScore">0%</div>
+                    </div>
+                    <div class="results-breakdown" id="resultsBreakdown">
+                        <p style="text-align: center; color: var(--slate-400);">
+                            Complete the assessment above to see your results
+                        </p>
+                    </div>
+                    <div class="results-actions">
+                        <button class="btn-primary" onclick="generatePDFReport()" style="margin-right: 1rem;">
+                            📄 Download Report
+                        </button>
+                        <button class="btn-secondary" onclick="resetAssessment()">
+                            🔄 Reset Assessment
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="section" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1)); padding: 4rem 0;">
+        <div class="container">
+            <div class="newsletter-container">
+                <div class="newsletter-content">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Stay Updated with Latest Security Insights</h2>
+                    <p style="font-size: 1.2rem; color: var(--slate-400); margin-bottom: 2rem;">
+                        Get weekly cybersecurity tips, framework updates, and exclusive resources delivered to your inbox.
+                    </p>
+                    <form class="newsletter-form" id="newsletterForm" onsubmit="handleNewsletterSignup(event)">
+                        <input type="email" placeholder="Enter your email address" required class="newsletter-input">
+                        <button type="submit" class="btn-primary">Subscribe</button>
+                    </form>
+                    <p style="font-size: 0.9rem; color: var(--slate-500); margin-top: 1rem;">
+                        🔒 We respect your privacy. Unsubscribe anytime.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Comprehensive Guides Section -->
     <section class="section" id="guides">
@@ -1650,7 +2240,7 @@ nmap --script vuln 192.168.1.10  # Vulnerability scanning
             <div class="footer-section">
                 <h4>Quick Links</h4>
                 <ul class="footer-links">
-                    <li><a href="#home">Home</a></li>
+                    <li><a href="/">Home</a></li>
                     <li><a href="#guides">Security Guides</a></li>
                     <li><a href="#frameworks">Frameworks</a></li>
                     <li><a href="#resources">Resources</a></li>
@@ -1687,7 +2277,277 @@ nmap --script vuln 192.168.1.10  # Vulnerability scanning
 
     <!-- JavaScript -->
     <script>
-        // FAQ Accordion
+        // ============================================
+        // INTERACTIVE ASSESSMENT FUNCTIONALITY
+        // ============================================
+        let assessmentData = {
+            access: 0,
+            network: 0,
+            data: 0,
+            monitoring: 0,
+            total: 0,
+            maxScore: 20
+        };
+
+        // Initialize assessment listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('.assessment-checkbox');
+            
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    updateAssessmentScore();
+                    
+                    // Track engagement
+                    gtag('event', 'assessment_interaction', {
+                        'category': this.dataset.category,
+                        'checked': this.checked
+                    });
+                });
+            });
+        });
+
+        function updateAssessmentScore() {
+            // Reset scores
+            assessmentData = {
+                access: 0,
+                network: 0,
+                data: 0,
+                monitoring: 0,
+                total: 0,
+                maxScore: 20
+            };
+
+            // Count checked items per category
+            document.querySelectorAll('.assessment-checkbox:checked').forEach(checkbox => {
+                const category = checkbox.dataset.category;
+                assessmentData[category]++;
+                assessmentData.total++;
+            });
+
+            // Update progress bar
+            const progressPercent = (assessmentData.total / assessmentData.maxScore) * 100;
+            document.getElementById('assessmentProgress').style.width = progressPercent + '%';
+            document.querySelector('.progress-count').textContent = 
+                `${assessmentData.total} / ${assessmentData.maxScore} completed`;
+
+            // Update category scores
+            document.getElementById('score-access').textContent = `${assessmentData.access}/5`;
+            document.getElementById('score-network').textContent = `${assessmentData.network}/5`;
+            document.getElementById('score-data').textContent = `${assessmentData.data}/5`;
+            document.getElementById('score-monitoring').textContent = `${assessmentData.monitoring}/5`;
+
+            // Update overall score
+            const overallPercent = Math.round((assessmentData.total / assessmentData.maxScore) * 100);
+            document.getElementById('overallScore').textContent = overallPercent + '%';
+
+            // Generate results breakdown
+            if (assessmentData.total > 0) {
+                displayAssessmentResults(overallPercent);
+            }
+        }
+
+        function displayAssessmentResults(score) {
+            let level, levelClass, recommendation;
+
+            if (score >= 90) {
+                level = 'Excellent';
+                levelClass = 'level-excellent';
+                recommendation = 'Your organization demonstrates outstanding security practices. Continue with regular assessments and stay current with emerging threats.';
+            } else if (score >= 75) {
+                level = 'Good';
+                levelClass = 'level-good';
+                recommendation = 'Strong security posture with minor gaps. Focus on completing remaining controls and consider advanced security measures.';
+            } else if (score >= 50) {
+                level = 'Fair';
+                levelClass = 'level-fair';
+                recommendation = 'Adequate baseline security but significant improvements needed. Prioritize critical controls and develop a remediation roadmap.';
+            } else {
+                level = 'Needs Improvement';
+                levelClass = 'level-poor';
+                recommendation = 'Critical security gaps identified. Immediate action required. Consider engaging security consultants for comprehensive assessment.';
+            }
+
+            const resultsHtml = `
+                <div class="results-breakdown">
+                    <div class="result-category">
+                        <h4>Access Control</h4>
+                        <div class="result-category-score">${assessmentData.access}/5</div>
+                        <div class="result-category-label">${Math.round((assessmentData.access/5)*100)}%</div>
+                    </div>
+                    <div class="result-category">
+                        <h4>Network Security</h4>
+                        <div class="result-category-score">${assessmentData.network}/5</div>
+                        <div class="result-category-label">${Math.round((assessmentData.network/5)*100)}%</div>
+                    </div>
+                    <div class="result-category">
+                        <h4>Data Protection</h4>
+                        <div class="result-category-score">${assessmentData.data}/5</div>
+                        <div class="result-category-label">${Math.round((assessmentData.data/5)*100)}%</div>
+                    </div>
+                    <div class="result-category">
+                        <h4>Monitoring</h4>
+                        <div class="result-category-score">${assessmentData.monitoring}/5</div>
+                        <div class="result-category-label">${Math.round((assessmentData.monitoring/5)*100)}%</div>
+                    </div>
+                </div>
+                <div class="readiness-level ${levelClass}">
+                    ${level} Security Readiness
+                </div>
+                <p style="color: var(--slate-400); margin-top: 1.5rem; line-height: 1.7; max-width: 700px; margin-left: auto; margin-right: auto;">
+                    ${recommendation}
+                </p>
+            `;
+
+            document.getElementById('resultsBreakdown').innerHTML = resultsHtml;
+
+            // Track completion
+            if (score === 100) {
+                gtag('event', 'assessment_completed', {
+                    'score': score,
+                    'level': level
+                });
+            }
+        }
+
+        function resetAssessment() {
+            document.querySelectorAll('.assessment-checkbox').forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            
+            assessmentData = {
+                access: 0,
+                network: 0,
+                data: 0,
+                monitoring: 0,
+                total: 0,
+                maxScore: 20
+            };
+
+            document.getElementById('assessmentProgress').style.width = '0%';
+            document.querySelector('.progress-count').textContent = '0 / 20 completed';
+            document.getElementById('score-access').textContent = '0/5';
+            document.getElementById('score-network').textContent = '0/5';
+            document.getElementById('score-data').textContent = '0/5';
+            document.getElementById('score-monitoring').textContent = '0/5';
+            document.getElementById('overallScore').textContent = '0%';
+            document.getElementById('resultsBreakdown').innerHTML = `
+                <p style="text-align: center; color: var(--slate-400);">
+                    Complete the assessment above to see your results
+                </p>
+            `;
+
+            // Scroll to top of assessment
+            document.getElementById('assessment').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function generatePDFReport() {
+            if (assessmentData.total === 0) {
+                alert('Please complete the assessment before downloading the report.');
+                return;
+            }
+
+            // Track download
+            gtag('event', 'pdf_download', {
+                'score': Math.round((assessmentData.total / assessmentData.maxScore) * 100),
+                'completed_items': assessmentData.total
+            });
+
+            // Open print-friendly report in new window
+            const reportWindow = window.open('', '_blank');
+            const score = Math.round((assessmentData.total / assessmentData.maxScore) * 100);
+            const date = new Date().toLocaleDateString();
+
+            reportWindow.document.write(`
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>Security Readiness Assessment Report</title>
+                    <style>
+                        body {
+                            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+                            max-width: 800px;
+                            margin: 40px auto;
+                            padding: 40px;
+                            color: #333;
+                        }
+                        h1 { color: #667eea; margin-bottom: 10px; }
+                        .score { font-size: 48px; color: #667eea; font-weight: bold; }
+                        .category { margin: 20px 0; padding: 15px; background: #f5f5f5; border-radius: 8px; }
+                        .category h3 { margin: 0 0 10px 0; }
+                        @media print {
+                            button { display: none; }
+                        }
+                    </style>
+                </head>
+                <body>
+                    <h1>Security Readiness Assessment Report</h1>
+                    <p>Generated: ${date}</p>
+                    <div class="score">Overall Score: ${score}%</div>
+                    
+                    <div class="category">
+                        <h3>Access Control & Authentication</h3>
+                        <p>Score: ${assessmentData.access}/5 (${Math.round((assessmentData.access/5)*100)}%)</p>
+                    </div>
+                    
+                    <div class="category">
+                        <h3>Network Security</h3>
+                        <p>Score: ${assessmentData.network}/5 (${Math.round((assessmentData.network/5)*100)}%)</p>
+                    </div>
+                    
+                    <div class="category">
+                        <h3>Data Protection</h3>
+                        <p>Score: ${assessmentData.data}/5 (${Math.round((assessmentData.data/5)*100)}%)</p>
+                    </div>
+                    
+                    <div class="category">
+                        <h3>Monitoring & Incident Response</h3>
+                        <p>Score: ${assessmentData.monitoring}/5 (${Math.round((assessmentData.monitoring/5)*100)}%)</p>
+                    </div>
+
+                    <h2>Next Steps</h2>
+                    <p>Focus on addressing gaps in areas with lower scores. Consult the comprehensive guides at CyberSec Hub for detailed implementation instructions.</p>
+                    
+                    <button onclick="window.print()" style="background: #667eea; color: white; padding: 12px 24px; border: none; border-radius: 6px; cursor: pointer; margin: 20px 0;">
+                        Print Report
+                    </button>
+                    <button onclick="window.close()" style="background: #666; color: white; padding: 12px 24px; border: none; border-radius: 6px; cursor: pointer;">
+                        Close
+                    </button>
+                </body>
+                </html>
+            `);
+            
+            reportWindow.document.close();
+        }
+
+        // ============================================
+        // NEWSLETTER SIGNUP
+        // ============================================
+        function handleNewsletterSignup(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input[type="email"]').value;
+
+            // Track signup
+            gtag('event', 'newsletter_signup', {
+                'method': 'email_form'
+            });
+
+            // Show success message
+            const form = event.target;
+            form.innerHTML = `
+                <div style="background: linear-gradient(135deg, #10b981, #34d399); padding: 1.5rem; border-radius: 12px; color: white; text-align: center;">
+                    <h3 style="margin: 0 0 0.5rem 0; font-size: 1.2rem;">✓ Successfully Subscribed!</h3>
+                    <p style="margin: 0; opacity: 0.9;">Check your email for confirmation.</p>
+                </div>
+            `;
+
+            // In production, you would send this to your email service:
+            // fetch('/api/newsletter', { method: 'POST', body: JSON.stringify({ email }) })
+        }
+
+        // ============================================
+        // FAQ ACCORDION
+        // ============================================
         document.querySelectorAll('.faq-item').forEach(item => {
             const question = item.querySelector('.faq-question');
             question.addEventListener('click', () => {
@@ -1705,11 +2565,19 @@ nmap --script vuln 192.168.1.10  # Vulnerability scanning
             });
         });
 
-        // Smooth scroll for navigation links
+        // ============================================
+        // SMOOTH SCROLL
+        // ============================================
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href === '#') {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    return;
+                }
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+                const target = document.querySelector(href);
                 if (target) {
                     target.scrollIntoView({
                         behavior: 'smooth',
@@ -1719,7 +2587,9 @@ nmap --script vuln 192.168.1.10  # Vulnerability scanning
             });
         });
 
-        // Fade in animation on scroll
+        // ============================================
+        // FADE IN ANIMATION ON SCROLL
+        // ============================================
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -1733,15 +2603,78 @@ nmap --script vuln 192.168.1.10  # Vulnerability scanning
             });
         }, observerOptions);
 
-        document.querySelectorAll('.feature-card, .article-card, .guide-section').forEach(el => {
+        document.querySelectorAll('.feature-card, .article-card, .guide-section, .assessment-category').forEach(el => {
             observer.observe(el);
         });
 
-        // Track page engagement
+        // ============================================
+        // READING PROGRESS BAR & BACK TO TOP
+        // ============================================
+        const readingProgress = document.getElementById('readingProgress');
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', function() {
+            // Update reading progress bar
+            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            if (readingProgress) {
+                readingProgress.style.width = scrollPercent + '%';
+            }
+
+            // Show/hide back to top button
+            if (backToTop) {
+                if (window.scrollY > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+
+            gtag('event', 'back_to_top_click');
+        }
+
+        // ============================================
+        // ANALYTICS TRACKING
+        // ============================================
         gtag('event', 'page_view', {
             'page_title': document.title,
             'page_location': window.location.href
         });
+
+        // Track scroll depth (for analytics)
+        let maxScroll = 0;
+        let scrollTimer;
+        window.addEventListener('scroll', function() {
+            clearTimeout(scrollTimer);
+            scrollTimer = setTimeout(function() {
+                const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+                const roundedScroll = Math.round(scrollPercent / 25) * 25;
+                
+                if (roundedScroll > maxScroll && roundedScroll >= 25 && roundedScroll <= 100) {
+                    maxScroll = roundedScroll;
+                    gtag('event', 'scroll_depth', {
+                        'percent': maxScroll
+                    });
+                }
+            }, 100);
+        });
+
+        // Track time on page
+        let timeOnPage = 0;
+        setInterval(function() {
+            timeOnPage += 30;
+            if (timeOnPage === 30 || timeOnPage === 60 || timeOnPage === 120 || timeOnPage === 300) {
+                gtag('event', 'time_on_page', {
+                    'seconds': timeOnPage
+                });
+            }
+        }, 30000); // Every 30 seconds
     </script>
 </body>
 </html>
