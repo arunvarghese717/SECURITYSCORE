@@ -1243,6 +1243,176 @@ body {
 }
 
 /* ============================================
+   INTERACTIVE TOOLS SECTION
+   ============================================ */
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.tool-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.tool-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 60px rgba(16, 185, 129, 0.3);
+}
+
+.tool-header {
+    padding: 2rem 2rem 1rem;
+}
+
+.tool-header h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--slate-100);
+}
+
+.tool-header p {
+    color: var(--slate-400);
+    font-size: 0.95rem;
+}
+
+.tool-embed {
+    padding: 0 2rem 2rem;
+}
+
+.tool-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.tool-preview {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(6, 182, 212, 0.1));
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.tool-preview:hover {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(6, 182, 212, 0.2));
+    border-color: var(--neon-green);
+    transform: scale(1.02);
+}
+
+.preview-icon {
+    font-size: 3rem;
+    flex-shrink: 0;
+}
+
+.preview-text strong {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--slate-100);
+    margin-bottom: 0.25rem;
+}
+
+.preview-text p {
+    font-size: 0.9rem;
+    color: var(--slate-400);
+    margin: 0;
+}
+
+/* ============================================
+   VIDEO SECTION
+   ============================================ */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.video-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.video-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
+}
+
+.video-embed {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    background: var(--slate-900);
+}
+
+.video-embed iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.video-content {
+    padding: 1.5rem;
+}
+
+.video-content h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--slate-100);
+}
+
+.video-content p {
+    color: var(--slate-400);
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+/* ============================================
+   ENHANCED RESOURCE LINKS
+   ============================================ */
+.feature-list a {
+    color: var(--electric-blue);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.feature-list a:hover {
+    color: var(--cyber-cyan);
+    transform: translateX(5px);
+}
+
+.feature-list a::after {
+    content: ' →';
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.feature-list a:hover::after {
+    opacity: 1;
+}
+
+/* ============================================
    RESPONSIVE UPDATES
    ============================================ */
 @media (max-width: 768px) {
@@ -1267,6 +1437,16 @@ body {
         right: 1rem;
         width: 45px;
         height: 45px;
+    }
+    
+    .tools-grid,
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .tool-preview {
+        flex-direction: column;
+        text-align: center;
     }
 }
 </style>
@@ -1296,10 +1476,11 @@ body {
             </a>
             <ul class="nav-links">
                 <li><a href="/">Home</a></li>
+                <li><a href="#assessment">Assessment</a></li>
                 <li><a href="#guides">Guides</a></li>
-                <li><a href="#frameworks">Frameworks</a></li>
+                <li><a href="#tools">Tools</a></li>
+                <li><a href="#videos">Videos</a></li>
                 <li><a href="#resources">Resources</a></li>
-                <li><a href="#faq">FAQ</a></li>
             </ul>
     </div>
 </nav>
@@ -1567,7 +1748,7 @@ body {
             </div>
 
             <div class="article-grid">
-                <article class="article-card" onclick="scrollToGuide('ssl-guide')">
+                <article class="article-card">
                     <div class="article-header">🔐</div>
                     <div class="article-content">
                         <span class="article-category">Fundamentals</span>
@@ -1577,12 +1758,12 @@ body {
                             <span>📖 45 min read</span>
                             <span>•</span>
                             <span>Beginner to Advanced</span>
-    </div>
-                        <a href="#ssl-guide" class="read-more">Read Full Guide →</a>
+                        </div>
+                        <a href="#ssl-guide" class="read-more" onclick="event.preventDefault(); scrollToGuide('ssl-guide');">Read Full Guide →</a>
                     </div>
                 </article>
 
-                <article class="article-card" onclick="scrollToGuide('security-headers-guide')">
+                <article class="article-card">
                     <div class="article-header">🌐</div>
                     <div class="article-content">
                         <span class="article-category">Web Security</span>
@@ -1592,12 +1773,12 @@ body {
                             <span>📖 35 min read</span>
                             <span>•</span>
                             <span>Intermediate</span>
-            </div>
-                        <a href="#security-headers-guide" class="read-more">Read Full Guide →</a>
-            </div>
+                        </div>
+                        <a href="#security-headers-guide" class="read-more" onclick="event.preventDefault(); scrollToGuide('security-headers-guide');">Read Full Guide →</a>
+                    </div>
                 </article>
 
-                <article class="article-card" onclick="scrollToGuide('soc2-guide')">
+                <article class="article-card">
                     <div class="article-header">📊</div>
                     <div class="article-content">
                         <span class="article-category">Compliance</span>
@@ -1607,12 +1788,12 @@ body {
                             <span>📖 60 min read</span>
                             <span>•</span>
                             <span>Advanced</span>
-            </div>
-                        <a href="#soc2-guide" class="read-more">Read Full Guide →</a>
-        </div>
+                        </div>
+                        <a href="#soc2-guide" class="read-more" onclick="event.preventDefault(); scrollToGuide('soc2-guide');">Read Full Guide →</a>
+                    </div>
                 </article>
 
-                <article class="article-card" onclick="scrollToGuide('cve-guide')">
+                <article class="article-card">
                     <div class="article-header">⚡</div>
                     <div class="article-content">
                         <span class="article-category">Threat Intelligence</span>
@@ -1622,12 +1803,12 @@ body {
                             <span>📖 40 min read</span>
                             <span>•</span>
                             <span>Intermediate</span>
-    </div>
-                        <a href="#cve-guide" class="read-more">Read Full Guide →</a>
-</div>
+                        </div>
+                        <a href="#cve-guide" class="read-more" onclick="event.preventDefault(); scrollToGuide('cve-guide');">Read Full Guide →</a>
+                    </div>
                 </article>
 
-                <article class="article-card" onclick="scrollToGuide('vendor-risk-guide')">
+                <article class="article-card">
                     <div class="article-header">🔗</div>
                     <div class="article-content">
                         <span class="article-category">Risk Management</span>
@@ -1638,11 +1819,11 @@ body {
                             <span>•</span>
                             <span>Advanced</span>
                         </div>
-                        <a href="#vendor-risk-guide" class="read-more">Read Full Guide →</a>
+                        <a href="#vendor-risk-guide" class="read-more" onclick="event.preventDefault(); scrollToGuide('vendor-risk-guide');">Read Full Guide →</a>
                     </div>
                 </article>
 
-                <article class="article-card" onclick="scrollToGuide('dns-security-guide')">
+                <article class="article-card">
                     <div class="article-header">🛡️</div>
                     <div class="article-content">
                         <span class="article-category">Network Security</span>
@@ -1653,7 +1834,7 @@ body {
                             <span>•</span>
                             <span>Advanced</span>
                         </div>
-                        <a href="#dns-security-guide" class="read-more">Read Full Guide →</a>
+                        <a href="#dns-security-guide" class="read-more" onclick="event.preventDefault(); scrollToGuide('dns-security-guide');">Read Full Guide →</a>
                     </div>
                 </article>
             </div>
@@ -2264,7 +2445,7 @@ DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384';
                     </ul>
 
                     <div style="text-align: center; margin-top: 3rem;">
-                        <a href="#guides" class="btn-secondary">← Back to All Guides</a>
+                        <button onclick="scrollToGuide('guides')" class="btn-secondary" style="cursor: pointer;">← Back to All Guides</button>
                     </div>
                 </div>
             </div>
@@ -2449,7 +2630,7 @@ server {
                     </ul>
 
                     <div style="text-align: center; margin-top: 3rem;">
-                        <a href="#guides" class="btn-secondary">← Back to All Guides</a>
+                        <button onclick="scrollToGuide('guides')" class="btn-secondary" style="cursor: pointer;">← Back to All Guides</button>
                     </div>
                 </div>
             </div>
@@ -2473,7 +2654,7 @@ server {
                         </p>
                     </div>
                     <div style="text-align: center; margin-top: 3rem;">
-                        <a href="#guides" class="btn-secondary">← Back to All Guides</a>
+                        <button onclick="scrollToGuide('guides')" class="btn-secondary" style="cursor: pointer;">← Back to All Guides</button>
                     </div>
                 </div>
             </div>
@@ -2496,7 +2677,7 @@ server {
                         </p>
                     </div>
                     <div style="text-align: center; margin-top: 3rem;">
-                        <a href="#guides" class="btn-secondary">← Back to All Guides</a>
+                        <button onclick="scrollToGuide('guides')" class="btn-secondary" style="cursor: pointer;">← Back to All Guides</button>
                     </div>
                 </div>
             </div>
@@ -2519,7 +2700,7 @@ server {
                         </p>
                     </div>
                     <div style="text-align: center; margin-top: 3rem;">
-                        <a href="#guides" class="btn-secondary">← Back to All Guides</a>
+                        <button onclick="scrollToGuide('guides')" class="btn-secondary" style="cursor: pointer;">← Back to All Guides</button>
                     </div>
                 </div>
             </div>
@@ -2542,7 +2723,7 @@ server {
                         </p>
                     </div>
                     <div style="text-align: center; margin-top: 3rem;">
-                        <a href="#guides" class="btn-secondary">← Back to All Guides</a>
+                        <button onclick="scrollToGuide('guides')" class="btn-secondary" style="cursor: pointer;">← Back to All Guides</button>
                     </div>
                 </div>
             </div>
@@ -2689,6 +2870,201 @@ server {
         </div>
     </section>
 
+    <!-- Interactive Tools Section -->
+    <section class="section" id="tools" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(6, 182, 212, 0.1)); padding: 4rem 0;">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">🛠️ Interactive Tools</span>
+                <h2 class="section-title">Free Security Testing Tools</h2>
+                <p class="section-description">
+                    Use these industry-standard tools to test your website's security posture right now.
+                </p>
+            </div>
+
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <h3>🔐 SSL Labs Server Test</h3>
+                        <p>Test your SSL/TLS configuration and get an A+ rating</p>
+                    </div>
+                    <div class="tool-embed">
+                        <a href="https://www.ssllabs.com/ssltest/" target="_blank" rel="noopener noreferrer" class="tool-link">
+                            <div class="tool-preview">
+                                <div class="preview-icon">🔍</div>
+                                <div class="preview-text">
+                                    <strong>Launch SSL Labs Test</strong>
+                                    <p>Comprehensive SSL/TLS server analysis</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <h3>🌐 Security Headers Scanner</h3>
+                        <p>Analyze your website's HTTP security headers</p>
+                    </div>
+                    <div class="tool-embed">
+                        <a href="https://securityheaders.com/" target="_blank" rel="noopener noreferrer" class="tool-link">
+                            <div class="tool-preview">
+                                <div class="preview-icon">📊</div>
+                                <div class="preview-text">
+                                    <strong>Launch Headers Scanner</strong>
+                                    <p>Check CSP, HSTS, and more</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <h3>🔍 Mozilla Observatory</h3>
+                        <p>Comprehensive website security analysis</p>
+                    </div>
+                    <div class="tool-embed">
+                        <a href="https://observatory.mozilla.org/" target="_blank" rel="noopener noreferrer" class="tool-link">
+                            <div class="tool-preview">
+                                <div class="preview-icon">🛡️</div>
+                                <div class="preview-text">
+                                    <strong>Launch Observatory</strong>
+                                    <p>Complete security audit with recommendations</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <h3>📜 Certificate Transparency Search</h3>
+                        <p>Search and monitor SSL certificates</p>
+                    </div>
+                    <div class="tool-embed">
+                        <a href="https://crt.sh/" target="_blank" rel="noopener noreferrer" class="tool-link">
+                            <div class="tool-preview">
+                                <div class="preview-icon">🔎</div>
+                                <div class="preview-text">
+                                    <strong>Launch CT Search</strong>
+                                    <p>Search Certificate Transparency logs</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <h3>🔐 Have I Been Pwned</h3>
+                        <p>Check if your email has been in a data breach</p>
+                    </div>
+                    <div class="tool-embed">
+                        <a href="https://haveibeenpwned.com/" target="_blank" rel="noopener noreferrer" class="tool-link">
+                            <div class="tool-preview">
+                                <div class="preview-icon">⚠️</div>
+                                <div class="preview-text">
+                                    <strong>Check Email</strong>
+                                    <p>Search 12 billion breached accounts</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <h3>🌍 BuiltWith Technology Profiler</h3>
+                        <p>Discover what technologies websites are using</p>
+                    </div>
+                    <div class="tool-embed">
+                        <a href="https://builtwith.com/" target="_blank" rel="noopener noreferrer" class="tool-link">
+                            <div class="tool-preview">
+                                <div class="preview-icon">🔧</div>
+                                <div class="preview-text">
+                                    <strong>Launch BuiltWith</strong>
+                                    <p>Technology stack analysis</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Educational Videos Section -->
+    <section class="section" id="videos">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">🎥 Video Tutorials</span>
+                <h2 class="section-title">Learn from Experts</h2>
+                <p class="section-description">
+                    Curated educational videos from leading cybersecurity channels on YouTube.
+                </p>
+            </div>
+
+            <div class="video-grid">
+                <div class="video-card">
+                    <div class="video-embed">
+                        <iframe 
+                            width="100%" 
+                            height="315" 
+                            src="https://www.youtube.com/embed/T4Df5_cojAs" 
+                            title="SSL/TLS Explained" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                    <div class="video-content">
+                        <h3>SSL/TLS and HTTPS Explained</h3>
+                        <p>Understanding how encryption works on the web</p>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-embed">
+                        <iframe 
+                            width="100%" 
+                            height="315" 
+                            src="https://www.youtube.com/embed/vBURTt97EkA" 
+                            title="OWASP Top 10" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                    <div class="video-content">
+                        <h3>OWASP Top 10 Vulnerabilities</h3>
+                        <p>Most critical web application security risks</p>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-embed">
+                        <iframe 
+                            width="100%" 
+                            height="315" 
+                            src="https://www.youtube.com/embed/rrvKctl3zK8" 
+                            title="Penetration Testing Tutorial" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                    <div class="video-content">
+                        <h3>Penetration Testing Fundamentals</h3>
+                        <p>Introduction to ethical hacking and pen testing</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Resources Section -->
     <section class="section" id="resources" style="background: var(--slate-800);">
         <div class="container">
@@ -2705,39 +3081,75 @@ server {
                     <div class="feature-icon">🏛️</div>
                     <h3>Government Resources</h3>
                     <ul class="feature-list">
-                        <li>NIST Cybersecurity Framework</li>
-                        <li>CISA Security Advisories</li>
-                        <li>NSA Cybersecurity Guidance</li>
-                        <li>MITRE ATT&CK Framework</li>
-                        <li>CVE Database</li>
+                        <li><a href="https://www.nist.gov/cyberframework" target="_blank" rel="noopener">NIST Cybersecurity Framework</a></li>
+                        <li><a href="https://www.cisa.gov/uscert/" target="_blank" rel="noopener">CISA Security Advisories</a></li>
+                        <li><a href="https://www.nsa.gov/What-We-Do/Cybersecurity/" target="_blank" rel="noopener">NSA Cybersecurity Guidance</a></li>
+                        <li><a href="https://attack.mitre.org/" target="_blank" rel="noopener">MITRE ATT&CK Framework</a></li>
+                        <li><a href="https://cve.mitre.org/" target="_blank" rel="noopener">CVE Database</a></li>
                     </ul>
-        </div>
+                </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">📚</div>
                     <h3>Industry Standards</h3>
                     <ul class="feature-list">
-                        <li>OWASP Top 10 Project</li>
-                        <li>CIS Critical Security Controls</li>
-                        <li>ISO/IEC 27001 Standard</li>
-                        <li>PCI Security Standards</li>
-                        <li>Cloud Security Alliance</li>
+                        <li><a href="https://owasp.org/www-project-top-ten/" target="_blank" rel="noopener">OWASP Top 10 Project</a></li>
+                        <li><a href="https://www.cisecurity.org/controls" target="_blank" rel="noopener">CIS Critical Security Controls</a></li>
+                        <li><a href="https://www.iso.org/isoiec-27001-information-security.html" target="_blank" rel="noopener">ISO/IEC 27001 Standard</a></li>
+                        <li><a href="https://www.pcisecuritystandards.org/" target="_blank" rel="noopener">PCI Security Standards</a></li>
+                        <li><a href="https://cloudsecurityalliance.org/" target="_blank" rel="noopener">Cloud Security Alliance</a></li>
                     </ul>
-    </div>
+                </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">🎓</div>
                     <h3>Professional Certifications</h3>
                     <ul class="feature-list">
-                        <li>CISSP (Certified Information Systems Security Professional)</li>
-                        <li>CEH (Certified Ethical Hacker)</li>
-                        <li>OSCP (Offensive Security Certified Professional)</li>
-                        <li>CISM (Certified Information Security Manager)</li>
-                        <li>Security+ CompTIA</li>
+                        <li><a href="https://www.isc2.org/Certifications/CISSP" target="_blank" rel="noopener">CISSP (ISC²)</a></li>
+                        <li><a href="https://www.eccouncil.org/programs/certified-ethical-hacker-ceh/" target="_blank" rel="noopener">CEH (EC-Council)</a></li>
+                        <li><a href="https://www.offensive-security.com/pwk-oscp/" target="_blank" rel="noopener">OSCP (Offensive Security)</a></li>
+                        <li><a href="https://www.isaca.org/credentialing/cism" target="_blank" rel="noopener">CISM (ISACA)</a></li>
+                        <li><a href="https://www.comptia.org/certifications/security" target="_blank" rel="noopener">Security+ (CompTIA)</a></li>
                     </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔬</div>
+                    <h3>Security Research</h3>
+                    <ul class="feature-list">
+                        <li><a href="https://www.sans.org/reading-room/" target="_blank" rel="noopener">SANS Reading Room</a></li>
+                        <li><a href="https://www.schneier.com/" target="_blank" rel="noopener">Bruce Schneier's Blog</a></li>
+                        <li><a href="https://krebsonsecurity.com/" target="_blank" rel="noopener">Krebs on Security</a></li>
+                        <li><a href="https://www.darkreading.com/" target="_blank" rel="noopener">Dark Reading</a></li>
+                        <li><a href="https://www.bleepingcomputer.com/" target="_blank" rel="noopener">BleepingComputer</a></li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💻</div>
+                    <h3>Security Tools</h3>
+                    <ul class="feature-list">
+                        <li><a href="https://www.kali.org/" target="_blank" rel="noopener">Kali Linux</a></li>
+                        <li><a href="https://www.metasploit.com/" target="_blank" rel="noopener">Metasploit Framework</a></li>
+                        <li><a href="https://portswigger.net/burp" target="_blank" rel="noopener">Burp Suite</a></li>
+                        <li><a href="https://nmap.org/" target="_blank" rel="noopener">Nmap Security Scanner</a></li>
+                        <li><a href="https://www.wireshark.org/" target="_blank" rel="noopener">Wireshark</a></li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📰</div>
+                    <h3>Security News</h3>
+                    <ul class="feature-list">
+                        <li><a href="https://thehackernews.com/" target="_blank" rel="noopener">The Hacker News</a></li>
+                        <li><a href="https://threatpost.com/" target="_blank" rel="noopener">Threatpost</a></li>
+                        <li><a href="https://www.securityweek.com/" target="_blank" rel="noopener">SecurityWeek</a></li>
+                        <li><a href="https://www.reddit.com/r/netsec/" target="_blank" rel="noopener">r/netsec Reddit</a></li>
+                        <li><a href="https://news.ycombinator.com/" target="_blank" rel="noopener">Hacker News</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
     </section>
 
     <!-- Footer -->
@@ -2755,11 +3167,13 @@ server {
                 <h4>Quick Links</h4>
                 <ul class="footer-links">
                     <li><a href="/">Home</a></li>
+                    <li><a href="#assessment">Interactive Assessment</a></li>
                     <li><a href="#guides">Security Guides</a></li>
+                    <li><a href="#tools">Security Tools</a></li>
+                    <li><a href="#videos">Video Tutorials</a></li>
                     <li><a href="#frameworks">Frameworks</a></li>
                     <li><a href="#resources">Resources</a></li>
-                    <li><a href="#faq">FAQ</a></li>
-                    </ul>
+                </ul>
             </div>
 
             <div class="footer-section">
@@ -3038,17 +3452,31 @@ server {
         // GUIDE NAVIGATION
         // ============================================
         function scrollToGuide(guideId) {
+            console.log('Scrolling to guide:', guideId);
             const guide = document.getElementById(guideId);
             if (guide) {
-                guide.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+                // Add offset for fixed navigation
+                const navOffset = 80;
+                const elementPosition = guide.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - navOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
                 });
                 
                 // Track guide view
                 gtag('event', 'guide_view', {
                     'guide_id': guideId
                 });
+                
+                // Add highlight effect
+                guide.style.animation = 'none';
+                setTimeout(() => {
+                    guide.style.animation = 'fadeInUp 0.8s ease-out';
+                }, 10);
+            } else {
+                console.error('Guide not found:', guideId);
             }
         }
 
@@ -3170,6 +3598,21 @@ server {
 
             gtag('event', 'back_to_top_click');
         }
+
+        // ============================================
+        // INITIALIZE ON LOAD
+        // ============================================
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('CyberSec Hub loaded successfully!');
+            console.log('Available guide sections:', 
+                document.querySelectorAll('section[id*="guide"]').length);
+            
+            // Test scroll function
+            window.testScroll = function(id) {
+                console.log('Testing scroll to:', id);
+                scrollToGuide(id);
+            };
+        });
 
         // ============================================
         // ANALYTICS TRACKING
