@@ -235,6 +235,232 @@ body {
     width: 100%;
 }
 
+/* Dropdown menu */
+.nav-links > li {
+    position: relative;
+}
+
+.nav-links > li > a {
+    padding: 0.5rem 0.85rem;
+    border-radius: 8px;
+    display: block;
+}
+
+.nav-links > li > a:hover,
+.nav-links > li > a.active {
+    background: var(--glass-bg);
+}
+
+.nav-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 260px;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 0.5rem;
+    z-index: 1001;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    list-style: none;
+}
+
+.nav-links li:hover > .nav-dropdown {
+    display: block;
+}
+
+.nav-dropdown a {
+    display: block;
+    color: var(--slate-300);
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 400;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.nav-dropdown a::after {
+    display: none;
+}
+
+.nav-dropdown a:hover {
+    background: var(--glass-bg);
+    color: var(--slate-100);
+}
+
+/* Mobile hamburger */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: var(--slate-300);
+}
+
+.nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--slate-300);
+    margin: 5px 0;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+/* Cookie Consent Banner */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(15, 23, 42, 0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid var(--glass-border);
+    padding: 1.25rem 2rem;
+    z-index: 9999;
+    display: none;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.cookie-banner.show {
+    display: block;
+}
+
+.cookie-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.cookie-content p {
+    color: var(--slate-400);
+    font-size: 0.9rem;
+    margin: 0;
+    flex: 1;
+    min-width: 250px;
+}
+
+.cookie-content p a {
+    color: var(--electric-blue);
+}
+
+.cookie-buttons {
+    display: flex;
+    gap: 0.75rem;
+    flex-shrink: 0;
+}
+
+.cookie-btn {
+    padding: 0.6rem 1.5rem;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    font-family: var(--font-primary);
+    transition: all 0.2s;
+}
+
+.cookie-btn-accept {
+    background: var(--primary-gradient);
+    color: white;
+}
+
+.cookie-btn-reject {
+    background: var(--glass-bg);
+    color: var(--slate-300);
+    border: 1px solid var(--glass-border);
+}
+
+/* Site Footer */
+.site-footer {
+    background: rgba(0, 0, 0, 0.3);
+    border-top: 1px solid var(--glass-border);
+    padding: 3rem 2rem;
+    margin-top: auto;
+}
+
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.footer-col h4 {
+    color: var(--slate-200);
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-col a {
+    color: var(--slate-500);
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-col a:hover {
+    color: var(--slate-300);
+}
+
+.footer-bottom {
+    max-width: 1400px;
+    margin: 2rem auto 0;
+    padding: 1.5rem 2rem 0;
+    border-top: 1px solid var(--glass-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-bottom p {
+    color: var(--slate-600);
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+.footer-bottom-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer-bottom-links a {
+    color: var(--slate-600);
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-bottom-links a:hover {
+    color: var(--slate-400);
+}
+
 /* ============================================
    HERO SECTION - PREMIUM DESIGN
    ============================================ */
@@ -843,23 +1069,65 @@ body {
 @media (max-width: 768px) {
     .nav-links {
         display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(15, 23, 42, 0.97);
+        flex-direction: column;
+        padding: 1rem;
+        border-bottom: 1px solid var(--glass-border);
+        gap: 0;
     }
-    
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-dropdown {
+        position: static;
+        display: none;
+        box-shadow: none;
+        min-width: auto;
+        border: none;
+        padding-left: 1rem;
+        background: transparent;
+    }
+
+    .nav-links li:hover > .nav-dropdown,
+    .nav-links li.open > .nav-dropdown {
+        display: block;
+    }
+
     .hero-section {
         padding: 4rem 1rem 3rem;
     }
-    
+
     .features-grid,
     .article-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .guide-section {
         padding: 2rem 1.5rem;
     }
-    
+
     .section {
         padding: 3rem 0;
+    }
+
+    .cookie-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
     }
 }
 
@@ -1470,20 +1738,35 @@ body {
     <!-- Navigation -->
     <nav class="main-nav">
         <div class="nav-container">
-            <a href="/" class="nav-logo" style="text-decoration: none;">
-                <span>🛡️</span>
-                <span>CyberSec Hub</span>
+            <a href="index.html" class="nav-logo" style="text-decoration: none;">
+                MySecurity Scores
             </a>
-            <ul class="nav-links">
-                <li><a href="/">Home</a></li>
-                <li><a href="#assessment">Assessment</a></li>
-                <li><a href="#guides">Guides</a></li>
-                <li><a href="#tools">Tools</a></li>
-                <li><a href="#videos">Videos</a></li>
-                <li><a href="#resources">Resources</a></li>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li>
+                    <a href="#">Guides &#9662;</a>
+                    <ul class="nav-dropdown">
+                        <li><a href="security-guide.html">Security Guide</a></li>
+                        <li><a href="ssl-certificates.html">SSL Certificates</a></li>
+                        <li><a href="compliance-guide.html">Compliance Guide</a></li>
+                        <li><a href="security-best-practices.html">Best Practices</a></li>
+                        <li><a href="threat-intelligence.html">Threat Intelligence</a></li>
+                        <li><a href="password-security.html">Password Security</a></li>
+                        <li><a href="incident-response.html">Incident Response</a></li>
+                        <li><a href="cloud-security.html">Cloud Security</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="faq.html">FAQ</a></li>
             </ul>
-    </div>
-</nav>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
     <section class="hero-section" id="home">
@@ -3153,55 +3436,67 @@ server {
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-grid">
-            <div class="footer-section">
-                <h4>🛡️ CyberSec Hub</h4>
-                <p style="color: var(--slate-400); line-height: 1.7;">
-                    Professional cybersecurity education platform providing comprehensive guides, 
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>MySecurity Scores</h4>
+                <p style="color: var(--slate-400); line-height: 1.7; font-size: 0.9rem;">
+                    Professional cybersecurity education platform providing comprehensive guides,
                     frameworks, and resources for security professionals worldwide.
                 </p>
             </div>
-
-            <div class="footer-section">
+            <div class="footer-col">
                 <h4>Quick Links</h4>
-                <ul class="footer-links">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="#assessment">Interactive Assessment</a></li>
-                    <li><a href="#guides">Security Guides</a></li>
-                    <li><a href="#tools">Security Tools</a></li>
-                    <li><a href="#videos">Video Tutorials</a></li>
-                    <li><a href="#frameworks">Frameworks</a></li>
-                    <li><a href="#resources">Resources</a></li>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="security-guide.html">Security Guide</a></li>
+                    <li><a href="ssl-certificates.html">SSL Certificates</a></li>
+                    <li><a href="compliance-guide.html">Compliance Guide</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
                 </ul>
             </div>
-
-            <div class="footer-section">
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="threat-intelligence.html">Threat Intelligence</a></li>
+                    <li><a href="security-best-practices.html">Best Practices</a></li>
+                    <li><a href="password-security.html">Password Security</a></li>
+                    <li><a href="incident-response.html">Incident Response</a></li>
+                    <li><a href="cloud-security.html">Cloud Security</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
                 <h4>Legal</h4>
-                <ul class="footer-links">
-                    <li><a href="#privacy">Privacy Policy</a></li>
-                    <li><a href="#terms">Terms of Service</a></li>
-                    <li><a href="#disclaimer">Disclaimer</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
-                    </ul>
+                <ul>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                    <li><a href="contact.html">Cookie Policy</a></li>
+                    <li><a href="contact.html">Disclaimer</a></li>
+                </ul>
             </div>
-
-            <div class="footer-section">
-                <h4>Connect</h4>
-                <ul class="footer-links">
-                    <li><a href="#twitter">Twitter</a></li>
-                    <li><a href="#linkedin">LinkedIn</a></li>
-                    <li><a href="#github">GitHub</a></li>
-                    <li><a href="#newsletter">Newsletter</a></li>
-                        </ul>
-            </div>
-                    </div>
-                    
+        </div>
         <div class="footer-bottom">
-            <p>© 2026 CyberSec Hub. All rights reserved. | Educational content for information security professionals.</p>
-            <p style="margin-top: 0.5rem;">Content provided for educational purposes only. Always conduct security testing with proper authorization.</p>
-                    </div>
+            <p>&copy; 2026 MySecurity Scores. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="privacy.html">Privacy</a>
+                <a href="terms.html">Terms</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
     </footer>
+
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-content">
+            <p>We use cookies to enhance your browsing experience, analyze site traffic, and serve relevant content. By clicking "Accept," you consent to our use of cookies. Read our <a href="privacy.html">Privacy Policy</a> for more information.</p>
+            <div class="cookie-buttons">
+                <button class="cookie-btn cookie-btn-reject" id="cookieReject">Reject</button>
+                <button class="cookie-btn cookie-btn-accept" id="cookieAccept">Accept</button>
+            </div>
+        </div>
+    </div>
 
     <!-- JavaScript -->
     <script>
@@ -3613,6 +3908,60 @@ server {
                 scrollToGuide(id);
             };
         });
+
+        // ============================================
+        // COOKIE CONSENT
+        // ============================================
+        (function() {
+            var cookieBanner = document.getElementById('cookieBanner');
+            var cookieAccept = document.getElementById('cookieAccept');
+            var cookieReject = document.getElementById('cookieReject');
+
+            if (!localStorage.getItem('cookieConsent')) {
+                cookieBanner.classList.add('show');
+            }
+
+            cookieAccept.addEventListener('click', function() {
+                localStorage.setItem('cookieConsent', 'accepted');
+                cookieBanner.classList.remove('show');
+            });
+
+            cookieReject.addEventListener('click', function() {
+                localStorage.setItem('cookieConsent', 'rejected');
+                cookieBanner.classList.remove('show');
+            });
+        })();
+
+        // ============================================
+        // MOBILE NAV TOGGLE
+        // ============================================
+        (function() {
+            var navToggle = document.getElementById('navToggle');
+            var navLinks = document.getElementById('navLinks');
+
+            navToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+
+            var dropdownParents = navLinks.querySelectorAll('li');
+            dropdownParents.forEach(function(item) {
+                var dropdown = item.querySelector('.nav-dropdown');
+                if (dropdown) {
+                    item.querySelector('a').addEventListener('click', function(e) {
+                        if (window.innerWidth <= 768) {
+                            e.preventDefault();
+                            item.classList.toggle('open');
+                        }
+                    });
+                }
+            });
+
+            document.addEventListener('click', function(e) {
+                if (!navToggle.contains(e.target) && !navLinks.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                }
+            });
+        })();
 
         // ============================================
         // ANALYTICS TRACKING
