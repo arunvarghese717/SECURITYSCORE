@@ -34,7 +34,7 @@
 </script>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%235B21B6'/%3E%3Cstop offset='100%25' stop-color='%237C3AED'/%3E%3C/linearGradient%3E%3ClinearGradient id='g2' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23F97316'/%3E%3Cstop offset='100%25' stop-color='%23FB923C'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M32 2L6 14v18c0 16.6 11.1 32.1 26 36 14.9-3.9 26-19.4 26-36V14L32 2z' fill='url(%23g1)'/%3E%3Cpath d='M32 6L10 16.5v15.5c0 14.4 9.6 27.8 22 31.2 12.4-3.4 22-16.8 22-31.2V16.5L32 6z' fill='%230A0118' opacity='0.3'/%3E%3Crect x='24' y='28' width='16' height='14' rx='3' fill='url(%23g2)'/%3E%3Cpath d='M26 28v-5a6 6 0 0 1 12 0v5' fill='none' stroke='url(%23g2)' stroke-width='2.5' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='34' r='2' fill='%230A0118'/%3E%3Crect x='31' y='34' width='2' height='4' rx='1' fill='%230A0118'/%3E%3C/svg%3E">
     
     <!-- Google Fonts - Figtree (PurpleQuarter-inspired) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -80,8 +80,10 @@
     --slate-800: #1A0B2E;
     --slate-700: #2D1B4E;
     --slate-600: #4C3575;
+    --slate-500: #7C6B9E;
     --slate-400: #A78BFA;
     --slate-300: #C4B5FD;
+    --slate-200: #DDD6FE;
     --slate-100: #F5F3FF;
 
     /* Glass Morphism - Purple Tinted */
@@ -485,6 +487,40 @@ body {
     padding: 8rem 2rem 6rem;
     text-align: center;
     position: relative;
+}
+
+/* Hero floating icons */
+.hero-floating-icons {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.hero-float-icon {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.12;
+    animation: heroFloat 6s ease-in-out infinite;
+}
+
+@keyframes heroFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(10deg); }
+}
+
+.hero-badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--neon-green);
+    animation: badgePulse 2s ease-in-out infinite;
+    flex-shrink: 0;
+}
+
+@keyframes badgePulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+    50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
 }
 
 .hero-badge {
@@ -1070,15 +1106,7 @@ body {
     color: var(--slate-100);
 }
 
-.footer-bottom {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding-top: 2rem;
-    border-top: 1px solid var(--slate-700);
-    text-align: center;
-    color: var(--slate-500);
-    font-size: 0.9rem;
-}
+/* footer-bottom styles consolidated above in site-footer section */
 
 /* ============================================
    RESPONSIVE DESIGN
@@ -2370,7 +2398,7 @@ body {
 
                     <!-- Q1: Access Control -->
                     <div class="quiz-card" data-index="0" data-category="access">
-                        <div class="qcard-category"><span>&#128274;</span> Access Control</div>
+                        <div class="qcard-category" data-cat="access"><span>&#128274;</span> Access Control</div>
                         <div class="qcard-qnum">Question 1 of 12</div>
                         <h3 class="qcard-title">Is Multi-Factor Authentication (MFA) enforced for all users and admin accounts?</h3>
                         <p class="qcard-hint">MFA blocks 99.9% of automated attacks. It's the single most effective security control.</p>
@@ -2383,7 +2411,7 @@ body {
 
                     <!-- Q2: Access Control -->
                     <div class="quiz-card" data-index="1" data-category="access">
-                        <div class="qcard-category"><span>&#128274;</span> Access Control</div>
+                        <div class="qcard-category" data-cat="access"><span>&#128274;</span> Access Control</div>
                         <div class="qcard-qnum">Question 2 of 12</div>
                         <h3 class="qcard-title">Do you conduct regular access reviews and enforce least-privilege principles?</h3>
                         <p class="qcard-hint">Over-privileged accounts are a top vector for lateral movement in breaches.</p>
@@ -2396,7 +2424,7 @@ body {
 
                     <!-- Q3: Access Control -->
                     <div class="quiz-card" data-index="2" data-category="access">
-                        <div class="qcard-category"><span>&#128274;</span> Access Control</div>
+                        <div class="qcard-category" data-cat="access"><span>&#128274;</span> Access Control</div>
                         <div class="qcard-qnum">Question 3 of 12</div>
                         <h3 class="qcard-title">Is SSO deployed with strong password policies (12+ chars) across your org?</h3>
                         <p class="qcard-hint">SSO reduces password fatigue and centralizes security policy enforcement.</p>
@@ -2409,7 +2437,7 @@ body {
 
                     <!-- Q4: Network Security -->
                     <div class="quiz-card" data-index="3" data-category="network">
-                        <div class="qcard-category"><span>&#127760;</span> Network Security</div>
+                        <div class="qcard-category" data-cat="network"><span>&#127760;</span> Network Security</div>
                         <div class="qcard-qnum">Question 4 of 12</div>
                         <h3 class="qcard-title">Do you have a next-gen firewall with IPS/IDS and proper network segmentation?</h3>
                         <p class="qcard-hint">Segmented networks contain breaches and limit blast radius of attacks.</p>
@@ -2422,7 +2450,7 @@ body {
 
                     <!-- Q5: Network Security -->
                     <div class="quiz-card" data-index="4" data-category="network">
-                        <div class="qcard-category"><span>&#127760;</span> Network Security</div>
+                        <div class="qcard-category" data-cat="network"><span>&#127760;</span> Network Security</div>
                         <div class="qcard-qnum">Question 5 of 12</div>
                         <h3 class="qcard-title">Is remote access secured with VPN + MFA, and wireless networks using WPA3?</h3>
                         <p class="qcard-hint">Remote work has expanded the attack surface - secure access is non-negotiable.</p>
@@ -2435,7 +2463,7 @@ body {
 
                     <!-- Q6: Network Security -->
                     <div class="quiz-card" data-index="5" data-category="network">
-                        <div class="qcard-category"><span>&#127760;</span> Network Security</div>
+                        <div class="qcard-category" data-cat="network"><span>&#127760;</span> Network Security</div>
                         <div class="qcard-qnum">Question 6 of 12</div>
                         <h3 class="qcard-title">Do you have DDoS protection and active traffic filtering in place?</h3>
                         <p class="qcard-hint">DDoS attacks surged 150% in 2025. Proactive protection prevents downtime.</p>
@@ -2448,7 +2476,7 @@ body {
 
                     <!-- Q7: Data Protection -->
                     <div class="quiz-card" data-index="6" data-category="data">
-                        <div class="qcard-category"><span>&#128274;</span> Data Protection</div>
+                        <div class="qcard-category" data-cat="data"><span>&#128274;</span> Data Protection</div>
                         <div class="qcard-qnum">Question 7 of 12</div>
                         <h3 class="qcard-title">Is your data encrypted at rest (AES-256) and in transit (TLS 1.3)?</h3>
                         <p class="qcard-hint">Encryption is the last line of defense when other controls fail.</p>
@@ -2461,7 +2489,7 @@ body {
 
                     <!-- Q8: Data Protection -->
                     <div class="quiz-card" data-index="7" data-category="data">
-                        <div class="qcard-category"><span>&#128274;</span> Data Protection</div>
+                        <div class="qcard-category" data-cat="data"><span>&#128274;</span> Data Protection</div>
                         <div class="qcard-qnum">Question 8 of 12</div>
                         <h3 class="qcard-title">Do you have regular encrypted backups with tested restoration procedures?</h3>
                         <p class="qcard-hint">73% of ransomware victims with untested backups fail to recover their data.</p>
@@ -2474,7 +2502,7 @@ body {
 
                     <!-- Q9: Data Protection -->
                     <div class="quiz-card" data-index="8" data-category="data">
-                        <div class="qcard-category"><span>&#128274;</span> Data Protection</div>
+                        <div class="qcard-category" data-cat="data"><span>&#128274;</span> Data Protection</div>
                         <div class="qcard-qnum">Question 9 of 12</div>
                         <h3 class="qcard-title">Is a Data Loss Prevention (DLP) solution and data classification policy in place?</h3>
                         <p class="qcard-hint">DLP prevents accidental exposure of sensitive data through email, cloud, and USB.</p>
@@ -2487,7 +2515,7 @@ body {
 
                     <!-- Q10: Monitoring -->
                     <div class="quiz-card" data-index="9" data-category="monitoring">
-                        <div class="qcard-category"><span>&#128202;</span> Monitoring & Response</div>
+                        <div class="qcard-category" data-cat="monitoring"><span>&#128202;</span> Monitoring & Response</div>
                         <div class="qcard-qnum">Question 10 of 12</div>
                         <h3 class="qcard-title">Do you have 24/7 SIEM monitoring or a Security Operations Center (SOC)?</h3>
                         <p class="qcard-hint">Average time to detect a breach without monitoring: 287 days. With SOC: under 24 hours.</p>
@@ -2500,7 +2528,7 @@ body {
 
                     <!-- Q11: Monitoring -->
                     <div class="quiz-card" data-index="10" data-category="monitoring">
-                        <div class="qcard-category"><span>&#128202;</span> Monitoring & Response</div>
+                        <div class="qcard-category" data-cat="monitoring"><span>&#128202;</span> Monitoring & Response</div>
                         <div class="qcard-qnum">Question 11 of 12</div>
                         <h3 class="qcard-title">Do you have a documented incident response plan with regular drills?</h3>
                         <p class="qcard-hint">Organizations with IR plans save $2.66M per breach on average (IBM 2025).</p>
@@ -2513,7 +2541,7 @@ body {
 
                     <!-- Q12: Monitoring -->
                     <div class="quiz-card" data-index="11" data-category="monitoring">
-                        <div class="qcard-category"><span>&#128202;</span> Monitoring & Response</div>
+                        <div class="qcard-category" data-cat="monitoring"><span>&#128202;</span> Monitoring & Response</div>
                         <div class="qcard-qnum">Question 12 of 12</div>
                         <h3 class="qcard-title">Are threat intelligence feeds integrated into your security tooling?</h3>
                         <p class="qcard-hint">Threat intel transforms reactive defense into proactive threat hunting.</p>
@@ -4068,8 +4096,11 @@ server {
         function startQuiz() {
             quizState.currentQ = 0;
             document.getElementById('quizNav').style.display = 'flex';
+            var catBars = document.getElementById('categoryBars');
+            if (catBars) catBars.classList.add('visible');
             showCard(0);
             updateStepIndicator();
+            updateCategoryBars();
             gtag('event', 'quiz_started', {});
         }
 
@@ -4092,6 +4123,7 @@ server {
                 target.classList.add('active');
             }
 
+            updateCategoryBars();
             updateNavButtons();
         }
 
@@ -4111,6 +4143,7 @@ server {
             // Recalculate scores
             recalcScores();
             updateLiveScoreRing();
+            updateCategoryBars();
             updateNavButtons();
 
             // Track
@@ -4131,6 +4164,25 @@ server {
                 if (a) {
                     quizState.scores[a.category] += a.points;
                     quizState.totalScore += a.points;
+                }
+            });
+        }
+
+        function updateCategoryBars() {
+            var cats = ['access', 'network', 'data', 'monitoring'];
+            cats.forEach(function(cat) {
+                var fill = document.getElementById('catFill' + cat.charAt(0).toUpperCase() + cat.slice(1));
+                var score = document.getElementById('catScore' + cat.charAt(0).toUpperCase() + cat.slice(1));
+                var item = document.querySelector('.cat-bar-item[data-category="' + cat + '"]');
+                if (fill) fill.style.width = ((quizState.scores[cat] / quizState.maxScores[cat]) * 100) + '%';
+                if (score) score.textContent = quizState.scores[cat] + '/' + quizState.maxScores[cat];
+                if (item) {
+                    var card = document.querySelector('.quiz-card.active');
+                    if (card && card.dataset.category === cat) {
+                        item.classList.add('highlight');
+                    } else {
+                        item.classList.remove('highlight');
+                    }
                 }
             });
         }
@@ -4280,6 +4332,9 @@ server {
 
             document.querySelectorAll('.opt-btn').forEach(function(b) { b.classList.remove('selected'); });
             updateLiveScoreRing();
+            updateCategoryBars();
+            var catBars = document.getElementById('categoryBars');
+            if (catBars) catBars.classList.remove('visible');
 
             var dots = document.querySelectorAll('.step-dot');
             dots.forEach(function(d) { d.classList.remove('active', 'done'); });
@@ -4514,15 +4569,33 @@ server {
         // INITIALIZE ON LOAD
         // ============================================
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('CyberSec Hub loaded successfully!');
-            console.log('Available guide sections:', 
-                document.querySelectorAll('section[id*="guide"]').length);
-            
-            // Test scroll function
-            window.testScroll = function(id) {
-                console.log('Testing scroll to:', id);
-                scrollToGuide(id);
-            };
+            // Animate stat counters on scroll into view
+            var statValues = document.querySelectorAll('.stat-value[data-count]');
+            var statsObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        var el = entry.target;
+                        var target = parseInt(el.dataset.count);
+                        var suffix = el.dataset.suffix || '';
+                        var start = 0;
+                        var duration = 1500;
+                        var startTime = null;
+
+                        function step(timestamp) {
+                            if (!startTime) startTime = timestamp;
+                            var progress = Math.min((timestamp - startTime) / duration, 1);
+                            var eased = 1 - Math.pow(1 - progress, 3);
+                            var current = Math.round(eased * target);
+                            el.textContent = current + suffix;
+                            if (progress < 1) requestAnimationFrame(step);
+                        }
+                        requestAnimationFrame(step);
+                        statsObserver.unobserve(el);
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            statValues.forEach(function(el) { statsObserver.observe(el); });
         });
 
         // ============================================
