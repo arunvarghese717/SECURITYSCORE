@@ -2206,6 +2206,505 @@ body {
         text-align: center;
     }
 }
+
+/* ============================================
+   ENGAGEMENT: HERO TYPING ANIMATION
+   ============================================ */
+.hero-typed-wrapper {
+    display: inline-block;
+    min-height: 1.2em;
+}
+.hero-typed-text {
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    border-right: 3px solid var(--accent-orange);
+    padding-right: 4px;
+    animation: typingCursor 0.7s step-end infinite;
+}
+@keyframes typingCursor {
+    0%, 100% { border-color: var(--accent-orange); }
+    50% { border-color: transparent; }
+}
+
+/* ============================================
+   ENGAGEMENT: LIVE THREAT TICKER
+   ============================================ */
+.threat-ticker {
+    background: linear-gradient(90deg, rgba(91, 33, 182, 0.2), rgba(249, 115, 22, 0.15), rgba(91, 33, 182, 0.2));
+    border-top: 1px solid rgba(249, 115, 22, 0.2);
+    border-bottom: 1px solid rgba(124, 58, 237, 0.2);
+    padding: 0.75rem 0;
+    overflow: hidden;
+    position: relative;
+}
+.threat-ticker::before,
+.threat-ticker::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100px;
+    z-index: 2;
+    pointer-events: none;
+}
+.threat-ticker::before {
+    left: 0;
+    background: linear-gradient(90deg, var(--slate-900), transparent);
+}
+.threat-ticker::after {
+    right: 0;
+    background: linear-gradient(270deg, var(--slate-900), transparent);
+}
+.ticker-track {
+    display: flex;
+    animation: tickerScroll 40s linear infinite;
+    width: max-content;
+}
+.ticker-track:hover {
+    animation-play-state: paused;
+}
+@keyframes tickerScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+.ticker-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 1.5rem;
+    white-space: nowrap;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--slate-300);
+    border-right: 1px solid rgba(124, 58, 237, 0.15);
+}
+.ticker-item .ticker-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+.ticker-dot.red { background: #ef4444; box-shadow: 0 0 8px rgba(239, 68, 68, 0.5); }
+.ticker-dot.orange { background: #F97316; box-shadow: 0 0 8px rgba(249, 115, 22, 0.5); }
+.ticker-dot.green { background: #10b981; box-shadow: 0 0 8px rgba(16, 185, 129, 0.5); }
+.ticker-dot.purple { background: #7C3AED; box-shadow: 0 0 8px rgba(124, 58, 237, 0.5); }
+.ticker-item strong {
+    color: var(--slate-100);
+    font-weight: 700;
+}
+
+/* ============================================
+   ENGAGEMENT: SCROLL REVEAL ANIMATIONS
+   ============================================ */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.reveal-on-scroll.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+.reveal-on-scroll.reveal-left {
+    transform: translateX(-40px);
+}
+.reveal-on-scroll.reveal-left.revealed {
+    transform: translateX(0);
+}
+.reveal-on-scroll.reveal-right {
+    transform: translateX(40px);
+}
+.reveal-on-scroll.reveal-right.revealed {
+    transform: translateX(0);
+}
+.reveal-on-scroll.reveal-scale {
+    transform: scale(0.9);
+}
+.reveal-on-scroll.reveal-scale.revealed {
+    transform: scale(1);
+}
+
+/* ============================================
+   ENGAGEMENT: SOCIAL PROOF / TRUST SECTION
+   ============================================ */
+.social-proof {
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--glass-border);
+}
+.proof-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+.proof-heading {
+    text-align: center;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--slate-500);
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+.proof-stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+.proof-stat {
+    text-align: center;
+    padding: 1.25rem;
+    background: rgba(124, 58, 237, 0.04);
+    border: 1px solid rgba(124, 58, 237, 0.08);
+    border-radius: 16px;
+    transition: all 0.3s ease;
+}
+.proof-stat:hover {
+    border-color: rgba(124, 58, 237, 0.2);
+    transform: translateY(-3px);
+}
+.proof-stat-number {
+    font-size: 2rem;
+    font-weight: 900;
+    font-family: var(--font-mono);
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.proof-stat-label {
+    font-size: 0.82rem;
+    color: var(--slate-400);
+    margin-top: 0.25rem;
+}
+.proof-testimonials {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+.testimonial-card {
+    background: rgba(124, 58, 237, 0.05);
+    border: 1px solid rgba(124, 58, 237, 0.1);
+    border-radius: 20px;
+    padding: 1.75rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+.testimonial-card:hover {
+    border-color: rgba(124, 58, 237, 0.25);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(124, 58, 237, 0.1);
+}
+.testimonial-card::before {
+    content: '\201C';
+    position: absolute;
+    top: 12px;
+    left: 20px;
+    font-size: 3rem;
+    color: rgba(124, 58, 237, 0.15);
+    font-family: serif;
+    line-height: 1;
+}
+.testimonial-text {
+    font-size: 0.95rem;
+    color: var(--slate-300);
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+    padding-top: 0.5rem;
+}
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+.testimonial-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 0.9rem;
+    color: white;
+    flex-shrink: 0;
+}
+.testimonial-info strong {
+    display: block;
+    font-size: 0.88rem;
+    color: var(--slate-200);
+}
+.testimonial-info span {
+    font-size: 0.78rem;
+    color: var(--slate-500);
+}
+
+/* ============================================
+   ENGAGEMENT: FLOATING CTA
+   ============================================ */
+.floating-cta {
+    position: fixed;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+    background: rgba(10, 1, 24, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(249, 115, 22, 0.25);
+    border-radius: 20px;
+    padding: 0.85rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(249, 115, 22, 0.1);
+    transition: bottom 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    max-width: 90vw;
+}
+.floating-cta.visible {
+    bottom: 5rem;
+}
+.floating-cta-text {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--slate-200);
+    white-space: nowrap;
+}
+.floating-cta-text span {
+    color: var(--accent-orange);
+}
+.floating-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.6rem 1.25rem;
+    background: var(--accent-gradient);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: var(--font-primary);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+.floating-cta-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(249, 115, 22, 0.4);
+}
+.floating-cta-close {
+    background: none;
+    border: none;
+    color: var(--slate-500);
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 0.25rem;
+    line-height: 1;
+    transition: color 0.2s;
+}
+.floating-cta-close:hover {
+    color: var(--slate-200);
+}
+
+/* ============================================
+   ENGAGEMENT: QUICK-JUMP SIDEBAR NAV
+   ============================================ */
+.quick-nav {
+    position: fixed;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 998;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+}
+.quick-nav.visible {
+    opacity: 1;
+    visibility: visible;
+}
+.quick-nav-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(124, 58, 237, 0.2);
+    border: 2px solid rgba(124, 58, 237, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+.quick-nav-dot:hover {
+    background: rgba(124, 58, 237, 0.4);
+    transform: scale(1.3);
+}
+.quick-nav-dot.active {
+    background: var(--accent-orange);
+    border-color: var(--accent-orange);
+    box-shadow: 0 0 12px rgba(249, 115, 22, 0.4);
+}
+.quick-nav-dot .quick-nav-label {
+    position: absolute;
+    right: 22px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(10, 1, 24, 0.95);
+    border: 1px solid var(--glass-border);
+    padding: 0.3rem 0.75rem;
+    border-radius: 8px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--slate-200);
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+.quick-nav-dot:hover .quick-nav-label {
+    opacity: 1;
+}
+
+/* ============================================
+   ENGAGEMENT: INTERACTIVE SECTION COUNTERS
+   ============================================ */
+.section-counter {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(249, 115, 22, 0.08);
+    border: 1px solid rgba(249, 115, 22, 0.15);
+    border-radius: 50px;
+    padding: 0.4rem 1rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--accent-orange);
+    margin-bottom: 1rem;
+    font-family: var(--font-mono);
+}
+.section-counter .counter-icon {
+    animation: counterPulse 2s ease-in-out infinite;
+}
+@keyframes counterPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+/* ============================================
+   ENGAGEMENT: CARD HOVER GLOW EFFECTS
+   ============================================ */
+.glow-card {
+    position: relative;
+}
+.glow-card::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.3), rgba(249, 115, 22, 0.3));
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    filter: blur(12px);
+}
+.glow-card:hover::after {
+    opacity: 1;
+}
+
+/* ============================================
+   ENGAGEMENT: READING TIME INDICATOR
+   ============================================ */
+.reading-time-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.78rem;
+    color: var(--slate-500);
+    font-weight: 500;
+}
+
+/* ============================================
+   ENGAGEMENT: INTERACTIVE PROGRESS RING
+   ============================================ */
+.page-progress-ring {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    width: 56px;
+    height: 56px;
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.page-progress-ring.visible {
+    opacity: 1;
+    visibility: visible;
+}
+.page-progress-ring svg {
+    transform: rotate(-90deg);
+    width: 100%;
+    height: 100%;
+}
+.page-progress-ring .ring-bg {
+    fill: none;
+    stroke: var(--slate-700);
+    stroke-width: 4;
+}
+.page-progress-ring .ring-progress {
+    fill: none;
+    stroke: url(#progressGrad);
+    stroke-width: 4;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.2s ease;
+}
+.page-progress-ring .progress-text {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 800;
+    font-family: var(--font-mono);
+    color: var(--slate-200);
+}
+
+/* ============================================
+   ENGAGEMENT: RESPONSIVE ADJUSTMENTS
+   ============================================ */
+@media (max-width: 768px) {
+    .quick-nav { display: none; }
+    .floating-cta {
+        border-radius: 16px;
+        padding: 0.75rem 1rem;
+        gap: 0.75rem;
+    }
+    .floating-cta.visible {
+        bottom: 4rem;
+    }
+    .floating-cta-text {
+        font-size: 0.8rem;
+    }
+    .page-progress-ring {
+        bottom: 1rem;
+        left: 1rem;
+        width: 44px;
+        height: 44px;
+    }
+    .proof-testimonials {
+        grid-template-columns: 1fr;
+    }
+    .ticker-item {
+        font-size: 0.75rem;
+        padding: 0.35rem 1rem;
+    }
+}
 </style>
 </head>
 <body>
@@ -2270,7 +2769,7 @@ body {
             <span class="hero-badge-dot"></span>
             <span>Professional Cybersecurity Education Platform</span>
         </div>
-        <h1 class="hero-title">Master Enterprise<br>Cybersecurity</h1>
+        <h1 class="hero-title">Master Enterprise<br><span class="hero-typed-wrapper"><span class="hero-typed-text" id="heroTyped">Cybersecurity</span></span></h1>
         <p class="hero-subtitle">
             Comprehensive guides, frameworks, and resources for security professionals.
             Learn from industry experts and implement world-class security practices.
@@ -2300,6 +2799,86 @@ body {
             <div class="stat-label">Users Assessed</div>
         </div>
     </div>
+
+    <!-- ENGAGEMENT: Live Threat Ticker -->
+    <div class="threat-ticker" id="threatTicker">
+        <div class="ticker-track" id="tickerTrack">
+            <div class="ticker-item"><span class="ticker-dot red"></span><strong>CRITICAL:</strong> 2,200+ vulnerabilities disclosed this month</div>
+            <div class="ticker-item"><span class="ticker-dot orange"></span><strong>ALERT:</strong> Ransomware attacks up 74% in 2025</div>
+            <div class="ticker-item"><span class="ticker-dot green"></span><strong>UPDATE:</strong> NIST CSF 2.0 now includes supply chain guidelines</div>
+            <div class="ticker-item"><span class="ticker-dot purple"></span><strong>TREND:</strong> Zero Trust adoption reaches 67% across enterprises</div>
+            <div class="ticker-item"><span class="ticker-dot red"></span><strong>WARNING:</strong> Average data breach cost hits $4.88M globally</div>
+            <div class="ticker-item"><span class="ticker-dot orange"></span><strong>INSIGHT:</strong> 95% of breaches involve human error</div>
+            <div class="ticker-item"><span class="ticker-dot green"></span><strong>TIP:</strong> MFA blocks 99.9% of automated attacks</div>
+            <div class="ticker-item"><span class="ticker-dot purple"></span><strong>REPORT:</strong> AI-powered phishing up 1,265% since ChatGPT launch</div>
+            <!-- Duplicate for seamless loop -->
+            <div class="ticker-item"><span class="ticker-dot red"></span><strong>CRITICAL:</strong> 2,200+ vulnerabilities disclosed this month</div>
+            <div class="ticker-item"><span class="ticker-dot orange"></span><strong>ALERT:</strong> Ransomware attacks up 74% in 2025</div>
+            <div class="ticker-item"><span class="ticker-dot green"></span><strong>UPDATE:</strong> NIST CSF 2.0 now includes supply chain guidelines</div>
+            <div class="ticker-item"><span class="ticker-dot purple"></span><strong>TREND:</strong> Zero Trust adoption reaches 67% across enterprises</div>
+            <div class="ticker-item"><span class="ticker-dot red"></span><strong>WARNING:</strong> Average data breach cost hits $4.88M globally</div>
+            <div class="ticker-item"><span class="ticker-dot orange"></span><strong>INSIGHT:</strong> 95% of breaches involve human error</div>
+            <div class="ticker-item"><span class="ticker-dot green"></span><strong>TIP:</strong> MFA blocks 99.9% of automated attacks</div>
+            <div class="ticker-item"><span class="ticker-dot purple"></span><strong>REPORT:</strong> AI-powered phishing up 1,265% since ChatGPT launch</div>
+        </div>
+    </div>
+
+    <!-- ENGAGEMENT: Social Proof Section -->
+    <section class="social-proof reveal-on-scroll">
+        <div class="proof-container">
+            <p class="proof-heading">Trusted by security professionals worldwide</p>
+            <div class="proof-stats-row">
+                <div class="proof-stat">
+                    <div class="proof-stat-number" data-count="12400" data-suffix="+">0</div>
+                    <div class="proof-stat-label">Assessments Completed</div>
+                </div>
+                <div class="proof-stat">
+                    <div class="proof-stat-number" data-count="156" data-suffix="">0</div>
+                    <div class="proof-stat-label">Countries Reached</div>
+                </div>
+                <div class="proof-stat">
+                    <div class="proof-stat-number" data-count="98" data-suffix="%">0</div>
+                    <div class="proof-stat-label">Found It Helpful</div>
+                </div>
+                <div class="proof-stat">
+                    <div class="proof-stat-number" data-count="4" data-suffix=".9/5">0</div>
+                    <div class="proof-stat-label">Average Rating</div>
+                </div>
+            </div>
+            <div class="proof-testimonials">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">This assessment helped us identify critical gaps in our network security before our SOC 2 audit. The recommendations were spot-on and actionable.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar" style="background: var(--primary-gradient);">JR</div>
+                        <div class="testimonial-info">
+                            <strong>James R.</strong>
+                            <span>CISO, FinTech Startup</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">The SSL/TLS guide alone saved our team weeks of research. Comprehensive, up-to-date, and clearly written for practitioners.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar" style="background: var(--accent-gradient);">SK</div>
+                        <div class="testimonial-info">
+                            <strong>Sarah K.</strong>
+                            <span>Security Engineer, SaaS Platform</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">We use this as our go-to resource for onboarding new security team members. The framework coverage is exceptional and always current.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar" style="background: var(--success-gradient);">MP</div>
+                        <div class="testimonial-info">
+                            <strong>Michael P.</strong>
+                            <span>VP Security, Enterprise Corp</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Interactive Security Challenge - Gamified Multi-Step Quiz -->
     <section class="section quiz-section-wrapper" id="assessment" style="padding: 5rem 0;">
@@ -4067,6 +4646,56 @@ server {
     </footer>
 
     <!-- Cookie Consent Banner -->
+    <!-- ENGAGEMENT: Floating CTA -->
+    <div class="floating-cta" id="floatingCta">
+        <span class="floating-cta-text">Check your <span>Security Score</span> now</span>
+        <a href="#assessment" class="floating-cta-btn" onclick="document.getElementById('floatingCta').classList.remove('visible');">
+            Start Free Assessment
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <button class="floating-cta-close" onclick="this.parentElement.classList.remove('visible');this.parentElement.dataset.dismissed='true';" aria-label="Close">&times;</button>
+    </div>
+
+    <!-- ENGAGEMENT: Quick Navigation Sidebar -->
+    <nav class="quick-nav" id="quickNav">
+        <div class="quick-nav-dot" data-section="home" onclick="document.getElementById('home').scrollIntoView({behavior:'smooth'});">
+            <span class="quick-nav-label">Home</span>
+        </div>
+        <div class="quick-nav-dot" data-section="assessment" onclick="document.getElementById('assessment').scrollIntoView({behavior:'smooth'});">
+            <span class="quick-nav-label">Assessment</span>
+        </div>
+        <div class="quick-nav-dot" data-section="guides" onclick="document.getElementById('guides').scrollIntoView({behavior:'smooth'});">
+            <span class="quick-nav-label">Guides</span>
+        </div>
+        <div class="quick-nav-dot" data-section="frameworks" onclick="document.getElementById('frameworks').scrollIntoView({behavior:'smooth'});">
+            <span class="quick-nav-label">Frameworks</span>
+        </div>
+        <div class="quick-nav-dot" data-section="faq" onclick="document.getElementById('faq').scrollIntoView({behavior:'smooth'});">
+            <span class="quick-nav-label">FAQ</span>
+        </div>
+        <div class="quick-nav-dot" data-section="tools" onclick="document.getElementById('tools').scrollIntoView({behavior:'smooth'});">
+            <span class="quick-nav-label">Tools</span>
+        </div>
+        <div class="quick-nav-dot" data-section="videos" onclick="document.getElementById('videos').scrollIntoView({behavior:'smooth'});">
+            <span class="quick-nav-label">Videos</span>
+        </div>
+    </nav>
+
+    <!-- ENGAGEMENT: Page Progress Ring (bottom-left) -->
+    <div class="page-progress-ring" id="pageProgressRing" onclick="scrollToTop()">
+        <svg viewBox="0 0 56 56">
+            <defs>
+                <linearGradient id="progressGrad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#7C3AED"/>
+                    <stop offset="100%" stop-color="#F97316"/>
+                </linearGradient>
+            </defs>
+            <circle cx="28" cy="28" r="24" class="ring-bg"/>
+            <circle cx="28" cy="28" r="24" class="ring-progress" id="pageRingProgress" stroke-dasharray="150.8" stroke-dashoffset="150.8"/>
+        </svg>
+        <div class="progress-text" id="pageProgressText">0%</div>
+    </div>
+
     <div class="cookie-banner" id="cookieBanner">
         <div class="cookie-content">
             <p>We use cookies to enhance your browsing experience, analyze site traffic, and serve relevant content. By clicking "Accept," you consent to our use of cookies. Read our <a href="/privacy">Privacy Policy</a> for more information.</p>
@@ -4688,6 +5317,241 @@ server {
                 });
             }
         }, 30000); // Every 30 seconds
+
+        // ============================================
+        // ENGAGEMENT: HERO TYPING ANIMATION
+        // ============================================
+        (function() {
+            var phrases = ['Cybersecurity', 'Risk Management', 'Threat Defense', 'Compliance', 'Zero Trust', 'Cloud Security', 'Incident Response'];
+            var el = document.getElementById('heroTyped');
+            if (!el) return;
+            var phraseIndex = 0;
+            var charIndex = phrases[0].length;
+            var isDeleting = false;
+            var delay = 2500;
+
+            function tick() {
+                var current = phrases[phraseIndex];
+
+                if (isDeleting) {
+                    charIndex--;
+                    el.textContent = current.substring(0, charIndex);
+                    if (charIndex === 0) {
+                        isDeleting = false;
+                        phraseIndex = (phraseIndex + 1) % phrases.length;
+                        setTimeout(tick, 400);
+                        return;
+                    }
+                    setTimeout(tick, 40);
+                } else {
+                    charIndex++;
+                    el.textContent = current.substring(0, charIndex);
+                    if (charIndex === current.length) {
+                        isDeleting = true;
+                        setTimeout(tick, delay);
+                        return;
+                    }
+                    setTimeout(tick, 80);
+                }
+            }
+
+            setTimeout(function() {
+                isDeleting = true;
+                tick();
+            }, 3000);
+        })();
+
+        // ============================================
+        // ENGAGEMENT: SCROLL REVEAL OBSERVER
+        // ============================================
+        (function() {
+            var revealEls = document.querySelectorAll('.reveal-on-scroll');
+            if (!revealEls.length) return;
+
+            var revealObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+            revealEls.forEach(function(el) { revealObserver.observe(el); });
+        })();
+
+        // ============================================
+        // ENGAGEMENT: SOCIAL PROOF COUNTERS
+        // ============================================
+        (function() {
+            var proofNumbers = document.querySelectorAll('.proof-stat-number[data-count]');
+            var proofObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        var el = entry.target;
+                        var target = parseInt(el.dataset.count);
+                        var suffix = el.dataset.suffix || '';
+                        var duration = 2000;
+                        var startTime = null;
+
+                        function step(timestamp) {
+                            if (!startTime) startTime = timestamp;
+                            var progress = Math.min((timestamp - startTime) / duration, 1);
+                            var eased = 1 - Math.pow(1 - progress, 3);
+                            var current = Math.round(eased * target);
+                            el.textContent = current.toLocaleString() + suffix;
+                            if (progress < 1) requestAnimationFrame(step);
+                        }
+                        requestAnimationFrame(step);
+                        proofObserver.unobserve(el);
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            proofNumbers.forEach(function(el) { proofObserver.observe(el); });
+        })();
+
+        // ============================================
+        // ENGAGEMENT: FLOATING CTA
+        // ============================================
+        (function() {
+            var floatingCta = document.getElementById('floatingCta');
+            var heroSection = document.getElementById('home');
+            var quizSection = document.getElementById('assessment');
+            if (!floatingCta || !heroSection) return;
+
+            var shown = false;
+            window.addEventListener('scroll', function() {
+                if (floatingCta.dataset.dismissed === 'true') return;
+                var heroBottom = heroSection.getBoundingClientRect().bottom;
+                var quizTop = quizSection ? quizSection.getBoundingClientRect().top : Infinity;
+
+                // Show after scrolling past hero, hide when quiz is visible
+                if (heroBottom < -200 && quizTop > window.innerHeight) {
+                    if (!shown) {
+                        floatingCta.classList.add('visible');
+                        shown = true;
+                    }
+                } else {
+                    floatingCta.classList.remove('visible');
+                    shown = false;
+                }
+            });
+        })();
+
+        // ============================================
+        // ENGAGEMENT: QUICK NAV SIDEBAR
+        // ============================================
+        (function() {
+            var quickNav = document.getElementById('quickNav');
+            if (!quickNav) return;
+            var dots = quickNav.querySelectorAll('.quick-nav-dot');
+            var sections = [];
+
+            dots.forEach(function(dot) {
+                var id = dot.dataset.section;
+                var section = document.getElementById(id);
+                if (section) sections.push({ id: id, el: section, dot: dot });
+            });
+
+            function updateQuickNav() {
+                var scrollY = window.scrollY;
+                var windowH = window.innerHeight;
+
+                // Show/hide nav
+                if (scrollY > 600) {
+                    quickNav.classList.add('visible');
+                } else {
+                    quickNav.classList.remove('visible');
+                }
+
+                // Highlight active section
+                var active = null;
+                sections.forEach(function(s) {
+                    var rect = s.el.getBoundingClientRect();
+                    if (rect.top < windowH / 2 && rect.bottom > 0) {
+                        active = s;
+                    }
+                });
+
+                dots.forEach(function(d) { d.classList.remove('active'); });
+                if (active) active.dot.classList.add('active');
+            }
+
+            window.addEventListener('scroll', updateQuickNav);
+            updateQuickNav();
+        })();
+
+        // ============================================
+        // ENGAGEMENT: PAGE PROGRESS RING
+        // ============================================
+        (function() {
+            var ring = document.getElementById('pageProgressRing');
+            var progress = document.getElementById('pageRingProgress');
+            var text = document.getElementById('pageProgressText');
+            if (!ring || !progress || !text) return;
+
+            var circumference = 150.8; // 2 * PI * 24
+
+            window.addEventListener('scroll', function() {
+                var scrollPct = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+                var offset = circumference - (scrollPct / 100) * circumference;
+
+                progress.setAttribute('stroke-dashoffset', Math.max(0, offset));
+                text.textContent = Math.round(scrollPct) + '%';
+
+                if (window.scrollY > 400) {
+                    ring.classList.add('visible');
+                } else {
+                    ring.classList.remove('visible');
+                }
+            });
+        })();
+
+        // ============================================
+        // ENGAGEMENT: ADD reveal-on-scroll TO SECTIONS
+        // ============================================
+        (function() {
+            // Add reveal classes to key content sections
+            var selectors = [
+                '.article-card', '.feature-card', '.tool-card',
+                '.video-card', '.guide-section', '.faq-item',
+                '.section-header'
+            ];
+
+            selectors.forEach(function(sel) {
+                var els = document.querySelectorAll(sel);
+                els.forEach(function(el, i) {
+                    if (!el.classList.contains('reveal-on-scroll')) {
+                        el.classList.add('reveal-on-scroll');
+                        el.style.transitionDelay = (i % 4) * 0.1 + 's';
+                    }
+                });
+            });
+
+            // Re-observe newly added elements
+            var revealEls = document.querySelectorAll('.reveal-on-scroll:not(.revealed)');
+            var revealObs = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                    }
+                });
+            }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+            revealEls.forEach(function(el) { revealObs.observe(el); });
+        })();
+
+        // ============================================
+        // ENGAGEMENT: ADD GLOW EFFECT TO CARDS
+        // ============================================
+        (function() {
+            var cards = document.querySelectorAll('.feature-card, .tool-card, .stat-card');
+            cards.forEach(function(card) {
+                if (!card.classList.contains('glow-card')) {
+                    card.classList.add('glow-card');
+                }
+            });
+        })();
     </script>
 </body>
 </html>
