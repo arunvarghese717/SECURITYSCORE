@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security News & Intelligence Hub | MySecurity Scores</title>
+    <meta name="description" content="Stay informed with the latest cybersecurity news, vulnerability alerts, ransomware updates, data breach reports, and AI security developments for 2026.">
+    <meta name="keywords" content="cybersecurity news, security alerts, vulnerability updates, ransomware news, data breach reports, AI security, threat intelligence">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SV8LBXML45"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-SV8LBXML45');
+    </script>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4820225613195679"
+         crossorigin="anonymous"></script>
+
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+    /* ============================================
+       THREAT TICKER BAR
+       ============================================ */
+    .threat-ticker {
+        background: linear-gradient(90deg, rgba(244, 63, 94, 0.12), rgba(245, 158, 11, 0.12), rgba(244, 63, 94, 0.12));
+        border-bottom: 1px solid rgba(244, 63, 94, 0.2);
+        padding: 0.6rem 0;
+        overflow: hidden;
+        white-space: nowrap;
+        position: relative;
+    }
+    .threat-ticker::before,
+    .threat-ticker::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 60px;
+        z-index: 2;
+        pointer-events: none;
+    }
+    .threat-ticker::before {
+        left: 0;
+        background: linear-gradient(90deg, var(--slate-900), transparent);
+    }
+    .threat-ticker::after {
+        right: 0;
+        background: linear-gradient(270deg, var(--slate-900), transparent);
+    }
+    .ticker-track {
+        display: inline-flex;
+        animation: ticker-scroll 45s linear infinite;
+        gap: 3rem;
+    }
+    .ticker-track:hover { animation-play-state: paused; }
+    .ticker-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.82rem;
+        font-weight: 500;
+        color: var(--slate-300);
+        flex-shrink: 0;
+    }
+    .ticker-severity {
+        padding: 0.15rem 0.5rem;
+        border-radius: 4px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+    }
+    .ticker-severity.critical {
+        background: rgba(244, 63, 94, 0.2);
+        color: #f43f5e;
+        border: 1px solid rgba(244, 63, 94, 0.3);
+    }
+    .ticker-severity.warning {
+        background: rgba(245, 158, 11, 0.2);
+        color: #f59e0b;
+        border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+    .ticker-severity.info {
+        background: rgba(59, 130, 246, 0.2);
+        color: #3b82f6;
+        border: 1px solid rgba(59, 130, 246, 0.3);
+    }
+    @keyframes ticker-scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+    }
+
+    /* ============================================
+       NEWS HERO SECTION
+       ============================================ */
+    .news-hero {
+        text-align: center;
+        padding: 4rem 2rem 2.5rem;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+    .news-hero h1 {
+        font-size: clamp(2rem, 5vw, 3rem);
+        font-weight: 900;
+        background: linear-gradient(135deg, #ffffff 0%, #667eea 50%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 0.75rem;
+        line-height: 1.15;
+    }
+    .news-hero .subtitle {
+        color: var(--slate-400);
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin: 0 auto 2rem;
+        line-height: 1.7;
+    }
+    .filter-bar {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    .filter-btn {
+        padding: 0.5rem 1.15rem;
+        border-radius: var(--radius-sm);
+        border: 1px solid var(--glass-border);
+        background: var(--glass-bg);
+        color: var(--slate-400);
+        font-size: 0.85rem;
+        font-weight: 500;
+        cursor: pointer;
+        font-family: var(--font-primary);
+        transition: all 0.25s ease;
+    }
+    .filter-btn:hover {
+        border-color: rgba(255,255,255,0.2);
+        color: var(--slate-100);
+    }
+    .filter-btn.active {
+        background: var(--primary-gradient);
+        color: #fff;
+        border-color: transparent;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.35);
+    }
+
+    /* ============================================
+       NEWS CARDS GRID
+       ============================================ */
+    .news-section {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1rem 2rem 3rem;
+    }
+    .section-label {
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--slate-500);
+        margin-bottom: 1.25rem;
+    }
+    .news-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+        gap: 1.5rem;
+    }
+    .news-card {
+        background: rgba(255,255,255,0.03);
+        border: 1px solid var(--glass-border);
+        border-radius: var(--radius-lg);
+        padding: 1.75rem;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        transition: all 0.35s ease;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        overflow: hidden;
+    }
+    .news-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    .news-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(255,255,255,0.18);
+        box-shadow: 0 16px 50px rgba(0,0,0,0.3);
+    }
+    .news-card:hover::before { opacity: 1; }
+    .news-card[data-category="critical"]::before { background: linear-gradient(90deg, #f43f5e, #ec4899); }
+    .news-card[data-category="vulnerabilities"]::before { background: linear-gradient(90deg, #f59e0b, #eab308); }
+    .news-card[data-category="data-breaches"]::before { background: linear-gradient(90deg, #8b5cf6, #6366f1); }
+    .news-card[data-category="ransomware"]::before { background: linear-gradient(90deg, #ef4444, #dc2626); }
+    .news-card[data-category="ai-security"]::before { background: linear-gradient(90deg, #06b6d4, #3b82f6); }
+    .card-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.9rem;
+    }
+    .category-badge {
+        padding: 0.2rem 0.65rem;
+        border-radius: 5px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+    }
+    .badge-critical { background: rgba(244,63,94,0.15); color: #fb7185; border: 1px solid rgba(244,63,94,0.25); }
+    .badge-vulnerabilities { background: rgba(245,158,11,0.15); color: #fbbf24; border: 1px solid rgba(245,158,11,0.25); }
+    .badge-data-breaches { background: rgba(139,92,246,0.15); color: #a78bfa; border: 1px solid rgba(139,92,246,0.25); }
+    .badge-ransomware { background: rgba(239,68,68,0.15); color: #f87171; border: 1px solid rgba(239,68,68,0.25); }
+    .badge-ai-security { background: rgba(6,182,212,0.15); color: #22d3ee; border: 1px solid rgba(6,182,212,0.25); }
+    .trending-indicator {
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+        font-size: 0.72rem;
+        font-weight: 600;
+        color: #f43f5e;
+    }
+    .trending-indicator .flame { font-size: 0.85rem; }
+    .news-card h3 {
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--slate-100);
+        margin-bottom: 0.6rem;
+        line-height: 1.4;
+    }
+    .news-card .summary {
+        color: var(--slate-400);
+        font-size: 0.9rem;
+        line-height: 1.65;
+        margin-bottom: 1.25rem;
+        flex: 1;
+    }
+    .card-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 0.9rem;
+        border-top: 1px solid var(--glass-border);
+    }
+    .card-meta {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-size: 0.78rem;
+        color: var(--slate-500);
+    }
+    .card-meta span { display: flex; align-items: center; gap: 0.3rem; }
+    .read-link {
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--electric-blue);
+        text-decoration: none;
+        transition: color 0.2s;
+    }
+    .read-link:hover { color: var(--rich-purple); }
+    .share-btn {
+        background: none;
+        border: 1px solid var(--glass-border);
+        border-radius: 6px;
+        color: var(--slate-500);
+        cursor: pointer;
+        padding: 0.3rem 0.55rem;
+        font-size: 0.78rem;
+        transition: all 0.2s;
+        font-family: var(--font-primary);
+    }
+    .share-btn:hover {
+        border-color: var(--electric-blue);
+        color: var(--electric-blue);
+    }
+
+    /* ============================================
+       STATISTICS DASHBOARD
+       ============================================ */
+    .stats-dashboard {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem 2rem 3rem;
+    }
+    .stats-row {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.25rem;
+    }
+    .stat-card {
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: var(--radius-lg);
+        padding: 1.5rem;
+        text-align: center;
+        transition: transform 0.3s ease;
+    }
+    .stat-card:hover { transform: translateY(-3px); }
+    .stat-card .stat-value {
+        font-size: 2.5rem;
+        font-weight: 800;
+        background: var(--primary-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1.15;
+        margin-bottom: 0.3rem;
+    }
+    .stat-card .stat-desc {
+        color: var(--slate-400);
+        font-size: 0.85rem;
+        font-weight: 500;
+    }
+
+    /* ============================================
+       MAIN CONTENT LAYOUT (digest + sidebar)
+       ============================================ */
+    .content-layout {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem 3rem;
+        display: grid;
+        grid-template-columns: 1fr 340px;
+        gap: 2rem;
+        align-items: start;
+    }
+
+    /* ============================================
+       WEEKLY DIGEST ACCORDION
+       ============================================ */
+    .digest-section h2 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--slate-100);
+        margin-bottom: 1.25rem;
+    }
+    .digest-item {
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: var(--radius-md);
+        margin-bottom: 0.75rem;
+        overflow: hidden;
+    }
+    .digest-header {
+        width: 100%;
+        background: none;
+        border: none;
+        color: var(--slate-100);
+        padding: 1.1rem 1.4rem;
+        font-size: 0.95rem;
+        font-weight: 600;
+        text-align: left;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: var(--font-primary);
+        transition: background 0.2s;
+    }
+    .digest-header:hover { background: rgba(255,255,255,0.03); }
+    .digest-header .toggle-icon {
+        font-size: 1.1rem;
+        color: var(--slate-500);
+        transition: transform 0.3s;
+    }
+    .digest-item.open .digest-header .toggle-icon { transform: rotate(45deg); }
+    .digest-body {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease, padding 0.3s ease;
+        padding: 0 1.4rem;
+    }
+    .digest-item.open .digest-body {
+        max-height: 600px;
+        padding: 0 1.4rem 1.25rem;
+    }
+    .digest-body ul {
+        list-style: none;
+        padding: 0;
+    }
+    .digest-body li {
+        padding: 0.55rem 0;
+        border-bottom: 1px solid rgba(255,255,255,0.04);
+        font-size: 0.88rem;
+        color: var(--slate-400);
+        line-height: 1.5;
+    }
+    .digest-body li:last-child { border-bottom: none; }
+    .digest-body a {
+        color: var(--electric-blue);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.82rem;
+    }
+    .digest-body a:hover { color: var(--rich-purple); }
+
+    /* ============================================
+       SIDEBAR
+       ============================================ */
+    .sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
+    .sidebar-card {
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: var(--radius-lg);
+        padding: 1.5rem;
+    }
+    .sidebar-card h3 {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--slate-100);
+        margin-bottom: 1rem;
+        padding-bottom: 0.6rem;
+        border-bottom: 1px solid var(--glass-border);
+    }
+    .sidebar-link {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        padding: 0.5rem 0;
+        font-size: 0.88rem;
+        color: var(--slate-400);
+        text-decoration: none;
+        transition: color 0.2s;
+    }
+    .sidebar-link:hover { color: var(--electric-blue); }
+    .sidebar-link .link-icon { font-size: 1rem; }
+    .trending-list { list-style: none; padding: 0; counter-reset: trending; }
+    .trending-list li {
+        counter-increment: trending;
+        padding: 0.55rem 0 0.55rem 2rem;
+        position: relative;
+        font-size: 0.85rem;
+        color: var(--slate-300);
+        border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .trending-list li:last-child { border-bottom: none; }
+    .trending-list li::before {
+        content: counter(trending);
+        position: absolute;
+        left: 0;
+        top: 0.55rem;
+        width: 1.3rem;
+        height: 1.3rem;
+        background: var(--primary-gradient);
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.7rem;
+        font-weight: 700;
+        color: #fff;
+    }
+    .newsletter-form {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+    .newsletter-form input {
+        padding: 0.7rem 0.9rem;
+        border-radius: var(--radius-sm);
+        border: 1px solid var(--glass-border);
+        background: rgba(0,0,0,0.3);
+        color: var(--slate-100);
+        font-size: 0.88rem;
+        font-family: var(--font-primary);
+    }
+    .newsletter-form input:focus { outline: none; border-color: var(--rich-purple); }
+    .newsletter-form button {
+        padding: 0.7rem;
+        background: var(--primary-gradient);
+        color: #fff;
+        border: none;
+        border-radius: var(--radius-sm);
+        font-size: 0.88rem;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: var(--font-primary);
+        transition: box-shadow 0.25s;
+    }
+    .newsletter-form button:hover { box-shadow: 0 6px 20px rgba(102,126,234,0.35); }
+
+    /* ============================================
+       SECURITY CALENDAR
+       ============================================ */
+    .calendar-section {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem 4rem;
+    }
+    .calendar-section h2 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--slate-100);
+        margin-bottom: 1.25rem;
+    }
+    .calendar-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1rem;
+    }
+    .calendar-card {
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: var(--radius-md);
+        padding: 1.25rem;
+        display: flex;
+        gap: 1rem;
+        align-items: flex-start;
+        transition: all 0.25s ease;
+    }
+    .calendar-card:hover {
+        border-color: rgba(255,255,255,0.18);
+        transform: translateY(-2px);
+    }
+    .cal-date {
+        background: var(--primary-gradient);
+        border-radius: var(--radius-sm);
+        padding: 0.5rem 0.7rem;
+        text-align: center;
+        flex-shrink: 0;
+        min-width: 52px;
+    }
+    .cal-date .month {
+        font-size: 0.65rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: rgba(255,255,255,0.8);
+        display: block;
+    }
+    .cal-date .day {
+        font-size: 1.3rem;
+        font-weight: 800;
+        color: #fff;
+        line-height: 1.2;
+        display: block;
+    }
+    .cal-info h4 {
+        color: var(--slate-100);
+        font-size: 0.92rem;
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+    }
+    .cal-info p {
+        color: var(--slate-500);
+        font-size: 0.8rem;
+        margin: 0;
+        line-height: 1.45;
+    }
+    .cal-tag {
+        font-size: 0.65rem;
+        font-weight: 600;
+        padding: 0.15rem 0.45rem;
+        border-radius: 3px;
+        display: inline-block;
+        margin-top: 0.4rem;
+    }
+    .cal-tag.conference { background: rgba(99,102,241,0.15); color: #818cf8; }
+    .cal-tag.patch { background: rgba(245,158,11,0.15); color: #fbbf24; }
+    .cal-tag.cert { background: rgba(16,185,129,0.15); color: #34d399; }
+
+    /* ============================================
+       RESPONSIVE OVERRIDES
+       ============================================ */
+    @media (max-width: 1024px) {
+        .content-layout { grid-template-columns: 1fr; }
+        .sidebar { order: -1; }
+    }
+    @media (max-width: 768px) {
+        .stats-row { grid-template-columns: repeat(2, 1fr); }
+        .news-grid { grid-template-columns: 1fr; }
+        .news-hero { padding: 2.5rem 1.25rem 1.5rem; }
+        .news-section, .stats-dashboard, .content-layout, .calendar-section { padding-left: 1.25rem; padding-right: 1.25rem; }
+    }
+    @media (max-width: 480px) {
+        .stats-row { grid-template-columns: 1fr; }
+        .calendar-grid { grid-template-columns: 1fr; }
+        .filter-bar { gap: 0.35rem; }
+        .filter-btn { padding: 0.4rem 0.85rem; font-size: 0.78rem; }
+    }
+    </style>
+</head>
+<body>
+
+    <!-- Background Animation -->
+    <div class="background-animation">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <!-- Reading Progress Bar -->
+    <div class="reading-progress" id="readingProgress"></div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <span>&#8593;</span>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo" style="text-decoration: none;">
+                MySecurity Scores
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li>
+                    <a href="#">Guides &#9662;</a>
+                    <ul class="nav-dropdown">
+                        <li><a href="security-guide.html">Security Guide</a></li>
+                        <li><a href="ssl-certificates.html">SSL Certificates</a></li>
+                        <li><a href="compliance-guide.html">Compliance Guide</a></li>
+                        <li><a href="security-best-practices.html">Best Practices</a></li>
+                        <li><a href="threat-intelligence.html">Threat Intelligence</a></li>
+                        <li><a href="password-security.html">Password Security</a></li>
+                        <li><a href="incident-response.html">Incident Response</a></li>
+                        <li><a href="cloud-security.html">Cloud Security</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="security-news.html" class="active">Security News</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Live Threat Ticker Bar -->
+    <div class="threat-ticker" aria-label="Live threat ticker">
+        <div class="ticker-track" id="tickerTrack">
+            <div class="ticker-item"><span class="ticker-severity critical">CRITICAL</span> New zero-day in Apache Log4j3 discovered &mdash; patch immediately</div>
+            <div class="ticker-item"><span class="ticker-severity warning">WARNING</span> Ransomware group "PhantomLock" targets healthcare sector across 14 countries</div>
+            <div class="ticker-item"><span class="ticker-severity critical">CRITICAL</span> Browser extension supply chain attack compromises 2.5M users worldwide</div>
+            <div class="ticker-item"><span class="ticker-severity info">ADVISORY</span> NIST publishes final ML-KEM post-quantum cryptography migration guide</div>
+            <div class="ticker-item"><span class="ticker-severity warning">WARNING</span> AI-generated deepfake voice phishing attacks surge 340% in Q1 2026</div>
+            <div class="ticker-item"><span class="ticker-severity critical">CRITICAL</span> Major healthcare provider breach exposes 12 million patient records</div>
+            <div class="ticker-item"><span class="ticker-severity info">ADVISORY</span> EU AI Act enforcement officially begins &mdash; compliance deadlines active</div>
+            <div class="ticker-item"><span class="ticker-severity warning">WARNING</span> New credential-stuffing botnet targets financial institutions in North America</div>
+            <!-- Duplicated for seamless loop -->
+            <div class="ticker-item"><span class="ticker-severity critical">CRITICAL</span> New zero-day in Apache Log4j3 discovered &mdash; patch immediately</div>
+            <div class="ticker-item"><span class="ticker-severity warning">WARNING</span> Ransomware group "PhantomLock" targets healthcare sector across 14 countries</div>
+            <div class="ticker-item"><span class="ticker-severity critical">CRITICAL</span> Browser extension supply chain attack compromises 2.5M users worldwide</div>
+            <div class="ticker-item"><span class="ticker-severity info">ADVISORY</span> NIST publishes final ML-KEM post-quantum cryptography migration guide</div>
+            <div class="ticker-item"><span class="ticker-severity warning">WARNING</span> AI-generated deepfake voice phishing attacks surge 340% in Q1 2026</div>
+            <div class="ticker-item"><span class="ticker-severity critical">CRITICAL</span> Major healthcare provider breach exposes 12 million patient records</div>
+            <div class="ticker-item"><span class="ticker-severity info">ADVISORY</span> EU AI Act enforcement officially begins &mdash; compliance deadlines active</div>
+            <div class="ticker-item"><span class="ticker-severity warning">WARNING</span> New credential-stuffing botnet targets financial institutions in North America</div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="news-hero">
+        <h1>Security News &amp; Intelligence Hub</h1>
+        <p class="subtitle">Stay ahead of emerging threats with real-time cybersecurity intelligence, vulnerability reports, and expert analysis from the MySecurity Scores research team.</p>
+        <div class="filter-bar" id="filterBar">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="critical">Critical</button>
+            <button class="filter-btn" data-filter="vulnerabilities">Vulnerabilities</button>
+            <button class="filter-btn" data-filter="ransomware">Ransomware</button>
+            <button class="filter-btn" data-filter="data-breaches">Data Breaches</button>
+            <button class="filter-btn" data-filter="ai-security">AI Security</button>
+        </div>
+    </section>
+
+    <!-- Featured News Cards -->
+    <section class="news-section">
+        <div class="section-label">Featured Intelligence</div>
+        <div class="news-grid" id="newsGrid">
+
+            <!-- Card 1 -->
+            <article class="news-card" data-category="critical">
+                <div class="card-top">
+                    <span class="category-badge badge-critical">Critical</span>
+                    <span class="trending-indicator"><span class="flame">&#128293;</span> Trending</span>
+                </div>
+                <h3>AI-Powered Deepfake Attacks Surge 340% in Q1 2026</h3>
+                <p class="summary">Security researchers have documented a dramatic 340% increase in AI-generated deepfake attacks targeting corporate executives during the first quarter of 2026. Threat actors are leveraging advanced generative models to clone voices and video in real-time, bypassing traditional verification methods and authorizing fraudulent wire transfers totaling over $180 million globally.</p>
+                <div class="card-footer">
+                    <div class="card-meta">
+                        <span>&#128197; Feb 18, 2026</span>
+                        <span>&#9201; 6 min read</span>
+                    </div>
+                    <a href="#" class="read-link">Read Analysis &rarr;</a>
+                    <button class="share-btn" title="Share article">&#8599;</button>
+                </div>
+            </article>
+
+            <!-- Card 2 -->
+            <article class="news-card" data-category="vulnerabilities">
+                <div class="card-top">
+                    <span class="category-badge badge-vulnerabilities">Vulnerabilities</span>
+                    <span class="trending-indicator"><span class="flame">&#128293;</span> Trending</span>
+                </div>
+                <h3>Post-Quantum Encryption Standard NIST ML-KEM Now Mandatory for Federal Systems</h3>
+                <p class="summary">The National Institute of Standards and Technology has officially mandated migration to the ML-KEM (Module-Lattice Key Encapsulation Mechanism) standard for all federal information systems by Q4 2026. This landmark requirement accelerates the post-quantum transition as cryptanalysts warn that fault-tolerant quantum computers may arrive sooner than expected.</p>
+                <div class="card-footer">
+                    <div class="card-meta">
+                        <span>&#128197; Feb 15, 2026</span>
+                        <span>&#9201; 8 min read</span>
+                    </div>
+                    <a href="#" class="read-link">Read Analysis &rarr;</a>
+                    <button class="share-btn" title="Share article">&#8599;</button>
+                </div>
+            </article>
+
+            <!-- Card 3 -->
+            <article class="news-card" data-category="data-breaches">
+                <div class="card-top">
+                    <span class="category-badge badge-data-breaches">Data Breaches</span>
+                    <span class="trending-indicator"><span class="flame">&#128293;</span> Trending</span>
+                </div>
+                <h3>Major Healthcare Provider Breach Exposes 12M Patient Records</h3>
+                <p class="summary">NovaCare Health Systems confirmed a massive data breach affecting 12 million patient records, including protected health information, Social Security numbers, and insurance data. The breach originated from a compromised third-party billing vendor and went undetected for approximately 47 days before automated anomaly detection triggered an alert.</p>
+                <div class="card-footer">
+                    <div class="card-meta">
+                        <span>&#128197; Feb 12, 2026</span>
+                        <span>&#9201; 5 min read</span>
+                    </div>
+                    <a href="#" class="read-link">Read Analysis &rarr;</a>
+                    <button class="share-btn" title="Share article">&#8599;</button>
+                </div>
+            </article>
+
+            <!-- Card 4 -->
+            <article class="news-card" data-category="ransomware">
+                <div class="card-top">
+                    <span class="category-badge badge-ransomware">Ransomware</span>
+                </div>
+                <h3>New Ransomware-as-a-Service Platform 'PhantomLock' Targets SMBs</h3>
+                <p class="summary">A newly identified ransomware-as-a-service operation dubbed "PhantomLock" has compromised over 230 small-to-medium businesses across 14 countries since January. The platform offers affiliates a polished dashboard, automated negotiation chatbots, and triple-extortion tactics that combine file encryption, data theft, and DDoS threats against victim infrastructure.</p>
+                <div class="card-footer">
+                    <div class="card-meta">
+                        <span>&#128197; Feb 9, 2026</span>
+                        <span>&#9201; 7 min read</span>
+                    </div>
+                    <a href="#" class="read-link">Read Analysis &rarr;</a>
+                    <button class="share-btn" title="Share article">&#8599;</button>
+                </div>
+            </article>
+
+            <!-- Card 5 -->
+            <article class="news-card" data-category="critical">
+                <div class="card-top">
+                    <span class="category-badge badge-critical">Critical</span>
+                    <span class="trending-indicator"><span class="flame">&#128293;</span> Trending</span>
+                </div>
+                <h3>Browser Extension Supply Chain Attack Compromises 2.5M Users</h3>
+                <p class="summary">A sophisticated supply chain attack targeting five popular browser extensions has been confirmed, affecting an estimated 2.5 million users across Chrome and Edge. The attackers injected obfuscated JavaScript into legitimate extension updates, harvesting session cookies, authentication tokens, and autofill data from banking and enterprise SaaS applications.</p>
+                <div class="card-footer">
+                    <div class="card-meta">
+                        <span>&#128197; Feb 6, 2026</span>
+                        <span>&#9201; 5 min read</span>
+                    </div>
+                    <a href="#" class="read-link">Read Analysis &rarr;</a>
+                    <button class="share-btn" title="Share article">&#8599;</button>
+                </div>
+            </article>
+
+            <!-- Card 6 -->
+            <article class="news-card" data-category="ai-security">
+                <div class="card-top">
+                    <span class="category-badge badge-ai-security">AI Security</span>
+                </div>
+                <h3>EU AI Act Enforcement Begins: What Security Teams Need to Know</h3>
+                <p class="summary">The European Union officially began enforcing the AI Act on February 2, 2026, introducing binding compliance requirements for organizations deploying high-risk AI systems. Security teams must now implement mandatory risk assessments, bias audits, human oversight mechanisms, and incident reporting protocols or face fines up to 7% of global revenue.</p>
+                <div class="card-footer">
+                    <div class="card-meta">
+                        <span>&#128197; Feb 3, 2026</span>
+                        <span>&#9201; 9 min read</span>
+                    </div>
+                    <a href="#" class="read-link">Read Analysis &rarr;</a>
+                    <button class="share-btn" title="Share article">&#8599;</button>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- Security Statistics Dashboard -->
+    <section class="stats-dashboard">
+        <div class="section-label">Threat Landscape Snapshot</div>
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="stat-value" data-target="2847">0</div>
+                <div class="stat-desc">Active CVEs This Month</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" data-target="156">0</div>
+                <div class="stat-desc">Ransomware Attacks This Week</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" data-target="4.88" data-prefix="$" data-suffix="M" data-decimals="2">$0M</div>
+                <div class="stat-desc">Avg Breach Cost 2026</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" data-target="68" data-suffix="%">0%</div>
+                <div class="stat-desc">Attacks Involving Social Engineering</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Weekly Digest + Sidebar Layout -->
+    <section class="content-layout">
+        <!-- Weekly Security Digest -->
+        <div class="digest-section">
+            <h2>Weekly Security Digest</h2>
+
+            <div class="digest-item open">
+                <button class="digest-header">
+                    <span>Week of Feb 17 &ndash; Feb 21, 2026</span>
+                    <span class="toggle-icon">+</span>
+                </button>
+                <div class="digest-body">
+                    <ul>
+                        <li>AI deepfake voice attacks cause $54M in losses across financial sector this week alone. <a href="threat-intelligence.html">Read our Threat Intelligence Guide &rarr;</a></li>
+                        <li>Microsoft releases emergency out-of-band patch for actively exploited Exchange Server vulnerability (CVE-2026-21198).</li>
+                        <li>FBI issues joint advisory with CISA on PhantomLock ransomware TTPs and IOCs.</li>
+                        <li>Google mandates passkey-only authentication for all Workspace admin accounts. <a href="password-security.html">Password Security Guide &rarr;</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="digest-item">
+                <button class="digest-header">
+                    <span>Week of Feb 10 &ndash; Feb 14, 2026</span>
+                    <span class="toggle-icon">+</span>
+                </button>
+                <div class="digest-body">
+                    <ul>
+                        <li>NovaCare breach details emerge: 47-day dwell time, third-party vendor compromise vector confirmed.</li>
+                        <li>Patch Tuesday: Microsoft fixes 72 vulnerabilities including 4 critical RCEs; Adobe patches 18 flaws. <a href="security-best-practices.html">Best Practices for Patching &rarr;</a></li>
+                        <li>NIST finalizes ML-KEM migration timeline, federal agencies must comply by October 2026.</li>
+                        <li>Critical vulnerability discovered in popular open-source Kubernetes ingress controller.</li>
+                        <li>UK NCSC launches free SMB cyber resilience toolkit. <a href="compliance-guide.html">Compliance Guide &rarr;</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="digest-item">
+                <button class="digest-header">
+                    <span>Week of Feb 3 &ndash; Feb 7, 2026</span>
+                    <span class="toggle-icon">+</span>
+                </button>
+                <div class="digest-body">
+                    <ul>
+                        <li>EU AI Act enforcement officially begins; early adopters share implementation insights.</li>
+                        <li>Browser extension supply chain attack affects 2.5M users across Chrome and Edge. <a href="security-guide.html">Security Guide &rarr;</a></li>
+                        <li>Cloudflare reports record 4.2 Tbps DDoS attack mitigated against financial services client.</li>
+                        <li>New research demonstrates practical side-channel attacks on Apple M3 chip's hardware encryption.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="digest-item">
+                <button class="digest-header">
+                    <span>Week of Jan 27 &ndash; Jan 31, 2026</span>
+                    <span class="toggle-icon">+</span>
+                </button>
+                <div class="digest-body">
+                    <ul>
+                        <li>PhantomLock RaaS platform first identified by threat researchers; initial targets include European logistics firms.</li>
+                        <li>Salesforce discloses API misconfiguration exposing customer metadata for approximately 200 enterprise tenants.</li>
+                        <li>Major US telecom provider patches silent SMS interception vulnerability after 90-day disclosure period. <a href="ssl-certificates.html">SSL &amp; Encryption Guide &rarr;</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- Quick Links -->
+            <div class="sidebar-card">
+                <h3>Security Guides</h3>
+                <a href="security-guide.html" class="sidebar-link"><span class="link-icon">&#128214;</span> Security Assessment Guide</a>
+                <a href="ssl-certificates.html" class="sidebar-link"><span class="link-icon">&#128274;</span> SSL Certificates Guide</a>
+                <a href="compliance-guide.html" class="sidebar-link"><span class="link-icon">&#9989;</span> Compliance Framework</a>
+                <a href="security-best-practices.html" class="sidebar-link"><span class="link-icon">&#128736;</span> Best Practices Checklist</a>
+                <a href="threat-intelligence.html" class="sidebar-link"><span class="link-icon">&#128269;</span> Threat Intelligence</a>
+                <a href="password-security.html" class="sidebar-link"><span class="link-icon">&#128273;</span> Password Security</a>
+            </div>
+
+            <!-- Trending -->
+            <div class="sidebar-card">
+                <h3>Trending on MySecurity Scores</h3>
+                <ol class="trending-list">
+                    <li>How to Detect AI Deepfake Phishing</li>
+                    <li>Post-Quantum Encryption Migration Steps</li>
+                    <li>PhantomLock IOCs and Defense Playbook</li>
+                    <li>Browser Extension Security Audit Guide</li>
+                    <li>EU AI Act Compliance Checklist</li>
+                </ol>
+            </div>
+
+            <!-- Newsletter Signup -->
+            <div class="sidebar-card">
+                <h3>Security Newsletter</h3>
+                <p style="font-size:0.85rem;color:var(--slate-400);margin-bottom:0.8rem;line-height:1.55;">Get weekly threat intelligence and security insights delivered to your inbox every Monday.</p>
+                <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+                    <input type="email" placeholder="you@company.com" required aria-label="Email address">
+                    <button type="submit">Subscribe</button>
+                </form>
+                <p id="newsletterMsg" style="font-size:0.8rem;color:var(--neon-green);margin-top:0.5rem;display:none;">Subscribed successfully.</p>
+            </div>
+        </aside>
+    </section>
+
+    <!-- Security Calendar -->
+    <section class="calendar-section">
+        <h2>Security Calendar</h2>
+        <div class="calendar-grid">
+            <div class="calendar-card">
+                <div class="cal-date"><span class="month">Mar</span><span class="day">10</span></div>
+                <div class="cal-info">
+                    <h4>Patch Tuesday &ndash; March 2026</h4>
+                    <p>Monthly Microsoft security update release. Plan testing and deployment cycles in advance.</p>
+                    <span class="cal-tag patch">Patch Day</span>
+                </div>
+            </div>
+            <div class="calendar-card">
+                <div class="cal-date"><span class="month">Mar</span><span class="day">24</span></div>
+                <div class="cal-info">
+                    <h4>Black Hat Asia 2026</h4>
+                    <p>Marina Bay Sands, Singapore. Briefings, trainings, and arsenal demonstrations.</p>
+                    <span class="cal-tag conference">Conference</span>
+                </div>
+            </div>
+            <div class="calendar-card">
+                <div class="cal-date"><span class="month">Apr</span><span class="day">7</span></div>
+                <div class="cal-info">
+                    <h4>CISSP Exam Window Opens</h4>
+                    <p>Spring 2026 ISC2 CISSP certification exam registration and testing period begins.</p>
+                    <span class="cal-tag cert">Certification</span>
+                </div>
+            </div>
+            <div class="calendar-card">
+                <div class="cal-date"><span class="month">Apr</span><span class="day">14</span></div>
+                <div class="cal-info">
+                    <h4>Patch Tuesday &ndash; April 2026</h4>
+                    <p>Monthly Microsoft security update release. Prioritize critical and actively exploited CVEs.</p>
+                    <span class="cal-tag patch">Patch Day</span>
+                </div>
+            </div>
+            <div class="calendar-card">
+                <div class="cal-date"><span class="month">May</span><span class="day">4</span></div>
+                <div class="cal-info">
+                    <h4>RSA Conference 2026</h4>
+                    <p>Moscone Center, San Francisco. The world's leading cybersecurity conference and expo.</p>
+                    <span class="cal-tag conference">Conference</span>
+                </div>
+            </div>
+            <div class="calendar-card">
+                <div class="cal-date"><span class="month">May</span><span class="day">19</span></div>
+                <div class="cal-info">
+                    <h4>CompTIA Security+ SY0-701</h4>
+                    <p>Updated exam objectives take effect. Review the new AI security and zero-trust domains.</p>
+                    <span class="cal-tag cert">Certification</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>MySecurity Scores</h4>
+                <p style="color: var(--slate-400); line-height: 1.7; font-size: 0.9rem;">
+                    Professional cybersecurity education platform providing comprehensive guides,
+                    frameworks, and resources for security professionals worldwide.
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="security-guide.html">Security Guide</a></li>
+                    <li><a href="ssl-certificates.html">SSL Certificates</a></li>
+                    <li><a href="compliance-guide.html">Compliance Guide</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="threat-intelligence.html">Threat Intelligence</a></li>
+                    <li><a href="security-best-practices.html">Best Practices</a></li>
+                    <li><a href="password-security.html">Password Security</a></li>
+                    <li><a href="incident-response.html">Incident Response</a></li>
+                    <li><a href="cloud-security.html">Cloud Security</a></li>
+                    <li><a href="security-news.html">Security News</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                    <li><a href="contact.html">Cookie Policy</a></li>
+                    <li><a href="contact.html">Disclaimer</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 MySecurity Scores. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="privacy.html">Privacy</a>
+                <a href="terms.html">Terms</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+    (function() {
+        'use strict';
+
+        /* ============================
+           READING PROGRESS BAR
+           ============================ */
+        var progressBar = document.getElementById('readingProgress');
+        function updateProgress() {
+            var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            var docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            progressBar.style.width = progress + '%';
+        }
+
+        /* ============================
+           BACK TO TOP BUTTON
+           ============================ */
+        var backToTop = document.getElementById('backToTop');
+        function toggleBackToTop() {
+            var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > 400) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        }
+        backToTop.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        window.addEventListener('scroll', function() {
+            updateProgress();
+            toggleBackToTop();
+        });
+
+        /* ============================
+           MOBILE NAV TOGGLE
+           ============================ */
+        var navToggle = document.getElementById('navToggle');
+        var navLinks = document.getElementById('navLinks');
+        navToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+        });
+
+        // Mobile dropdown toggle
+        var dropdownParents = navLinks.querySelectorAll('li');
+        dropdownParents.forEach(function(item) {
+            var dropdown = item.querySelector('.nav-dropdown');
+            if (dropdown) {
+                item.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 768) {
+                        item.classList.toggle('open');
+                    }
+                });
+            }
+        });
+
+        /* ============================
+           FILTER FUNCTIONALITY
+           ============================ */
+        var filterBtns = document.querySelectorAll('.filter-btn');
+        var newsCards = document.querySelectorAll('.news-card');
+
+        filterBtns.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                // Update active button
+                filterBtns.forEach(function(b) { b.classList.remove('active'); });
+                btn.classList.add('active');
+
+                var filter = btn.getAttribute('data-filter');
+
+                newsCards.forEach(function(card) {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = '';
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(12px)';
+                        setTimeout(function() {
+                            card.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 30);
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        /* ============================
+           ANIMATED NUMBER COUNTERS
+           ============================ */
+        var statValues = document.querySelectorAll('.stat-value[data-target]');
+        var countersAnimated = false;
+
+        function animateCounters() {
+            if (countersAnimated) return;
+            var statsSection = document.querySelector('.stats-dashboard');
+            if (!statsSection) return;
+            var rect = statsSection.getBoundingClientRect();
+            if (rect.top < window.innerHeight * 0.85) {
+                countersAnimated = true;
+                statValues.forEach(function(el) {
+                    var target = parseFloat(el.getAttribute('data-target'));
+                    var prefix = el.getAttribute('data-prefix') || '';
+                    var suffix = el.getAttribute('data-suffix') || '';
+                    var decimals = parseInt(el.getAttribute('data-decimals')) || 0;
+                    var duration = 2000;
+                    var start = 0;
+                    var startTime = null;
+
+                    function step(timestamp) {
+                        if (!startTime) startTime = timestamp;
+                        var elapsed = timestamp - startTime;
+                        var progress = Math.min(elapsed / duration, 1);
+                        // Ease out cubic
+                        var eased = 1 - Math.pow(1 - progress, 3);
+                        var current = start + (target - start) * eased;
+
+                        if (decimals > 0) {
+                            el.textContent = prefix + current.toFixed(decimals) + suffix;
+                        } else {
+                            el.textContent = prefix + Math.floor(current).toLocaleString() + suffix;
+                        }
+
+                        if (progress < 1) {
+                            requestAnimationFrame(step);
+                        }
+                    }
+                    requestAnimationFrame(step);
+                });
+            }
+        }
+
+        window.addEventListener('scroll', animateCounters);
+        animateCounters(); // check on load
+
+        /* ============================
+           WEEKLY DIGEST ACCORDION
+           ============================ */
+        var digestHeaders = document.querySelectorAll('.digest-header');
+        digestHeaders.forEach(function(header) {
+            header.addEventListener('click', function() {
+                var item = header.parentElement;
+                var isOpen = item.classList.contains('open');
+
+                // Close all
+                document.querySelectorAll('.digest-item').forEach(function(d) {
+                    d.classList.remove('open');
+                });
+
+                // Toggle current
+                if (!isOpen) {
+                    item.classList.add('open');
+                }
+            });
+        });
+
+        /* ============================
+           SHARE BUTTON
+           ============================ */
+        document.querySelectorAll('.share-btn').forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                var card = btn.closest('.news-card');
+                var title = card ? card.querySelector('h3').textContent : '';
+                if (navigator.share) {
+                    navigator.share({ title: title, url: window.location.href });
+                } else if (navigator.clipboard) {
+                    navigator.clipboard.writeText(window.location.href).then(function() {
+                        btn.textContent = 'Copied!';
+                        setTimeout(function() { btn.innerHTML = '&#8599;'; }, 1500);
+                    });
+                }
+            });
+        });
+
+        /* ============================
+           NEWSLETTER FORM
+           ============================ */
+        window.handleNewsletter = function(e) {
+            e.preventDefault();
+            var msg = document.getElementById('newsletterMsg');
+            msg.style.display = 'block';
+            e.target.reset();
+            setTimeout(function() { msg.style.display = 'none'; }, 4000);
+        };
+
+    })();
+    </script>
+
+</body>
+</html>
