@@ -25,10 +25,10 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
     
-    <!-- Google Fonts -->
+    <!-- Google Fonts - Figtree (PurpleQuarter-inspired) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     
     <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SV8LBXML45"></script>
@@ -45,41 +45,47 @@
 
 <style>
 /* ============================================
-   UNIQUE PROFESSIONAL COLOR SYSTEM 2026
+   PURPLEQUARTER-INSPIRED DESIGN SYSTEM 2026
+   Premium Purple + Orange Accent Theme
    ============================================ */
  :root {
-    /* Sophisticated Gradient Palette */
-    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --accent-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-    --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-    --warning-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
-    
-    /* Deep Professional Colors */
-    --deep-navy: #0f1419;
-    --rich-purple: #6366f1;
-    --electric-blue: #3b82f6;
-    --cyber-cyan: #06b6d4;
+    /* PurpleQuarter-Inspired Gradients */
+    --primary-gradient: linear-gradient(135deg, #5B21B6 0%, #7C3AED 100%);
+    --accent-gradient: linear-gradient(135deg, #F97316 0%, #FB923C 100%);
+    --success-gradient: linear-gradient(135deg, #10B981 0%, #34D399 100%);
+    --warning-gradient: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%);
+
+    /* Deep Purple Professional Colors */
+    --deep-navy: #0A0118;
+    --rich-purple: #7C3AED;
+    --electric-blue: #8B5CF6;
+    --cyber-cyan: #A78BFA;
     --neon-green: #10b981;
-    --coral-pink: #f43f5e;
-    --amber-gold: #f59e0b;
-    
-    /* Sophisticated Neutrals */
-    --slate-900: #0f172a;
-    --slate-800: #1e293b;
-    --slate-700: #334155;
-    --slate-600: #475569;
-    --slate-400: #94a3b8;
-    --slate-300: #cbd5e1;
-    --slate-100: #f1f5f9;
-    
-    /* Glass Morphism */
-    --glass-bg: rgba(255, 255, 255, 0.05);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    
-    /* Typography */
-    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --coral-pink: #F97316;
+    --amber-gold: #FB923C;
+
+    /* Purple-Tinted Neutrals */
+    --slate-900: #0A0118;
+    --slate-800: #1A0B2E;
+    --slate-700: #2D1B4E;
+    --slate-600: #4C3575;
+    --slate-400: #A78BFA;
+    --slate-300: #C4B5FD;
+    --slate-100: #F5F3FF;
+
+    /* Glass Morphism - Purple Tinted */
+    --glass-bg: rgba(124, 58, 237, 0.08);
+    --glass-border: rgba(167, 139, 250, 0.15);
+    --glass-shadow: 0 8px 32px 0 rgba(91, 33, 182, 0.37);
+
+    /* Typography - Figtree (PurpleQuarter font) */
+    --font-primary: 'Figtree', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+    /* Orange Accent */
+    --accent-orange: #F97316;
+    --accent-orange-light: #FB923C;
+    --accent-orange-glow: rgba(249, 115, 22, 0.3);
 }
 
 /* ============================================
@@ -131,7 +137,7 @@ body {
 .orb-1 {
     width: 500px;
     height: 500px;
-    background: var(--primary-gradient);
+    background: linear-gradient(135deg, #5B21B6, #7C3AED);
     top: -10%;
     left: -10%;
     animation-delay: 0s;
@@ -140,7 +146,7 @@ body {
 .orb-2 {
     width: 400px;
     height: 400px;
-    background: var(--accent-gradient);
+    background: linear-gradient(135deg, #F97316, #FB923C);
     top: 50%;
     right: -10%;
     animation-delay: 5s;
@@ -149,7 +155,7 @@ body {
 .orb-3 {
     width: 450px;
     height: 450px;
-    background: var(--success-gradient);
+    background: linear-gradient(135deg, #7C3AED, #A78BFA);
     bottom: -10%;
     left: 30%;
     animation-delay: 10s;
@@ -489,7 +495,7 @@ body {
     font-weight: 900;
     line-height: 1.1;
     margin-bottom: 1.5rem;
-    background: linear-gradient(135deg, #ffffff 0%, #667eea 50%, #764ba2 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #C4B5FD 30%, #F97316 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -524,14 +530,14 @@ body {
 }
 
 .btn-primary {
-    background: var(--primary-gradient);
+    background: var(--accent-gradient);
     color: white;
-    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 10px 30px var(--accent-orange-glow);
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 15px 40px rgba(249, 115, 22, 0.5);
 }
 
 .btn-secondary {
@@ -625,7 +631,7 @@ body {
     font-size: clamp(2.5rem, 5vw, 3.5rem);
     font-weight: 800;
     margin-bottom: 1rem;
-    background: linear-gradient(135deg, #ffffff 0%, #667eea 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #C4B5FD 60%, #F97316 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -679,7 +685,7 @@ body {
 .feature-card:hover {
     transform: translateY(-8px);
     border-color: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 20px 60px rgba(102, 126, 234, 0.2);
+    box-shadow: 0 20px 60px rgba(124, 58, 237, 0.2);
 }
 
 .feature-icon {
@@ -692,7 +698,7 @@ body {
     justify-content: center;
     font-size: 2rem;
     margin-bottom: 1.5rem;
-    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 10px 30px rgba(249, 115, 22, 0.3);
 }
 
 .feature-card h3 {
@@ -897,7 +903,7 @@ body {
 }
 
 .info-box {
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+    background: linear-gradient(135deg, rgba(91, 33, 182, 0.15), rgba(249, 115, 22, 0.1));
     border-left: 4px solid var(--rich-purple);
     border-radius: 12px;
     padding: 1.5rem;
@@ -1150,217 +1156,412 @@ body {
 }
 
 /* ============================================
-   INTERACTIVE ASSESSMENT STYLES
+   GAMIFIED SECURITY QUIZ - WORLD CLASS UI
    ============================================ */
-.assessment-container {
-    max-width: 1000px;
+.quiz-master {
+    max-width: 720px;
     margin: 0 auto;
+    position: relative;
 }
 
-.assessment-progress {
-    background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    border: 1px solid var(--glass-border);
-    border-radius: 16px;
-    padding: 2rem;
-    margin-bottom: 2rem;
+/* Step indicator track */
+.quiz-steps {
+    position: relative;
+    margin-bottom: 2.5rem;
 }
 
-.progress-header {
+.step-track {
+    height: 4px;
+    background: var(--slate-700);
+    border-radius: 4px;
+    position: absolute;
+    top: 50%;
+    left: 24px;
+    right: 24px;
+    transform: translateY(-50%);
+    z-index: 0;
+}
+
+.step-fill {
+    height: 100%;
+    background: var(--accent-gradient);
+    border-radius: 4px;
+    width: 0%;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.step-dots {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
 }
 
-.progress-label {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--slate-100);
-}
-
-.progress-count {
-    font-size: 0.95rem;
-    color: var(--slate-400);
-    font-family: var(--font-mono);
-}
-
-.progress-bar-container {
-    height: 12px;
+.step-dot {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
     background: var(--slate-700);
-    border-radius: 20px;
-    overflow: hidden;
-}
-
-.progress-bar-fill {
-    height: 100%;
-    background: var(--primary-gradient);
-    border-radius: 20px;
-    width: 0%;
-    transition: width 0.5s ease;
-}
-
-.assessment-category {
-    background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    border: 1px solid var(--glass-border);
-    border-radius: 20px;
-    padding: 2rem;
-    margin-bottom: 2rem;
-    transition: all 0.3s ease;
-}
-
-.assessment-category:hover {
-    border-color: rgba(255, 255, 255, 0.2);
-    box-shadow: var(--glass-shadow);
-}
-
-.category-title {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--slate-100);
-}
-
-.category-icon {
-    font-size: 1.8rem;
-}
-
-.category-score {
-    margin-left: auto;
-    background: var(--slate-700);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-family: var(--font-mono);
-    color: var(--slate-300);
-}
-
-.assessment-items {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.assessment-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.02);
-    border-radius: 12px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: 1px solid transparent;
-}
-
-.assessment-item:hover {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: var(--glass-border);
-}
-
-.assessment-checkbox {
-    display: none;
-}
-
-.checkbox-custom {
-    width: 24px;
-    height: 24px;
     border: 2px solid var(--slate-600);
-    border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--slate-400);
     transition: all 0.3s ease;
-    margin-top: 2px;
 }
 
-.assessment-checkbox:checked + .checkbox-custom {
+.step-dot span { line-height: 1; }
+
+.step-dot.active {
+    background: var(--accent-gradient);
+    border-color: #F97316;
+    color: white;
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.4);
+    transform: scale(1.15);
+}
+
+.step-dot.done {
     background: var(--primary-gradient);
+    border-color: #7C3AED;
+    color: white;
+}
+
+/* Live Score Ring */
+.quiz-score-ring {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: -10px;
+    right: -60px;
+    z-index: 10;
+}
+
+.score-svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.ring-bg { fill: none; stroke: var(--slate-700); stroke-width: 8; }
+.ring-fill { fill: none; stroke: url(#scoreGrad); stroke-width: 8; stroke-linecap: round; transition: stroke-dashoffset 0.8s cubic-bezier(0.4, 0, 0.2, 1); stroke: #F97316; }
+
+.ring-label {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.ring-value { font-size: 1.6rem; font-weight: 800; color: #F97316; line-height: 1; }
+.ring-unit { font-size: 0.65rem; color: var(--slate-400); text-transform: uppercase; letter-spacing: 0.1em; }
+
+/* Question Cards */
+.quiz-card-stack {
+    position: relative;
+    min-height: 420px;
+}
+
+.quiz-card {
+    display: none;
+    background: var(--glass-bg);
+    backdrop-filter: blur(30px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 3rem;
+    text-align: center;
+    animation: cardSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.quiz-card.active { display: block; }
+
+@keyframes cardSlideIn {
+    from { opacity: 0; transform: translateX(40px) scale(0.97); }
+    to { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+@keyframes cardSlideOut {
+    from { opacity: 1; transform: translateX(0) scale(1); }
+    to { opacity: 0; transform: translateX(-40px) scale(0.97); }
+}
+
+.qcard-icon { margin-bottom: 1rem; }
+
+.qcard-category {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(124, 58, 237, 0.15);
+    border: 1px solid rgba(124, 58, 237, 0.3);
+    padding: 0.4rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #A78BFA;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 1rem;
+}
+
+.qcard-qnum {
+    font-size: 0.85rem;
+    color: var(--slate-400);
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.qcard-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--slate-100);
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.qcard-desc {
+    color: var(--slate-400);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.qcard-hint {
+    color: var(--slate-400);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    padding: 0.75rem 1.25rem;
+    background: rgba(249, 115, 22, 0.06);
+    border-left: 3px solid #F97316;
+    border-radius: 0 8px 8px 0;
+    text-align: left;
+}
+
+.qcard-domains {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+    margin-bottom: 2.5rem;
+}
+
+.domain-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(124, 58, 237, 0.1);
+    border: 1px solid rgba(124, 58, 237, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    color: #C4B5FD;
+    font-weight: 500;
+}
+
+.dchip-icon { font-size: 1.1rem; }
+
+.qcard-time {
+    font-size: 0.85rem;
+    color: var(--slate-400);
+    margin-top: 1rem;
+}
+
+/* Start Button */
+.quiz-start-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2.5rem;
+    background: var(--accent-gradient);
+    color: white;
+    border: none;
+    border-radius: 14px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: var(--font-primary);
+    box-shadow: 0 10px 40px rgba(249, 115, 22, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.quiz-start-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 50px rgba(249, 115, 22, 0.5);
+}
+
+/* Answer Options */
+.qcard-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.opt-btn {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.1rem 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px solid var(--glass-border);
+    border-radius: 14px;
+    color: var(--slate-300);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: var(--font-primary);
+    transition: all 0.25s ease;
+    text-align: left;
+}
+
+.opt-btn:hover {
+    background: rgba(124, 58, 237, 0.1);
+    border-color: rgba(124, 58, 237, 0.4);
+    color: var(--slate-100);
+    transform: translateX(4px);
+}
+
+.opt-btn.selected {
+    background: rgba(249, 115, 22, 0.12);
+    border-color: #F97316;
+    color: white;
+    box-shadow: 0 0 30px rgba(249, 115, 22, 0.15);
+}
+
+.opt-btn.selected .opt-icon {
+    color: #F97316;
+}
+
+.opt-icon {
+    font-size: 1.1rem;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--glass-bg);
+    flex-shrink: 0;
+    transition: all 0.25s ease;
+}
+
+/* Quiz Navigation */
+.quiz-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+    padding: 0 0.5rem;
+}
+
+.qnav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: var(--font-primary);
+    transition: all 0.2s ease;
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+    color: var(--slate-300);
+}
+
+.qnav-btn:hover:not(:disabled) { background: rgba(124, 58, 237, 0.15); color: white; }
+.qnav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+
+.qnav-next {
+    background: var(--primary-gradient);
+    color: white;
     border-color: transparent;
 }
 
-.assessment-checkbox:checked + .checkbox-custom::after {
-    content: '✓';
-    color: white;
-    font-weight: bold;
-    font-size: 16px;
+.qnav-next:hover:not(:disabled) { background: linear-gradient(135deg, #6D28D9, #8B5CF6); transform: translateY(-1px); }
+
+.qnav-counter {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--slate-400);
+    font-family: var(--font-mono);
 }
 
-.item-text {
-    flex: 1;
-    color: var(--slate-300);
-    line-height: 1.6;
-    user-select: none;
-}
-
-.assessment-checkbox:checked ~ .item-text {
-    color: var(--slate-100);
-}
-
-.assessment-results {
-    background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    border: 1px solid var(--glass-border);
-    border-radius: 20px;
-    padding: 3rem;
-    margin-top: 3rem;
+/* Results Dashboard */
+.results-dashboard {
     text-align: center;
 }
 
-.results-header h3 {
-    font-size: 1.8rem;
+.results-score-display {
+    margin: 2rem 0;
+    position: relative;
+}
+
+.results-ring-big { width: 180px; height: 180px; margin: 0 auto; position: relative; }
+.results-ring-big svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.results-ring-big .ring-bg { fill: none; stroke: var(--slate-700); stroke-width: 10; }
+.results-ring-big .ring-fill-result { fill: none; stroke-width: 10; stroke-linecap: round; transition: stroke-dashoffset 1.5s cubic-bezier(0.4, 0, 0.2, 1); }
+
+.results-center {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.results-pct { font-size: 3rem; font-weight: 900; line-height: 1; }
+.results-pct-label { font-size: 0.8rem; color: var(--slate-400); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.25rem; }
+
+.results-level-badge {
+    display: inline-block;
+    padding: 0.6rem 2rem;
+    border-radius: 50px;
     font-weight: 700;
-    margin-bottom: 2rem;
-    color: var(--slate-100);
+    font-size: 1rem;
+    margin: 1.5rem 0;
+    letter-spacing: 0.03em;
 }
 
-.overall-score {
-    font-size: 4rem;
-    font-weight: 900;
-    background: var(--primary-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 2rem;
-}
+.level-excellent { background: linear-gradient(135deg, #10b981, #34d399); color: white; }
+.level-good { background: linear-gradient(135deg, #7C3AED, #A78BFA); color: white; }
+.level-fair { background: linear-gradient(135deg, #F97316, #FB923C); color: white; }
+.level-poor { background: linear-gradient(135deg, #ef4444, #f87171); color: white; }
 
-.results-breakdown {
+.results-categories {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
     margin: 2rem 0;
 }
 
-.result-category {
-    background: rgba(255, 255, 255, 0.02);
-    padding: 1.5rem;
-    border-radius: 12px;
+.rcat-card {
+    background: rgba(255, 255, 255, 0.03);
     border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    padding: 1.25rem;
+    text-align: left;
 }
 
-.result-category h4 {
-    font-size: 0.9rem;
-    color: var(--slate-400);
-    margin-bottom: 0.5rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
+.rcat-label { font-size: 0.8rem; color: var(--slate-400); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.5rem; }
+.rcat-score { font-size: 1.5rem; font-weight: 800; color: var(--slate-100); margin-bottom: 0.5rem; }
 
-.result-category-score {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--slate-100);
-}
+.rcat-bar { height: 6px; background: var(--slate-700); border-radius: 6px; overflow: hidden; }
+.rcat-bar-fill { height: 100%; border-radius: 6px; transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1); }
 
-.result-category-label {
-    font-size: 0.85rem;
-    color: var(--slate-500);
-    margin-top: 0.25rem;
+.results-recommendation {
+    background: rgba(249, 115, 22, 0.06);
+    border-left: 3px solid #F97316;
+    border-radius: 0 12px 12px 0;
+    padding: 1.25rem 1.5rem;
+    text-align: left;
+    margin: 1.5rem 0;
+    color: var(--slate-300);
+    line-height: 1.7;
+    font-size: 0.95rem;
 }
 
 .results-actions {
@@ -1371,32 +1572,24 @@ body {
     margin-top: 2rem;
 }
 
-.readiness-level {
-    display: inline-block;
-    padding: 0.5rem 1.5rem;
-    border-radius: 20px;
-    font-weight: 600;
-    margin-top: 1rem;
+/* Confetti Canvas */
+#confettiCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
 }
 
-.level-excellent {
-    background: linear-gradient(135deg, #10b981, #34d399);
-    color: white;
-}
-
-.level-good {
-    background: linear-gradient(135deg, #3b82f6, #60a5fa);
-    color: white;
-}
-
-.level-fair {
-    background: linear-gradient(135deg, #f59e0b, #fbbf24);
-    color: white;
-}
-
-.level-poor {
-    background: linear-gradient(135deg, #ef4444, #f87171);
-    color: white;
+/* Responsive Quiz */
+@media (max-width: 768px) {
+    .quiz-score-ring { display: none; }
+    .quiz-card { padding: 2rem 1.5rem; }
+    .step-dot { width: 24px; height: 24px; font-size: 0.6rem; }
+    .results-categories { grid-template-columns: 1fr; }
+    .qcard-title { font-size: 1.25rem; }
 }
 
 /* ============================================
@@ -1454,7 +1647,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    background: linear-gradient(135deg, #5B21B6 0%, #F97316 100%);
 }
 
 /* ============================================
@@ -1486,7 +1679,7 @@ body {
     color: white;
     font-size: 1.5rem;
     cursor: pointer;
-    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 4px 20px rgba(249, 115, 22, 0.4);
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
@@ -1503,7 +1696,7 @@ body {
 
 .back-to-top:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 25px rgba(102, 126, 234, 0.6);
+    box-shadow: 0 6px 25px rgba(249, 115, 22, 0.6);
 }
 
 .back-to-top:active {
@@ -1562,7 +1755,7 @@ body {
 }
 
 .tool-preview {
-    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(6, 182, 212, 0.1));
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(249, 115, 22, 0.08));
     border: 1px solid var(--glass-border);
     border-radius: 12px;
     padding: 2rem;
@@ -1618,7 +1811,7 @@ body {
 .video-card:hover {
     transform: translateY(-5px);
     border-color: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 20px 60px rgba(249, 115, 22, 0.3);
 }
 
 .video-embed {
@@ -1738,7 +1931,7 @@ body {
     <!-- Navigation -->
     <nav class="main-nav">
         <div class="nav-container">
-            <a href="index.html" class="nav-logo" style="text-decoration: none;">
+            <a href="/" class="nav-logo" style="text-decoration: none;">
                 MySecurity Scores
             </a>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
@@ -1747,23 +1940,23 @@ body {
                 <span></span>
             </button>
             <ul class="nav-links" id="navLinks">
-                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="/" class="active">Home</a></li>
                 <li>
                     <a href="#">Guides &#9662;</a>
                     <ul class="nav-dropdown">
-                        <li><a href="security-guide.html">Security Guide</a></li>
-                        <li><a href="ssl-certificates.html">SSL Certificates</a></li>
-                        <li><a href="compliance-guide.html">Compliance Guide</a></li>
-                        <li><a href="security-best-practices.html">Best Practices</a></li>
-                        <li><a href="threat-intelligence.html">Threat Intelligence</a></li>
-                        <li><a href="password-security.html">Password Security</a></li>
-                        <li><a href="incident-response.html">Incident Response</a></li>
-                        <li><a href="cloud-security.html">Cloud Security</a></li>
+                        <li><a href="/security-guide">Security Guide</a></li>
+                        <li><a href="/ssl-certificates">SSL Certificates</a></li>
+                        <li><a href="/compliance-guide">Compliance Guide</a></li>
+                        <li><a href="/security-best-practices">Best Practices</a></li>
+                        <li><a href="/threat-intelligence">Threat Intelligence</a></li>
+                        <li><a href="/password-security">Password Security</a></li>
+                        <li><a href="/incident-response">Incident Response</a></li>
+                        <li><a href="/cloud-security">Cloud Security</a></li>
                     </ul>
                 </li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/faq">FAQ</a></li>
             </ul>
         </div>
     </nav>
@@ -1805,200 +1998,254 @@ body {
         </div>
     </div>
 
-    <!-- Interactive Security Readiness Assessment -->
-    <section class="section" id="assessment" style="background: var(--slate-800); padding: 4rem 0;">
+    <!-- Interactive Security Challenge - Gamified Multi-Step Quiz -->
+    <section class="section" id="assessment" style="padding: 5rem 0;">
     <div class="container">
             <div class="section-header">
-                <span class="section-badge">🎯 Interactive Tool</span>
-                <h2 class="section-title">Security Readiness Self-Assessment</h2>
+                <span class="section-badge" style="background: linear-gradient(135deg, rgba(249,115,22,0.15), rgba(124,58,237,0.15)); border-color: rgba(249,115,22,0.3); color: #FB923C;">INTERACTIVE CHALLENGE</span>
+                <h2 class="section-title">How Secure Is Your Organization?</h2>
                 <p class="section-description">
-                    Evaluate your organization's security posture with our comprehensive checklist. 
-                    Get instant insights based on industry best practices.
+                    Take our 2-minute Security Challenge. Answer 12 questions, get your personalized threat score, and receive actionable recommendations.
                 </p>
-                </div>
-                
-            <div class="assessment-container">
-                <div class="assessment-progress">
-                    <div class="progress-header">
-                        <span class="progress-label">Assessment Progress</span>
-                        <span class="progress-count">0 / 20 completed</span>
-                    </div>
-                    <div class="progress-bar-container">
-                        <div class="progress-bar-fill" id="assessmentProgress"></div>
-                    </div>
-                </div>
-                
-                <div class="assessment-categories">
-                    <!-- Access Control -->
-                    <div class="assessment-category">
-                        <h3 class="category-title">
-                            <span class="category-icon">🔐</span>
-                            <span>Access Control & Authentication</span>
-                            <span class="category-score" id="score-access">0/5</span>
-                        </h3>
-                        <div class="assessment-items">
-                            <label class="assessment-item">
-                                <input type="checkbox" class="assessment-checkbox" data-category="access">
-                                <span class="checkbox-custom"></span>
-                                <span class="item-text">Multi-Factor Authentication (MFA) enforced for all users</span>
-                            </label>
-                            <label class="assessment-item">
-                                <input type="checkbox" class="assessment-checkbox" data-category="access">
-                                <span class="checkbox-custom"></span>
-                                <span class="item-text">Strong password policy (12+ chars, complexity requirements)</span>
-                            </label>
-                            <label class="assessment-item">
-                                <input type="checkbox" class="assessment-checkbox" data-category="access">
-                                <span class="checkbox-custom"></span>
-                                <span class="item-text">Regular access reviews and privilege audits conducted</span>
-                            </label>
-                            <label class="assessment-item">
-                                <input type="checkbox" class="assessment-checkbox" data-category="access">
-                                <span class="checkbox-custom"></span>
-                                <span class="item-text">Privileged Access Management (PAM) solution implemented</span>
-                            </label>
-                            <label class="assessment-item">
-                                <input type="checkbox" class="assessment-checkbox" data-category="access">
-                                <span class="checkbox-custom"></span>
-                                <span class="item-text">Single Sign-On (SSO) deployed across critical applications</span>
-                            </label>
-                        </div>
-                </div>
-                
-                    <!-- Network Security -->
-                    <div class="assessment-category">
-                        <h3 class="category-title">
-                            <span class="category-icon">🌐</span>
-                            <span>Network Security</span>
-                            <span class="category-score" id="score-network">0/5</span>
-                        </h3>
-                        <div class="assessment-items">
-                            <label class="assessment-item">
-                                <input type="checkbox" class="assessment-checkbox" data-category="network">
-                                <span class="checkbox-custom"></span>
-                                <span class="item-text">Next-generation firewall with IPS/IDS capabilities</span>
-                            </label>
-                            <label class="assessment-item">
-                                <input type="checkbox" class="assessment-checkbox" data-category="network">
-                                <span class="checkbox-custom"></span>
-                                <span class="item-text">Network segmentation and VLANs properly configured</span>
-                            </label>
-                            <label class="assessment-item">
-                                <input type="checkbox" class="assessment-checkbox" data-category="network">
-                                <span class="checkbox-custom"></span>
-                                <span class="item-text">Secure VPN with MFA for remote access</span>
-                            </label>
-                            <label class="assessment-item">
-                                <input type="checkbox" class="assessment-checkbox" data-category="network">
-                                <span class="checkbox-custom"></span>
-                                <span class="item-text">DDoS protection and traffic filtering enabled</span>
-                            </label>
-                            <label class="assessment-item">
-                                <input type="checkbox" class="assessment-checkbox" data-category="network">
-                                <span class="checkbox-custom"></span>
-                                <span class="item-text">Wireless networks secured with WPA3 and 802.1X</span>
-                            </label>
-                        </div>
-                </div>
-                
-                    <!-- Data Protection -->
-                    <div class="assessment-category">
-                        <h3 class="category-title">
-                            <span class="category-icon">🔒</span>
-                            <span>Data Protection</span>
-                            <span class="category-score" id="score-data">0/5</span>
-                        </h3>
-                        <div class="assessment-items">
-                            <label class="assessment-item">
-                                <input type="checkbox" class="assessment-checkbox" data-category="data">
-                                <span class="checkbox-custom"></span>
-                                <span class="item-text">Data encryption at rest (AES-256 or equivalent)</span>
-                            </label>
-                            <label class="assessment-item">
-                                <input type="checkbox" class="assessment-checkbox" data-category="data">
-                                <span class="checkbox-custom"></span>
-                                <span class="item-text">TLS 1.3 enforced for data in transit</span>
-                            </label>
-                            <label class="assessment-item">
-                                <input type="checkbox" class="assessment-checkbox" data-category="data">
-                                <span class="checkbox-custom"></span>
-                                <span class="item-text">Regular encrypted backups with tested restoration procedures</span>
-                            </label>
-                            <label class="assessment-item">
-                                <input type="checkbox" class="assessment-checkbox" data-category="data">
-                                <span class="checkbox-custom"></span>
-                                <span class="item-text">Data Loss Prevention (DLP) solution deployed</span>
-                            </label>
-                            <label class="assessment-item">
-                                <input type="checkbox" class="assessment-checkbox" data-category="data">
-                                <span class="checkbox-custom"></span>
-                                <span class="item-text">Data classification policy implemented and enforced</span>
-                            </label>
-                        </div>
-                </div>
-                
-                    <!-- Monitoring & Response -->
-                    <div class="assessment-category">
-                        <h3 class="category-title">
-                            <span class="category-icon">📊</span>
-                            <span>Monitoring & Incident Response</span>
-                            <span class="category-score" id="score-monitoring">0/5</span>
-                        </h3>
-                        <div class="assessment-items">
-                            <label class="assessment-item">
-                                <input type="checkbox" class="assessment-checkbox" data-category="monitoring">
-                                <span class="checkbox-custom"></span>
-                                <span class="item-text">24/7 Security Operations Center (SOC) or SIEM monitoring</span>
-                            </label>
-                            <label class="assessment-item">
-                                <input type="checkbox" class="assessment-checkbox" data-category="monitoring">
-                                <span class="checkbox-custom"></span>
-                                <span class="item-text">Centralized log management with retention policies</span>
-                            </label>
-                            <label class="assessment-item">
-                                <input type="checkbox" class="assessment-checkbox" data-category="monitoring">
-                                <span class="checkbox-custom"></span>
-                                <span class="item-text">Documented incident response plan with defined roles</span>
-                            </label>
-                            <label class="assessment-item">
-                                <input type="checkbox" class="assessment-checkbox" data-category="monitoring">
-                                <span class="checkbox-custom"></span>
-                                <span class="item-text">Regular incident response drills and tabletop exercises</span>
-                            </label>
-                            <label class="assessment-item">
-                                <input type="checkbox" class="assessment-checkbox" data-category="monitoring">
-                                <span class="checkbox-custom"></span>
-                                <span class="item-text">Threat intelligence feeds integrated into security tools</span>
-                            </label>
-                </div>
             </div>
+
+            <!-- Quiz Container -->
+            <div class="quiz-master" id="quizMaster">
+                <!-- Step Indicator -->
+                <div class="quiz-steps">
+                    <div class="step-track">
+                        <div class="step-fill" id="stepFill"></div>
+                    </div>
+                    <div class="step-dots">
+                        <div class="step-dot active" data-step="0"><span>1</span></div>
+                        <div class="step-dot" data-step="1"><span>2</span></div>
+                        <div class="step-dot" data-step="2"><span>3</span></div>
+                        <div class="step-dot" data-step="3"><span>4</span></div>
+                        <div class="step-dot" data-step="4"><span>5</span></div>
+                        <div class="step-dot" data-step="5"><span>6</span></div>
+                        <div class="step-dot" data-step="6"><span>7</span></div>
+                        <div class="step-dot" data-step="7"><span>8</span></div>
+                        <div class="step-dot" data-step="8"><span>9</span></div>
+                        <div class="step-dot" data-step="9"><span>10</span></div>
+                        <div class="step-dot" data-step="10"><span>11</span></div>
+                        <div class="step-dot" data-step="11"><span>12</span></div>
+                    </div>
                 </div>
 
-                <div class="assessment-results" id="assessmentResults">
-                    <div class="results-header">
-                        <h3>Your Security Readiness Score</h3>
-                        <div class="overall-score" id="overallScore">0%</div>
-                    </div>
-                    <div class="results-breakdown" id="resultsBreakdown">
-                        <p style="text-align: center; color: var(--slate-400);">
-                            Complete the assessment above to see your results
-                        </p>
-                    </div>
-                    <div class="results-actions">
-                        <button class="btn-primary" onclick="generatePDFReport()" style="margin-right: 1rem;">
-                            📄 Download Report
-                        </button>
-                        <button class="btn-secondary" onclick="resetAssessment()">
-                            🔄 Reset Assessment
-                        </button>
-                    </div>
+                <!-- Live Score Ring -->
+                <div class="quiz-score-ring">
+                    <svg viewBox="0 0 120 120" class="score-svg">
+                        <circle cx="60" cy="60" r="52" class="ring-bg"/>
+                        <circle cx="60" cy="60" r="52" class="ring-fill" id="scoreRing" stroke-dasharray="327" stroke-dashoffset="327"/>
+                    </svg>
+                    <div class="ring-label">
+                        <span class="ring-value" id="liveScore">0</span>
+                        <span class="ring-unit">pts</span>
                     </div>
                 </div>
+
+                <!-- Question Cards -->
+                <div class="quiz-card-stack" id="cardStack">
+                    <!-- Welcome Card -->
+                    <div class="quiz-card active" data-index="start">
+                        <div class="qcard-icon" style="font-size: 4rem;">&#128737;</div>
+                        <h3 class="qcard-title">Security Readiness Challenge</h3>
+                        <p class="qcard-desc">12 quick questions across 4 security domains. Get your organization's threat readiness score instantly.</p>
+                        <div class="qcard-domains">
+                            <span class="domain-chip"><span class="dchip-icon">&#128274;</span> Access Control</span>
+                            <span class="domain-chip"><span class="dchip-icon">&#127760;</span> Network Security</span>
+                            <span class="domain-chip"><span class="dchip-icon">&#128274;</span> Data Protection</span>
+                            <span class="domain-chip"><span class="dchip-icon">&#128202;</span> Monitoring & Response</span>
+                        </div>
+                        <button class="quiz-start-btn" onclick="startQuiz()">
+                            Start Challenge
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7 5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                        </button>
+                        <p class="qcard-time">Takes about 2 minutes</p>
+                    </div>
+
+                    <!-- Q1: Access Control -->
+                    <div class="quiz-card" data-index="0" data-category="access">
+                        <div class="qcard-category"><span>&#128274;</span> Access Control</div>
+                        <div class="qcard-qnum">Question 1 of 12</div>
+                        <h3 class="qcard-title">Is Multi-Factor Authentication (MFA) enforced for all users and admin accounts?</h3>
+                        <p class="qcard-hint">MFA blocks 99.9% of automated attacks. It's the single most effective security control.</p>
+                        <div class="qcard-options">
+                            <button class="opt-btn" data-points="3" onclick="selectAnswer(this)"><span class="opt-icon">&#10004;</span> Yes, fully enforced</button>
+                            <button class="opt-btn" data-points="1" onclick="selectAnswer(this)"><span class="opt-icon">&#9679;</span> Partially (some accounts)</button>
+                            <button class="opt-btn" data-points="0" onclick="selectAnswer(this)"><span class="opt-icon">&#10006;</span> No</button>
+                        </div>
+                    </div>
+
+                    <!-- Q2: Access Control -->
+                    <div class="quiz-card" data-index="1" data-category="access">
+                        <div class="qcard-category"><span>&#128274;</span> Access Control</div>
+                        <div class="qcard-qnum">Question 2 of 12</div>
+                        <h3 class="qcard-title">Do you conduct regular access reviews and enforce least-privilege principles?</h3>
+                        <p class="qcard-hint">Over-privileged accounts are a top vector for lateral movement in breaches.</p>
+                        <div class="qcard-options">
+                            <button class="opt-btn" data-points="3" onclick="selectAnswer(this)"><span class="opt-icon">&#10004;</span> Quarterly reviews + PAM</button>
+                            <button class="opt-btn" data-points="2" onclick="selectAnswer(this)"><span class="opt-icon">&#9679;</span> Annual reviews only</button>
+                            <button class="opt-btn" data-points="0" onclick="selectAnswer(this)"><span class="opt-icon">&#10006;</span> No formal process</button>
+                        </div>
+                    </div>
+
+                    <!-- Q3: Access Control -->
+                    <div class="quiz-card" data-index="2" data-category="access">
+                        <div class="qcard-category"><span>&#128274;</span> Access Control</div>
+                        <div class="qcard-qnum">Question 3 of 12</div>
+                        <h3 class="qcard-title">Is SSO deployed with strong password policies (12+ chars) across your org?</h3>
+                        <p class="qcard-hint">SSO reduces password fatigue and centralizes security policy enforcement.</p>
+                        <div class="qcard-options">
+                            <button class="opt-btn" data-points="3" onclick="selectAnswer(this)"><span class="opt-icon">&#10004;</span> SSO + strong policy</button>
+                            <button class="opt-btn" data-points="1" onclick="selectAnswer(this)"><span class="opt-icon">&#9679;</span> Strong passwords only</button>
+                            <button class="opt-btn" data-points="0" onclick="selectAnswer(this)"><span class="opt-icon">&#10006;</span> No SSO, weak policies</button>
+                        </div>
+                    </div>
+
+                    <!-- Q4: Network Security -->
+                    <div class="quiz-card" data-index="3" data-category="network">
+                        <div class="qcard-category"><span>&#127760;</span> Network Security</div>
+                        <div class="qcard-qnum">Question 4 of 12</div>
+                        <h3 class="qcard-title">Do you have a next-gen firewall with IPS/IDS and proper network segmentation?</h3>
+                        <p class="qcard-hint">Segmented networks contain breaches and limit blast radius of attacks.</p>
+                        <div class="qcard-options">
+                            <button class="opt-btn" data-points="3" onclick="selectAnswer(this)"><span class="opt-icon">&#10004;</span> NGFW + full segmentation</button>
+                            <button class="opt-btn" data-points="1" onclick="selectAnswer(this)"><span class="opt-icon">&#9679;</span> Basic firewall only</button>
+                            <button class="opt-btn" data-points="0" onclick="selectAnswer(this)"><span class="opt-icon">&#10006;</span> Minimal protection</button>
+                        </div>
+                    </div>
+
+                    <!-- Q5: Network Security -->
+                    <div class="quiz-card" data-index="4" data-category="network">
+                        <div class="qcard-category"><span>&#127760;</span> Network Security</div>
+                        <div class="qcard-qnum">Question 5 of 12</div>
+                        <h3 class="qcard-title">Is remote access secured with VPN + MFA, and wireless networks using WPA3?</h3>
+                        <p class="qcard-hint">Remote work has expanded the attack surface - secure access is non-negotiable.</p>
+                        <div class="qcard-options">
+                            <button class="opt-btn" data-points="3" onclick="selectAnswer(this)"><span class="opt-icon">&#10004;</span> VPN + MFA + WPA3</button>
+                            <button class="opt-btn" data-points="1" onclick="selectAnswer(this)"><span class="opt-icon">&#9679;</span> VPN only, WPA2</button>
+                            <button class="opt-btn" data-points="0" onclick="selectAnswer(this)"><span class="opt-icon">&#10006;</span> No VPN / open WiFi</button>
+                        </div>
+                    </div>
+
+                    <!-- Q6: Network Security -->
+                    <div class="quiz-card" data-index="5" data-category="network">
+                        <div class="qcard-category"><span>&#127760;</span> Network Security</div>
+                        <div class="qcard-qnum">Question 6 of 12</div>
+                        <h3 class="qcard-title">Do you have DDoS protection and active traffic filtering in place?</h3>
+                        <p class="qcard-hint">DDoS attacks surged 150% in 2025. Proactive protection prevents downtime.</p>
+                        <div class="qcard-options">
+                            <button class="opt-btn" data-points="3" onclick="selectAnswer(this)"><span class="opt-icon">&#10004;</span> Enterprise DDoS + WAF</button>
+                            <button class="opt-btn" data-points="1" onclick="selectAnswer(this)"><span class="opt-icon">&#9679;</span> Basic CDN protection</button>
+                            <button class="opt-btn" data-points="0" onclick="selectAnswer(this)"><span class="opt-icon">&#10006;</span> No protection</button>
+                        </div>
+                    </div>
+
+                    <!-- Q7: Data Protection -->
+                    <div class="quiz-card" data-index="6" data-category="data">
+                        <div class="qcard-category"><span>&#128274;</span> Data Protection</div>
+                        <div class="qcard-qnum">Question 7 of 12</div>
+                        <h3 class="qcard-title">Is your data encrypted at rest (AES-256) and in transit (TLS 1.3)?</h3>
+                        <p class="qcard-hint">Encryption is the last line of defense when other controls fail.</p>
+                        <div class="qcard-options">
+                            <button class="opt-btn" data-points="3" onclick="selectAnswer(this)"><span class="opt-icon">&#10004;</span> Full encryption everywhere</button>
+                            <button class="opt-btn" data-points="1" onclick="selectAnswer(this)"><span class="opt-icon">&#9679;</span> In transit only (HTTPS)</button>
+                            <button class="opt-btn" data-points="0" onclick="selectAnswer(this)"><span class="opt-icon">&#10006;</span> No / unsure</button>
+                        </div>
+                    </div>
+
+                    <!-- Q8: Data Protection -->
+                    <div class="quiz-card" data-index="7" data-category="data">
+                        <div class="qcard-category"><span>&#128274;</span> Data Protection</div>
+                        <div class="qcard-qnum">Question 8 of 12</div>
+                        <h3 class="qcard-title">Do you have regular encrypted backups with tested restoration procedures?</h3>
+                        <p class="qcard-hint">73% of ransomware victims with untested backups fail to recover their data.</p>
+                        <div class="qcard-options">
+                            <button class="opt-btn" data-points="3" onclick="selectAnswer(this)"><span class="opt-icon">&#10004;</span> 3-2-1 backups + tested</button>
+                            <button class="opt-btn" data-points="1" onclick="selectAnswer(this)"><span class="opt-icon">&#9679;</span> Backups, but untested</button>
+                            <button class="opt-btn" data-points="0" onclick="selectAnswer(this)"><span class="opt-icon">&#10006;</span> No formal backups</button>
+                        </div>
+                    </div>
+
+                    <!-- Q9: Data Protection -->
+                    <div class="quiz-card" data-index="8" data-category="data">
+                        <div class="qcard-category"><span>&#128274;</span> Data Protection</div>
+                        <div class="qcard-qnum">Question 9 of 12</div>
+                        <h3 class="qcard-title">Is a Data Loss Prevention (DLP) solution and data classification policy in place?</h3>
+                        <p class="qcard-hint">DLP prevents accidental exposure of sensitive data through email, cloud, and USB.</p>
+                        <div class="qcard-options">
+                            <button class="opt-btn" data-points="3" onclick="selectAnswer(this)"><span class="opt-icon">&#10004;</span> DLP + classification active</button>
+                            <button class="opt-btn" data-points="1" onclick="selectAnswer(this)"><span class="opt-icon">&#9679;</span> Policies exist, no DLP tool</button>
+                            <button class="opt-btn" data-points="0" onclick="selectAnswer(this)"><span class="opt-icon">&#10006;</span> Nothing in place</button>
+                        </div>
+                    </div>
+
+                    <!-- Q10: Monitoring -->
+                    <div class="quiz-card" data-index="9" data-category="monitoring">
+                        <div class="qcard-category"><span>&#128202;</span> Monitoring & Response</div>
+                        <div class="qcard-qnum">Question 10 of 12</div>
+                        <h3 class="qcard-title">Do you have 24/7 SIEM monitoring or a Security Operations Center (SOC)?</h3>
+                        <p class="qcard-hint">Average time to detect a breach without monitoring: 287 days. With SOC: under 24 hours.</p>
+                        <div class="qcard-options">
+                            <button class="opt-btn" data-points="3" onclick="selectAnswer(this)"><span class="opt-icon">&#10004;</span> 24/7 SOC / SIEM active</button>
+                            <button class="opt-btn" data-points="1" onclick="selectAnswer(this)"><span class="opt-icon">&#9679;</span> Basic log monitoring</button>
+                            <button class="opt-btn" data-points="0" onclick="selectAnswer(this)"><span class="opt-icon">&#10006;</span> No monitoring</button>
+                        </div>
+                    </div>
+
+                    <!-- Q11: Monitoring -->
+                    <div class="quiz-card" data-index="10" data-category="monitoring">
+                        <div class="qcard-category"><span>&#128202;</span> Monitoring & Response</div>
+                        <div class="qcard-qnum">Question 11 of 12</div>
+                        <h3 class="qcard-title">Do you have a documented incident response plan with regular drills?</h3>
+                        <p class="qcard-hint">Organizations with IR plans save $2.66M per breach on average (IBM 2025).</p>
+                        <div class="qcard-options">
+                            <button class="opt-btn" data-points="3" onclick="selectAnswer(this)"><span class="opt-icon">&#10004;</span> Documented + quarterly drills</button>
+                            <button class="opt-btn" data-points="1" onclick="selectAnswer(this)"><span class="opt-icon">&#9679;</span> Plan exists, no drills</button>
+                            <button class="opt-btn" data-points="0" onclick="selectAnswer(this)"><span class="opt-icon">&#10006;</span> No IR plan</button>
+                        </div>
+                    </div>
+
+                    <!-- Q12: Monitoring -->
+                    <div class="quiz-card" data-index="11" data-category="monitoring">
+                        <div class="qcard-category"><span>&#128202;</span> Monitoring & Response</div>
+                        <div class="qcard-qnum">Question 12 of 12</div>
+                        <h3 class="qcard-title">Are threat intelligence feeds integrated into your security tooling?</h3>
+                        <p class="qcard-hint">Threat intel transforms reactive defense into proactive threat hunting.</p>
+                        <div class="qcard-options">
+                            <button class="opt-btn" data-points="3" onclick="selectAnswer(this)"><span class="opt-icon">&#10004;</span> Feeds + automated response</button>
+                            <button class="opt-btn" data-points="1" onclick="selectAnswer(this)"><span class="opt-icon">&#9679;</span> Manual threat tracking</button>
+                            <button class="opt-btn" data-points="0" onclick="selectAnswer(this)"><span class="opt-icon">&#10006;</span> No threat intel</button>
+                        </div>
+                    </div>
+
+                    <!-- Results Card -->
+                    <div class="quiz-card" data-index="results">
+                        <div class="results-dashboard" id="resultsDashboard">
+                            <!-- Filled by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <div class="quiz-nav" id="quizNav" style="display:none;">
+                    <button class="qnav-btn qnav-prev" id="prevBtn" onclick="prevQuestion()" disabled>
+                        <svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M13 15l-5-5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                        Back
+                    </button>
+                    <span class="qnav-counter" id="qnavCounter">1 / 12</span>
+                    <button class="qnav-btn qnav-next" id="nextBtn" onclick="nextQuestion()" disabled>
+                        Next
+                        <svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M7 5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                    </button>
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
     <!-- Newsletter Signup -->
-    <section class="section" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1)); padding: 4rem 0;">
+    <section class="section" style="background: linear-gradient(135deg, rgba(91, 33, 182, 0.15), rgba(249, 115, 22, 0.1)); padding: 4rem 0;">
         <div class="container">
             <div class="newsletter-container">
                 <div class="newsletter-content">
@@ -3154,7 +3401,7 @@ server {
     </section>
 
     <!-- Interactive Tools Section -->
-    <section class="section" id="tools" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(6, 182, 212, 0.1)); padding: 4rem 0;">
+    <section class="section" id="tools" style="background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(249, 115, 22, 0.08)); padding: 4rem 0;">
         <div class="container">
             <div class="section-header">
                 <span class="section-badge">🛠️ Interactive Tools</span>
@@ -3448,41 +3695,41 @@ server {
             <div class="footer-col">
                 <h4>Quick Links</h4>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="security-guide.html">Security Guide</a></li>
-                    <li><a href="ssl-certificates.html">SSL Certificates</a></li>
-                    <li><a href="compliance-guide.html">Compliance Guide</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/security-guide">Security Guide</a></li>
+                    <li><a href="/ssl-certificates">SSL Certificates</a></li>
+                    <li><a href="/compliance-guide">Compliance Guide</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/faq">FAQ</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Resources</h4>
                 <ul>
-                    <li><a href="threat-intelligence.html">Threat Intelligence</a></li>
-                    <li><a href="security-best-practices.html">Best Practices</a></li>
-                    <li><a href="password-security.html">Password Security</a></li>
-                    <li><a href="incident-response.html">Incident Response</a></li>
-                    <li><a href="cloud-security.html">Cloud Security</a></li>
+                    <li><a href="/threat-intelligence">Threat Intelligence</a></li>
+                    <li><a href="/security-best-practices">Best Practices</a></li>
+                    <li><a href="/password-security">Password Security</a></li>
+                    <li><a href="/incident-response">Incident Response</a></li>
+                    <li><a href="/cloud-security">Cloud Security</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Legal</h4>
                 <ul>
-                    <li><a href="privacy.html">Privacy Policy</a></li>
-                    <li><a href="terms.html">Terms of Service</a></li>
-                    <li><a href="contact.html">Cookie Policy</a></li>
-                    <li><a href="contact.html">Disclaimer</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                    <li><a href="/terms">Terms of Service</a></li>
+                    <li><a href="/contact">Cookie Policy</a></li>
+                    <li><a href="/contact">Disclaimer</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
             <p>&copy; 2026 MySecurity Scores. All rights reserved.</p>
             <div class="footer-bottom-links">
-                <a href="privacy.html">Privacy</a>
-                <a href="terms.html">Terms</a>
-                <a href="contact.html">Contact</a>
+                <a href="/privacy">Privacy</a>
+                <a href="/terms">Terms</a>
+                <a href="/contact">Contact</a>
             </div>
         </div>
     </footer>
@@ -3490,7 +3737,7 @@ server {
     <!-- Cookie Consent Banner -->
     <div class="cookie-banner" id="cookieBanner">
         <div class="cookie-content">
-            <p>We use cookies to enhance your browsing experience, analyze site traffic, and serve relevant content. By clicking "Accept," you consent to our use of cookies. Read our <a href="privacy.html">Privacy Policy</a> for more information.</p>
+            <p>We use cookies to enhance your browsing experience, analyze site traffic, and serve relevant content. By clicking "Accept," you consent to our use of cookies. Read our <a href="/privacy">Privacy Policy</a> for more information.</p>
             <div class="cookie-buttons">
                 <button class="cookie-btn cookie-btn-reject" id="cookieReject">Reject</button>
                 <button class="cookie-btn cookie-btn-accept" id="cookieAccept">Accept</button>
@@ -3501,246 +3748,311 @@ server {
     <!-- JavaScript -->
     <script>
         // ============================================
-        // INTERACTIVE ASSESSMENT FUNCTIONALITY
+        // GAMIFIED SECURITY QUIZ ENGINE
         // ============================================
-        let assessmentData = {
-            access: 0,
-            network: 0,
-            data: 0,
-            monitoring: 0,
-            total: 0,
-            maxScore: 20
+        let quizState = {
+            currentQ: -1, // -1 = start screen
+            answers: [],
+            scores: { access: 0, network: 0, data: 0, monitoring: 0 },
+            maxScores: { access: 9, network: 9, data: 9, monitoring: 9 },
+            totalMax: 36,
+            totalScore: 0
         };
 
-        // Initialize assessment listeners
-        document.addEventListener('DOMContentLoaded', function() {
-            const checkboxes = document.querySelectorAll('.assessment-checkbox');
-            
-            checkboxes.forEach(checkbox => {
-                checkbox.addEventListener('change', function() {
-                    updateAssessmentScore();
-                    
-                    // Track engagement
-                    gtag('event', 'assessment_interaction', {
-                        'category': this.dataset.category,
-                        'checked': this.checked
-                    });
-                });
-            });
-        });
+        const TOTAL_QUESTIONS = 12;
 
-        function updateAssessmentScore() {
-            // Reset scores
-            assessmentData = {
-                access: 0,
-                network: 0,
-                data: 0,
-                monitoring: 0,
-                total: 0,
-                maxScore: 20
-            };
-
-            // Count checked items per category
-            document.querySelectorAll('.assessment-checkbox:checked').forEach(checkbox => {
-                const category = checkbox.dataset.category;
-                assessmentData[category]++;
-                assessmentData.total++;
-            });
-
-            // Update progress bar
-            const progressPercent = (assessmentData.total / assessmentData.maxScore) * 100;
-            document.getElementById('assessmentProgress').style.width = progressPercent + '%';
-            document.querySelector('.progress-count').textContent = 
-                `${assessmentData.total} / ${assessmentData.maxScore} completed`;
-
-            // Update category scores
-            document.getElementById('score-access').textContent = `${assessmentData.access}/5`;
-            document.getElementById('score-network').textContent = `${assessmentData.network}/5`;
-            document.getElementById('score-data').textContent = `${assessmentData.data}/5`;
-            document.getElementById('score-monitoring').textContent = `${assessmentData.monitoring}/5`;
-
-            // Update overall score
-            const overallPercent = Math.round((assessmentData.total / assessmentData.maxScore) * 100);
-            document.getElementById('overallScore').textContent = overallPercent + '%';
-
-            // Generate results breakdown
-            if (assessmentData.total > 0) {
-                displayAssessmentResults(overallPercent);
-            }
+        function startQuiz() {
+            quizState.currentQ = 0;
+            document.getElementById('quizNav').style.display = 'flex';
+            showCard(0);
+            updateStepIndicator();
+            gtag('event', 'quiz_started', {});
         }
 
-        function displayAssessmentResults(score) {
-            let level, levelClass, recommendation;
+        function showCard(index) {
+            var cards = document.querySelectorAll('.quiz-card');
+            cards.forEach(function(c) { c.classList.remove('active'); c.style.animation = 'none'; });
 
-            if (score >= 90) {
-                level = 'Excellent';
-                levelClass = 'level-excellent';
-                recommendation = 'Your organization demonstrates outstanding security practices. Continue with regular assessments and stay current with emerging threats.';
-            } else if (score >= 75) {
-                level = 'Good';
-                levelClass = 'level-good';
-                recommendation = 'Strong security posture with minor gaps. Focus on completing remaining controls and consider advanced security measures.';
-            } else if (score >= 50) {
-                level = 'Fair';
-                levelClass = 'level-fair';
-                recommendation = 'Adequate baseline security but significant improvements needed. Prioritize critical controls and develop a remediation roadmap.';
+            var target;
+            if (index === -1) {
+                target = document.querySelector('[data-index="start"]');
+            } else if (index >= TOTAL_QUESTIONS) {
+                target = document.querySelector('[data-index="results"]');
             } else {
-                level = 'Needs Improvement';
-                levelClass = 'level-poor';
-                recommendation = 'Critical security gaps identified. Immediate action required. Consider engaging security consultants for comprehensive assessment.';
+                target = document.querySelector('[data-index="' + index + '"]');
             }
 
-            const resultsHtml = `
-                <div class="results-breakdown">
-                    <div class="result-category">
-                        <h4>Access Control</h4>
-                        <div class="result-category-score">${assessmentData.access}/5</div>
-                        <div class="result-category-label">${Math.round((assessmentData.access/5)*100)}%</div>
-                        </div>
-                    <div class="result-category">
-                        <h4>Network Security</h4>
-                        <div class="result-category-score">${assessmentData.network}/5</div>
-                        <div class="result-category-label">${Math.round((assessmentData.network/5)*100)}%</div>
-                            </div>
-                    <div class="result-category">
-                        <h4>Data Protection</h4>
-                        <div class="result-category-score">${assessmentData.data}/5</div>
-                        <div class="result-category-label">${Math.round((assessmentData.data/5)*100)}%</div>
-                        </div>
-                    <div class="result-category">
-                        <h4>Monitoring</h4>
-                        <div class="result-category-score">${assessmentData.monitoring}/5</div>
-                        <div class="result-category-label">${Math.round((assessmentData.monitoring/5)*100)}%</div>
-                    </div>
-                </div>
-                <div class="readiness-level ${levelClass}">
-                    ${level} Security Readiness
-                </div>
-                <p style="color: var(--slate-400); margin-top: 1.5rem; line-height: 1.7; max-width: 700px; margin-left: auto; margin-right: auto;">
-                    ${recommendation}
-                </p>
-            `;
+            if (target) {
+                void target.offsetWidth; // force reflow
+                target.style.animation = 'cardSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+                target.classList.add('active');
+            }
 
-            document.getElementById('resultsBreakdown').innerHTML = resultsHtml;
+            updateNavButtons();
+        }
 
-            // Track completion
-            if (score === 100) {
-                gtag('event', 'assessment_completed', {
-                    'score': score,
-                    'level': level
-                });
+        function selectAnswer(btn) {
+            var card = btn.closest('.quiz-card');
+            var qIndex = parseInt(card.dataset.index);
+            var category = card.dataset.category;
+            var points = parseInt(btn.dataset.points);
+
+            // Deselect siblings
+            card.querySelectorAll('.opt-btn').forEach(function(b) { b.classList.remove('selected'); });
+            btn.classList.add('selected');
+
+            // Store answer
+            quizState.answers[qIndex] = { category: category, points: points };
+
+            // Recalculate scores
+            recalcScores();
+            updateLiveScoreRing();
+            updateNavButtons();
+
+            // Track
+            gtag('event', 'quiz_answer', { 'question': qIndex, 'category': category, 'points': points });
+
+            // Auto-advance after a brief delay
+            setTimeout(function() {
+                if (qIndex < TOTAL_QUESTIONS - 1) {
+                    nextQuestion();
+                }
+            }, 600);
+        }
+
+        function recalcScores() {
+            quizState.scores = { access: 0, network: 0, data: 0, monitoring: 0 };
+            quizState.totalScore = 0;
+            quizState.answers.forEach(function(a) {
+                if (a) {
+                    quizState.scores[a.category] += a.points;
+                    quizState.totalScore += a.points;
+                }
+            });
+        }
+
+        function updateLiveScoreRing() {
+            var pct = quizState.totalScore / quizState.totalMax;
+            var circumference = 327;
+            var offset = circumference - (pct * circumference);
+            var ring = document.getElementById('scoreRing');
+            if (ring) ring.setAttribute('stroke-dashoffset', offset);
+
+            var liveScore = document.getElementById('liveScore');
+            if (liveScore) liveScore.textContent = quizState.totalScore;
+        }
+
+        function updateStepIndicator() {
+            var dots = document.querySelectorAll('.step-dot');
+            dots.forEach(function(dot, i) {
+                dot.classList.remove('active', 'done');
+                if (i < quizState.currentQ) dot.classList.add('done');
+                else if (i === quizState.currentQ) dot.classList.add('active');
+            });
+
+            var fill = document.getElementById('stepFill');
+            if (fill) {
+                var pct = quizState.currentQ >= 0 ? (quizState.currentQ / (TOTAL_QUESTIONS - 1)) * 100 : 0;
+                fill.style.width = Math.min(pct, 100) + '%';
+            }
+
+            var counter = document.getElementById('qnavCounter');
+            if (counter && quizState.currentQ >= 0) {
+                counter.textContent = (quizState.currentQ + 1) + ' / ' + TOTAL_QUESTIONS;
             }
         }
 
-        function resetAssessment() {
-            document.querySelectorAll('.assessment-checkbox').forEach(checkbox => {
-                checkbox.checked = false;
+        function updateNavButtons() {
+            var prevBtn = document.getElementById('prevBtn');
+            var nextBtn = document.getElementById('nextBtn');
+
+            if (prevBtn) prevBtn.disabled = quizState.currentQ <= 0;
+
+            if (nextBtn) {
+                var hasAnswer = quizState.answers[quizState.currentQ] !== undefined;
+                nextBtn.disabled = !hasAnswer;
+
+                if (quizState.currentQ === TOTAL_QUESTIONS - 1 && hasAnswer) {
+                    nextBtn.textContent = 'See Results';
+                } else {
+                    nextBtn.innerHTML = 'Next <svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M7 5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+                }
+            }
+        }
+
+        function nextQuestion() {
+            if (quizState.currentQ < TOTAL_QUESTIONS - 1) {
+                quizState.currentQ++;
+                showCard(quizState.currentQ);
+                updateStepIndicator();
+            } else {
+                showResults();
+            }
+        }
+
+        function prevQuestion() {
+            if (quizState.currentQ > 0) {
+                quizState.currentQ--;
+                showCard(quizState.currentQ);
+                updateStepIndicator();
+            }
+        }
+
+        function showResults() {
+            recalcScores();
+            var pct = Math.round((quizState.totalScore / quizState.totalMax) * 100);
+            var level, levelClass, recommendation, ringColor;
+
+            if (pct >= 85) {
+                level = 'Excellent'; levelClass = 'level-excellent'; ringColor = '#10b981';
+                recommendation = 'Outstanding security posture! Your organization demonstrates mature security practices across all domains. Continue monitoring for emerging threats and maintain your assessment cadence.';
+            } else if (pct >= 65) {
+                level = 'Strong'; levelClass = 'level-good'; ringColor = '#7C3AED';
+                recommendation = 'Good security foundations with room for improvement. Focus on strengthening your weakest category and consider advanced measures like threat intelligence integration and automated response.';
+            } else if (pct >= 40) {
+                level = 'Developing'; levelClass = 'level-fair'; ringColor = '#F97316';
+                recommendation = 'Significant security gaps exist that need attention. Prioritize MFA deployment, encryption, and incident response planning. Consider engaging a security consultant for a comprehensive roadmap.';
+            } else {
+                level = 'Critical Risk'; levelClass = 'level-poor'; ringColor = '#ef4444';
+                recommendation = 'Your organization faces critical security risks. Immediate action is required on foundational controls: implement MFA, establish backup procedures, and deploy basic monitoring. Professional security assessment is strongly recommended.';
+            }
+
+            var catCards = '';
+            var catNames = { access: 'Access Control', network: 'Network Security', data: 'Data Protection', monitoring: 'Monitoring & Response' };
+            var catColors = { access: '#7C3AED', network: '#8B5CF6', data: '#F97316', monitoring: '#10b981' };
+
+            Object.keys(catNames).forEach(function(key) {
+                var catPct = Math.round((quizState.scores[key] / quizState.maxScores[key]) * 100);
+                catCards += '<div class="rcat-card">' +
+                    '<div class="rcat-label">' + catNames[key] + '</div>' +
+                    '<div class="rcat-score">' + catPct + '%</div>' +
+                    '<div class="rcat-bar"><div class="rcat-bar-fill" style="width:0%;background:' + catColors[key] + ';" data-width="' + catPct + '%"></div></div>' +
+                    '</div>';
             });
-            
-            assessmentData = {
-                access: 0,
-                network: 0,
-                data: 0,
-                monitoring: 0,
-                total: 0,
-                maxScore: 20
+
+            var circumference = 327;
+            var dashoffset = circumference - ((pct / 100) * circumference);
+
+            document.getElementById('resultsDashboard').innerHTML =
+                '<h3 style="font-size:1.8rem;font-weight:800;color:var(--slate-100);margin-bottom:0.5rem;">Your Security Score</h3>' +
+                '<div class="results-score-display"><div class="results-ring-big">' +
+                '<svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" class="ring-bg"/>' +
+                '<circle cx="60" cy="60" r="52" class="ring-fill-result" stroke="' + ringColor + '" stroke-dasharray="' + circumference + '" stroke-dashoffset="' + circumference + '" id="resultRing"/>' +
+                '</svg><div class="results-center"><span class="results-pct" style="color:' + ringColor + ';">' + pct + '%</span><span class="results-pct-label">Score</span></div></div></div>' +
+                '<div class="results-level-badge ' + levelClass + '">' + level + ' Security Readiness</div>' +
+                '<div class="results-categories">' + catCards + '</div>' +
+                '<div class="results-recommendation">' + recommendation + '</div>' +
+                '<div class="results-actions">' +
+                '<button class="btn-primary" onclick="generatePDFReport()" style="margin-right:0.5rem;">Download Report</button>' +
+                '<button class="btn-secondary" onclick="resetQuiz()">Retake Challenge</button></div>';
+
+            showCard(TOTAL_QUESTIONS);
+            document.getElementById('quizNav').style.display = 'none';
+
+            // Animate results
+            setTimeout(function() {
+                var rr = document.getElementById('resultRing');
+                if (rr) rr.setAttribute('stroke-dashoffset', dashoffset);
+                document.querySelectorAll('.rcat-bar-fill').forEach(function(bar) {
+                    bar.style.width = bar.dataset.width;
+                });
+            }, 100);
+
+            // Confetti for good scores
+            if (pct >= 65) launchConfetti();
+
+            gtag('event', 'quiz_completed', { 'score': pct, 'level': level });
+        }
+
+        function resetQuiz() {
+            quizState = {
+                currentQ: -1,
+                answers: [],
+                scores: { access: 0, network: 0, data: 0, monitoring: 0 },
+                maxScores: { access: 9, network: 9, data: 9, monitoring: 9 },
+                totalMax: 36,
+                totalScore: 0
             };
 
-            document.getElementById('assessmentProgress').style.width = '0%';
-            document.querySelector('.progress-count').textContent = '0 / 20 completed';
-            document.getElementById('score-access').textContent = '0/5';
-            document.getElementById('score-network').textContent = '0/5';
-            document.getElementById('score-data').textContent = '0/5';
-            document.getElementById('score-monitoring').textContent = '0/5';
-            document.getElementById('overallScore').textContent = '0%';
-            document.getElementById('resultsBreakdown').innerHTML = `
-                <p style="text-align: center; color: var(--slate-400);">
-                    Complete the assessment above to see your results
-                </p>
-            `;
+            document.querySelectorAll('.opt-btn').forEach(function(b) { b.classList.remove('selected'); });
+            updateLiveScoreRing();
 
-            // Scroll to top of assessment
+            var dots = document.querySelectorAll('.step-dot');
+            dots.forEach(function(d) { d.classList.remove('active', 'done'); });
+            dots[0].classList.add('active');
+
+            var fill = document.getElementById('stepFill');
+            if (fill) fill.style.width = '0%';
+
+            showCard(-1);
+            document.getElementById('quizNav').style.display = 'none';
             document.getElementById('assessment').scrollIntoView({ behavior: 'smooth' });
         }
 
         function generatePDFReport() {
-            if (assessmentData.total === 0) {
-                alert('Please complete the assessment before downloading the report.');
-                return;
-            }
+            var pct = Math.round((quizState.totalScore / quizState.totalMax) * 100);
+            var date = new Date().toLocaleDateString();
+            var catNames = { access: 'Access Control & Authentication', network: 'Network Security', data: 'Data Protection', monitoring: 'Monitoring & Incident Response' };
 
-            // Track download
-            gtag('event', 'pdf_download', {
-                'score': Math.round((assessmentData.total / assessmentData.maxScore) * 100),
-                'completed_items': assessmentData.total
+            gtag('event', 'pdf_download', { 'score': pct });
+
+            var reportWindow = window.open('', '_blank');
+            var catHtml = '';
+            Object.keys(catNames).forEach(function(key) {
+                var catPct = Math.round((quizState.scores[key] / quizState.maxScores[key]) * 100);
+                catHtml += '<div class="category"><h3>' + catNames[key] + '</h3><p>Score: ' + quizState.scores[key] + '/' + quizState.maxScores[key] + ' (' + catPct + '%)</p></div>';
             });
 
-            // Open print-friendly report in new window
-            const reportWindow = window.open('', '_blank');
-            const score = Math.round((assessmentData.total / assessmentData.maxScore) * 100);
-            const date = new Date().toLocaleDateString();
-
-            reportWindow.document.write(`
-                    <!DOCTYPE html>
-                    <html>
-                    <head>
-                    <title>Security Readiness Assessment Report</title>
-                        <style>
-                            body {
-                            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-                            max-width: 800px;
-                            margin: 40px auto;
-                            padding: 40px;
-                                color: #333;
-                        }
-                        h1 { color: #667eea; margin-bottom: 10px; }
-                        .score { font-size: 48px; color: #667eea; font-weight: bold; }
-                        .category { margin: 20px 0; padding: 15px; background: #f5f5f5; border-radius: 8px; }
-                        .category h3 { margin: 0 0 10px 0; }
-                            @media print {
-                            button { display: none; }
-                            }
-                        </style>
-                    </head>
-                    <body>
-                    <h1>Security Readiness Assessment Report</h1>
-                    <p>Generated: ${date}</p>
-                    <div class="score">Overall Score: ${score}%</div>
-                    
-                    <div class="category">
-                        <h3>Access Control & Authentication</h3>
-                        <p>Score: ${assessmentData.access}/5 (${Math.round((assessmentData.access/5)*100)}%)</p>
-                    </div>
-                    
-                    <div class="category">
-                        <h3>Network Security</h3>
-                        <p>Score: ${assessmentData.network}/5 (${Math.round((assessmentData.network/5)*100)}%)</p>
-                    </div>
-                    
-                    <div class="category">
-                        <h3>Data Protection</h3>
-                        <p>Score: ${assessmentData.data}/5 (${Math.round((assessmentData.data/5)*100)}%)</p>
-                    </div>
-                    
-                    <div class="category">
-                        <h3>Monitoring & Incident Response</h3>
-                        <p>Score: ${assessmentData.monitoring}/5 (${Math.round((assessmentData.monitoring/5)*100)}%)</p>
-                    </div>
-
-                    <h2>Next Steps</h2>
-                    <p>Focus on addressing gaps in areas with lower scores. Consult the comprehensive guides at CyberSec Hub for detailed implementation instructions.</p>
-                    
-                    <button onclick="window.print()" style="background: #667eea; color: white; padding: 12px 24px; border: none; border-radius: 6px; cursor: pointer; margin: 20px 0;">
-                        Print Report
-                            </button>
-                    <button onclick="window.close()" style="background: #666; color: white; padding: 12px 24px; border: none; border-radius: 6px; cursor: pointer;">
-                        Close
-                            </button>
-                    </body>
-                    </html>
-                `);
-                
+            reportWindow.document.write('<!DOCTYPE html><html><head><title>Security Challenge Report</title><style>body{font-family:Figtree,-apple-system,sans-serif;max-width:800px;margin:40px auto;padding:40px;color:#333;}h1{color:#7C3AED;}h2{color:#5B21B6;margin-top:2rem;}.score{font-size:48px;color:#F97316;font-weight:bold;margin:1rem 0;}.category{margin:15px 0;padding:15px 20px;background:#f8f5ff;border-left:4px solid #7C3AED;border-radius:0 8px 8px 0;}.category h3{margin:0 0 5px;color:#5B21B6;}@media print{button{display:none;}}</style></head><body><h1>Security Readiness Challenge Report</h1><p style="color:#666;">Generated: ' + date + ' | mysecurityscores.com</p><div class="score">Overall Score: ' + pct + '%</div>' + catHtml + '<h2>Recommendations</h2><p>Focus on strengthening areas with lower scores. Visit our comprehensive guides at mysecurityscores.com for detailed implementation instructions.</p><br><button onclick="window.print()" style="background:#F97316;color:white;padding:12px 24px;border:none;border-radius:8px;cursor:pointer;font-size:1rem;font-weight:600;">Print Report</button></body></html>');
             reportWindow.document.close();
+        }
+
+        // Simple confetti effect
+        function launchConfetti() {
+            var canvas = document.createElement('canvas');
+            canvas.id = 'confettiCanvas';
+            document.body.appendChild(canvas);
+            var ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            var particles = [];
+            var colors = ['#F97316', '#7C3AED', '#10b981', '#FB923C', '#A78BFA', '#34D399'];
+
+            for (var i = 0; i < 100; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height - canvas.height,
+                    w: Math.random() * 10 + 5,
+                    h: Math.random() * 6 + 3,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    vx: (Math.random() - 0.5) * 4,
+                    vy: Math.random() * 3 + 2,
+                    rot: Math.random() * 360,
+                    rotV: (Math.random() - 0.5) * 10
+                });
+            }
+
+            var frame = 0;
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(function(p) {
+                    ctx.save();
+                    ctx.translate(p.x, p.y);
+                    ctx.rotate(p.rot * Math.PI / 180);
+                    ctx.fillStyle = p.color;
+                    ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
+                    ctx.restore();
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    p.rot += p.rotV;
+                    p.vy += 0.05;
+                });
+                frame++;
+                if (frame < 150) requestAnimationFrame(animate);
+                else { canvas.remove(); }
+            }
+            animate();
         }
 
         // ============================================

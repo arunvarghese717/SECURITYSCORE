@@ -54,7 +54,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-SV8LBXML45"></script>
@@ -87,7 +87,7 @@
     <!-- Navigation -->
     <nav class="main-nav">
         <div class="nav-container">
-            <a href="index.html" class="nav-logo">MySecurity Scores</a>
+            <a href="/" class="nav-logo">MySecurity Scores</a>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
                 <span></span>
                 <span></span>
@@ -95,33 +95,33 @@
             </button>
             <ul class="nav-links" id="navLinks">
                 <li>
-                    <a href="index.html">Home</a>
+                    <a href="/">Home</a>
                 </li>
                 <li>
                     <a href="#" class="active">Guides &#9662;</a>
                     <ul class="nav-dropdown">
-                        <li><a href="security-guide.html">Security Guide</a></li>
-                        <li><a href="ssl-certificates.html">SSL Certificates</a></li>
-                        <li><a href="compliance-guide.html">Compliance Guide</a></li>
-                        <li><a href="security-best-practices.html">Best Practices</a></li>
-                        <li><a href="threat-intelligence.html">Threat Intelligence</a></li>
-                        <li><a href="password-security.html">Password Security</a></li>
-                        <li><a href="incident-response.html">Incident Response</a></li>
-                        <li><a href="cloud-security.html">Cloud Security</a></li>
+                        <li><a href="/security-guide">Security Guide</a></li>
+                        <li><a href="/ssl-certificates">SSL Certificates</a></li>
+                        <li><a href="/compliance-guide">Compliance Guide</a></li>
+                        <li><a href="/security-best-practices">Best Practices</a></li>
+                        <li><a href="/threat-intelligence">Threat Intelligence</a></li>
+                        <li><a href="/password-security">Password Security</a></li>
+                        <li><a href="/incident-response">Incident Response</a></li>
+                        <li><a href="/cloud-security">Cloud Security</a></li>
                     </ul>
                 </li>
-                <li><a href="security-news.html">News</a></li>
-                <li><a href="security-quiz.html">Quiz</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="/security-news">News</a></li>
+                <li><a href="/security-quiz">Quiz</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/faq">FAQ</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- Breadcrumbs -->
     <div class="breadcrumbs">
-        <a href="index.html">Home</a>
+        <a href="/">Home</a>
         <span>&rsaquo;</span>
         Complete Security Guide
     </div>
@@ -267,7 +267,7 @@
                 <h3>Pillar 5: Incident Response</h3>
                 <p>Despite the best preventive measures, security incidents will occur. An incident response plan defines the procedures for identifying, containing, eradicating, and recovering from security events. The plan should designate roles and responsibilities, establish communication protocols for internal teams and external stakeholders, and include detailed playbooks for common incident types such as ransomware, data breaches, and DDoS attacks.</p>
 
-                <p>Critically, an incident response plan is only valuable if it is regularly tested. Tabletop exercises, where key stakeholders walk through simulated scenarios, reveal gaps in procedures and coordination. Full-scale simulation exercises that involve technical teams executing containment and recovery procedures build the muscle memory needed for effective response under pressure. Post-incident reviews, conducted without blame, identify lessons learned and drive continuous improvement in both preventive controls and response capabilities. For a detailed guide on building your response capability, see our <a href="incident-response.html">Incident Response Guide</a>.</p>
+                <p>Critically, an incident response plan is only valuable if it is regularly tested. Tabletop exercises, where key stakeholders walk through simulated scenarios, reveal gaps in procedures and coordination. Full-scale simulation exercises that involve technical teams executing containment and recovery procedures build the muscle memory needed for effective response under pressure. Post-incident reviews, conducted without blame, identify lessons learned and drive continuous improvement in both preventive controls and response capabilities. For a detailed guide on building your response capability, see our <a href="/incident-response">Incident Response Guide</a>.</p>
 
                 <div class="info-box tip">
                     <div class="info-box-title">Tip: Defense in Depth</div>
@@ -283,7 +283,7 @@
 
                 <p>HTTP Strict Transport Security (HSTS) is a critical companion to TLS deployment. By sending the <code>Strict-Transport-Security</code> header, your server instructs browsers to always connect via HTTPS, even if the user types an HTTP URL or follows an HTTP link. This prevents protocol downgrade attacks and cookie hijacking. For maximum protection, submit your domain to the HSTS preload list, which is hardcoded into browsers to enforce HTTPS from the very first connection. Certificate pinning, while more complex to manage, provides additional protection against compromised Certificate Authorities by associating specific certificates with your domain.</p>
 
-                <p>For a comprehensive deep dive into certificate types, installation, and configuration, see our <a href="ssl-certificates.html">SSL Certificates Guide</a>.</p>
+                <p>For a comprehensive deep dive into certificate types, installation, and configuration, see our <a href="/ssl-certificates">SSL Certificates Guide</a>.</p>
 
                 <!-- Section 5: Web Application Firewalls -->
                 <h2 id="waf">5. Web Application Firewalls (WAF)</h2>
@@ -303,7 +303,7 @@
 
                 <p>Role-based access control (RBAC) governs what authenticated users can do within your application. Each user is assigned one or more roles, and each role is granted specific permissions. The principle of least privilege dictates that roles should be designed with the minimum permissions necessary for the user to perform their job function. Administrative access should be tightly restricted and subject to additional authentication requirements. Regular access reviews, ideally automated, ensure that permissions remain appropriate as employees change roles, join, or leave the organization. Orphaned accounts with elevated privileges are a common and preventable attack vector.</p>
 
-                <p>Zero trust is not a product but an architectural philosophy that assumes breach and verifies every access request explicitly. In a zero trust model, network location is not a proxy for trust. Every request, whether from an internal network segment or the public internet, is authenticated, authorized, and encrypted. Micro-segmentation limits lateral movement so that compromising a single system does not grant access to the entire network. Continuous authentication evaluates risk signals throughout a session, not just at login, and can step up authentication requirements or revoke access if risk indicators change. Zero trust is particularly critical for organizations with remote workforces, cloud-hosted applications, and complex partner ecosystems. For detailed guidance on password policies and authentication strategies, see our <a href="password-security.html">Password Security Guide</a>.</p>
+                <p>Zero trust is not a product but an architectural philosophy that assumes breach and verifies every access request explicitly. In a zero trust model, network location is not a proxy for trust. Every request, whether from an internal network segment or the public internet, is authenticated, authorized, and encrypted. Micro-segmentation limits lateral movement so that compromising a single system does not grant access to the entire network. Continuous authentication evaluates risk signals throughout a session, not just at login, and can step up authentication requirements or revoke access if risk indicators change. Zero trust is particularly critical for organizations with remote workforces, cloud-hosted applications, and complex partner ecosystems. For detailed guidance on password policies and authentication strategies, see our <a href="/password-security">Password Security Guide</a>.</p>
 
                 <div class="info-box tip">
                     <div class="info-box-title">Tip: Start with MFA</div>
@@ -386,7 +386,7 @@
 
                 <p><strong>GDPR</strong> (General Data Protection Regulation) governs the processing of personal data for EU residents. Its requirements include lawful basis for processing, data minimization, the right to erasure, data portability, mandatory Data Protection Impact Assessments for high-risk processing, and 72-hour breach notification. <strong>HIPAA</strong> (Health Insurance Portability and Accountability Act) sets standards for protecting health information in the United States, requiring administrative, physical, and technical safeguards. <strong>PCI DSS</strong> (Payment Card Industry Data Security Standard) applies to any organization that stores, processes, or transmits credit card data, mandating specific controls for network security, access control, monitoring, and testing.</p>
 
-                <p>For a detailed comparison of these frameworks and guidance on choosing the right certifications for your organization, see our <a href="compliance-guide.html">Compliance Guide</a>.</p>
+                <p>For a detailed comparison of these frameworks and guidance on choosing the right certifications for your organization, see our <a href="/compliance-guide">Compliance Guide</a>.</p>
 
                 <!-- Section 10: Emerging Threats in 2026 -->
                 <h2 id="emerging-threats">10. Emerging Threats in 2026</h2>
@@ -417,7 +417,7 @@
 
                 <p><strong>Threat intelligence feeds</strong> provide context that transforms raw security data into actionable information. By consuming indicators of compromise (IOCs) such as malicious IP addresses, domain names, file hashes, and attack patterns from curated intelligence sources, organizations can proactively block known threats and prioritize their defensive efforts. Threat intelligence is most valuable when it is integrated directly into security tools, automatically updating firewall rules, WAF policies, and SIEM correlation rules, rather than consumed manually through reports and emails.</p>
 
-                <p><strong>Vulnerability management</strong> is the ongoing process of identifying, prioritizing, and remediating security weaknesses in your environment. An effective vulnerability management program combines automated scanning with risk-based prioritization that considers not just the technical severity of a vulnerability but also the business criticality of the affected asset, the availability of exploits in the wild, and the effectiveness of compensating controls. Remediation SLAs should be defined by risk tier: critical vulnerabilities on internet-facing systems might require a 24-hour remediation window, while lower-severity findings on internal systems might allow 30 days. Tracking remediation metrics over time provides a measure of your organization's security hygiene and operational maturity. For more on leveraging threat intelligence in your security program, see our <a href="threat-intelligence.html">Threat Intelligence Guide</a>.</p>
+                <p><strong>Vulnerability management</strong> is the ongoing process of identifying, prioritizing, and remediating security weaknesses in your environment. An effective vulnerability management program combines automated scanning with risk-based prioritization that considers not just the technical severity of a vulnerability but also the business criticality of the affected asset, the availability of exploits in the wild, and the effectiveness of compensating controls. Remediation SLAs should be defined by risk tier: critical vulnerabilities on internet-facing systems might require a 24-hour remediation window, while lower-severity findings on internal systems might allow 30 days. Tracking remediation metrics over time provides a measure of your organization's security hygiene and operational maturity. For more on leveraging threat intelligence in your security program, see our <a href="/threat-intelligence">Threat Intelligence Guide</a>.</p>
 
                 <div class="info-box tip">
                     <div class="info-box-title">Tip: Automate Where Possible</div>
@@ -437,39 +437,39 @@
                 <div class="cta-box">
                     <h3>Assess Your Website Security Today</h3>
                     <p>Put these principles into action. Our free security assessment scans your website for SSL/TLS configuration, security headers, compliance indicators, and known vulnerabilities, delivering an actionable security scorecard in minutes.</p>
-                    <a href="index.html" class="btn-primary">Start Free Security Assessment</a>
+                    <a href="/" class="btn-primary">Start Free Security Assessment</a>
                 </div>
 
                 <!-- Related Section -->
                 <section class="related-section">
                     <h3 class="related-title">Continue Learning</h3>
                     <div class="related-grid">
-                        <a href="ssl-certificates.html" class="related-card">
+                        <a href="/ssl-certificates" class="related-card">
                             <div class="related-card-icon">&#128274;</div>
                             <h4>SSL/TLS Certificates Guide</h4>
                             <p>Deep dive into certificate types, TLS 1.3, and HTTPS configuration best practices.</p>
                         </a>
-                        <a href="compliance-guide.html" class="related-card">
+                        <a href="/compliance-guide" class="related-card">
                             <div class="related-card-icon">&#128203;</div>
                             <h4>Compliance Frameworks</h4>
                             <p>SOC 2 vs ISO 27001 comparison and guidance on choosing the right certification.</p>
                         </a>
-                        <a href="threat-intelligence.html" class="related-card">
+                        <a href="/threat-intelligence" class="related-card">
                             <div class="related-card-icon">&#128161;</div>
                             <h4>Threat Intelligence</h4>
                             <p>How to leverage threat feeds, IOCs, and intelligence platforms for proactive defense.</p>
                         </a>
-                        <a href="security-best-practices.html" class="related-card">
+                        <a href="/security-best-practices" class="related-card">
                             <div class="related-card-icon">&#9989;</div>
                             <h4>Best Practices Checklist</h4>
                             <p>10 essential cybersecurity best practices every organization should implement today.</p>
                         </a>
-                        <a href="password-security.html" class="related-card">
+                        <a href="/password-security" class="related-card">
                             <div class="related-card-icon">&#128272;</div>
                             <h4>Password Security</h4>
                             <p>Modern password policies, MFA implementation, and the path to passwordless authentication.</p>
                         </a>
-                        <a href="incident-response.html" class="related-card">
+                        <a href="/incident-response" class="related-card">
                             <div class="related-card-icon">&#128680;</div>
                             <h4>Incident Response</h4>
                             <p>Build and test your incident response plan to minimize damage when breaches occur.</p>
@@ -487,45 +487,45 @@
             <div class="footer-col">
                 <h4>Security Guides</h4>
                 <ul>
-                    <li><a href="security-guide.html">Complete Security Guide</a></li>
-                    <li><a href="ssl-certificates.html">SSL Certificates</a></li>
-                    <li><a href="compliance-guide.html">Compliance Guide</a></li>
-                    <li><a href="security-best-practices.html">Best Practices</a></li>
+                    <li><a href="/security-guide">Complete Security Guide</a></li>
+                    <li><a href="/ssl-certificates">SSL Certificates</a></li>
+                    <li><a href="/compliance-guide">Compliance Guide</a></li>
+                    <li><a href="/security-best-practices">Best Practices</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Resources</h4>
                 <ul>
-                    <li><a href="threat-intelligence.html">Threat Intelligence</a></li>
-                    <li><a href="password-security.html">Password Security</a></li>
-                    <li><a href="incident-response.html">Incident Response</a></li>
-                    <li><a href="cloud-security.html">Cloud Security</a></li>
-                    <li><a href="security-news.html">Security News</a></li>
-                    <li><a href="security-quiz.html">Security Quiz</a></li>
+                    <li><a href="/threat-intelligence">Threat Intelligence</a></li>
+                    <li><a href="/password-security">Password Security</a></li>
+                    <li><a href="/incident-response">Incident Response</a></li>
+                    <li><a href="/cloud-security">Cloud Security</a></li>
+                    <li><a href="/security-news">Security News</a></li>
+                    <li><a href="/security-quiz">Security Quiz</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Company</h4>
                 <ul>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/faq">FAQ</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Legal</h4>
                 <ul>
-                    <li><a href="privacy.html">Privacy Policy</a></li>
-                    <li><a href="terms.html">Terms of Service</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                    <li><a href="/terms">Terms of Service</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
             <p>&copy; 2026 MySecurity Scores. All rights reserved.</p>
             <div class="footer-bottom-links">
-                <a href="privacy.html">Privacy</a>
-                <a href="terms.html">Terms</a>
-                <a href="contact.html">Contact</a>
+                <a href="/privacy">Privacy</a>
+                <a href="/terms">Terms</a>
+                <a href="/contact">Contact</a>
             </div>
         </div>
     </footer>
@@ -536,7 +536,7 @@
     <!-- Cookie Consent Banner -->
     <div class="cookie-banner" id="cookieBanner">
         <div class="cookie-content">
-            <p>We use cookies to enhance your experience and analyze site traffic. By continuing to use this site, you agree to our <a href="privacy.html">Privacy Policy</a>.</p>
+            <p>We use cookies to enhance your experience and analyze site traffic. By continuing to use this site, you agree to our <a href="/privacy">Privacy Policy</a>.</p>
             <div class="cookie-buttons">
                 <button class="cookie-btn cookie-btn-accept" id="cookieAccept">Accept</button>
                 <button class="cookie-btn cookie-btn-reject" id="cookieReject">Reject</button>
