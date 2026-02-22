@@ -42,3 +42,7 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # Custom 404
 ErrorDocument 404 /index.html
+
+# Note: GitHub Pages does not use Apache/.htaccess.
+# These rules are provided for CDN/proxy compatibility.
+# GitHub Pages natively serves .html files without the extension.

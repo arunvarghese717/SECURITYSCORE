@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+    // Clean URL - remove .html extension from browser address bar
+    (function(){
+        var path = window.location.pathname;
+        if (path.endsWith('.html')) {
+            var clean = path.slice(0, -5);
+            if (clean === '/index') clean = '/';
+            window.history.replaceState(null, '', clean + window.location.search + window.location.hash);
+        }
+    })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Complete Guide to Website Security in 2026 | MySecurity Scores</title>
@@ -8,7 +19,7 @@
     <meta name="keywords" content="website security guide, cybersecurity 2026, SSL TLS, web application firewall, security headers, compliance frameworks, threat intelligence, penetration testing">
     <meta name="author" content="MySecurity Scores Team">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://mysecurityscores.com/security-guide.html">
+    <link rel="canonical" href="https://mysecurityscores.com/security-guide">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -18,7 +29,7 @@
     <!-- Open Graph -->
     <meta property="og:title" content="The Complete Guide to Website Security in 2026">
     <meta property="og:description" content="Comprehensive guide to website security covering SSL/TLS, WAFs, authentication, security headers, compliance frameworks, and emerging threats.">
-    <meta property="og:url" content="https://mysecurityscores.com/security-guide.html">
+    <meta property="og:url" content="https://mysecurityscores.com/security-guide">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="MySecurity Scores">
 
@@ -43,7 +54,7 @@
         "dateModified": "2026-02-18",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https://mysecurityscores.com/security-guide.html"
+            "@id": "https://mysecurityscores.com/security-guide"
         },
         "articleSection": "Security Fundamentals",
         "wordCount": 3500,

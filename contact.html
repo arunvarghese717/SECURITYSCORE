@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+    // Clean URL - remove .html extension from browser address bar
+    (function(){
+        var path = window.location.pathname;
+        if (path.endsWith('.html')) {
+            var clean = path.slice(0, -5);
+            if (clean === '/index') clean = '/';
+            window.history.replaceState(null, '', clean + window.location.search + window.location.hash);
+        }
+    })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | MySecurity Scores - Cybersecurity Support &amp; Consulting</title>
@@ -8,13 +19,13 @@
     <meta name="keywords" content="contact cybersecurity experts, security consulting, vulnerability reporting, cybersecurity support, mysecurityscores contact">
     <meta name="author" content="MySecurity Scores">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://mysecurityscores.com/contact.html">
+    <link rel="canonical" href="https://mysecurityscores.com/contact">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Contact Us | MySecurity Scores">
     <meta property="og:description" content="Get in touch with the MySecurity Scores team for cybersecurity support, consulting, partnerships, and media inquiries.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://mysecurityscores.com/contact.html">
+    <meta property="og:url" content="https://mysecurityscores.com/contact">
     <meta property="og:site_name" content="MySecurity Scores">
 
     <!-- Favicon -->
@@ -48,7 +59,7 @@
         "@type": "ContactPage",
         "name": "Contact MySecurity Scores",
         "description": "Contact the MySecurity Scores team for cybersecurity support, security consulting, partnership inquiries, vulnerability reporting, and media requests.",
-        "url": "https://mysecurityscores.com/contact.html",
+        "url": "https://mysecurityscores.com/contact",
         "mainEntity": {
             "@type": "Organization",
             "name": "MySecurity Scores",

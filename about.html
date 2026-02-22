@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+    // Clean URL - remove .html extension from browser address bar
+    (function(){
+        var path = window.location.pathname;
+        if (path.endsWith('.html')) {
+            var clean = path.slice(0, -5);
+            if (clean === '/index') clean = '/';
+            window.history.replaceState(null, '', clean + window.location.search + window.location.hash);
+        }
+    })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Our Mission & Cybersecurity Expertise | MySecurity Scores</title>
@@ -8,13 +19,13 @@
     <meta name="keywords" content="about mysecurity scores, cybersecurity education, security assessment team, NIST CSF, OWASP, cybersecurity expertise, security scoring platform">
     <meta name="author" content="MySecurity Scores Editorial Team">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://mysecurityscores.com/about.html">
+    <link rel="canonical" href="https://mysecurityscores.com/about">
 
     <!-- Open Graph -->
     <meta property="og:title" content="About Us - Our Mission & Cybersecurity Expertise | MySecurity Scores">
     <meta property="og:description" content="Discover how MySecurity Scores democratizes cybersecurity knowledge with research-backed guides, free assessment tools, and expert-reviewed content aligned with NIST, OWASP, and CIS Controls.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://mysecurityscores.com/about.html">
+    <meta property="og:url" content="https://mysecurityscores.com/about">
     <meta property="og:site_name" content="MySecurity Scores">
 
     <!-- JSON-LD Schema Markup -->
@@ -24,7 +35,7 @@
         "@type": "AboutPage",
         "name": "About MySecurity Scores",
         "description": "Learn about MySecurity Scores, our mission to democratize cybersecurity education, our editorial standards, and our team's expertise in helping businesses strengthen their security posture.",
-        "url": "https://mysecurityscores.com/about.html",
+        "url": "https://mysecurityscores.com/about",
         "mainEntity": {
             "@type": "Organization",
             "name": "MySecurity Scores",
@@ -55,7 +66,7 @@
                     "@type": "ListItem",
                     "position": 2,
                     "name": "About Us",
-                    "item": "https://mysecurityscores.com/about.html"
+                    "item": "https://mysecurityscores.com/about"
                 }
             ]
         }
