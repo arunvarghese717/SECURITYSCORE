@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+    // Clean URL - remove .html extension from browser address bar
+    (function(){
+        var path = window.location.pathname;
+        if (path.endsWith('.html')) {
+            var clean = path.slice(0, -5);
+            if (clean === '/index') clean = '/';
+            window.history.replaceState(null, '', clean + window.location.search + window.location.hash);
+        }
+    })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>10 Essential Cybersecurity Best Practices for 2026 | MySecurity Scores</title>
@@ -79,11 +90,11 @@
 </head>
 <body>
     <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="security-guide.html">Security Guide</a>
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
+        <a href="/">Home</a>
+        <a href="/security-guide">Security Guide</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
     </nav>
 
     <article>
@@ -141,21 +152,21 @@
         <div class="cta-box">
             <h3 style="color: #fff; margin-top: 0;">Get Your Security Checklist Scored</h3>
             <p>Ready to see how well you've implemented these 10 best practices? Our free platform provides a score and actionable steps to close any gaps in your current defenses.</p>
-            <a href="index.html" class="cta-button">Start Free Security Scan</a>
+            <a href="/" class="cta-button">Start Free Security Scan</a>
         </div>
 
         <h2>Additional Resources</h2>
         <ul>
-            <li><a href="security-guide.html" style="color: #0066FF;">Complete Guide to Website Security in 2026</a></li>
-            <li><a href="ssl-certificates.html" style="color: #0066FF;">Understanding SSL/TLS Certificates</a></li>
-            <li><a href="threat-intelligence.html" style="color: #0066FF;">Threat Intelligence Guide</a></li>
-            <li><a href="index.html" style="color: #0066FF;">Free Security Assessment Tool</a></li>
+            <li><a href="/security-guide" style="color: #0066FF;">Complete Guide to Website Security in 2026</a></li>
+            <li><a href="/ssl-certificates" style="color: #0066FF;">Understanding SSL/TLS Certificates</a></li>
+            <li><a href="/threat-intelligence" style="color: #0066FF;">Threat Intelligence Guide</a></li>
+            <li><a href="/" style="color: #0066FF;">Free Security Assessment Tool</a></li>
         </ul>
     </article>
 
     <footer style="margin-top: 60px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center;">
         <p style="color: #666;">© 2026 MySecurity Scores. All rights reserved.</p>
-        <p><a href="privacy.html" style="color: #0066FF;">Privacy Policy</a> | <a href="terms.html" style="color: #0066FF;">Terms</a> | <a href="contact.html" style="color: #0066FF;">Contact</a></p>
+        <p><a href="/privacy" style="color: #0066FF;">Privacy Policy</a> | <a href="/terms" style="color: #0066FF;">Terms</a> | <a href="/contact" style="color: #0066FF;">Contact</a></p>
     </footer>
 </body>
 </html>

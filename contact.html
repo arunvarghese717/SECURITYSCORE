@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+    // Clean URL - remove .html extension from browser address bar
+    (function(){
+        var path = window.location.pathname;
+        if (path.endsWith('.html')) {
+            var clean = path.slice(0, -5);
+            if (clean === '/index') clean = '/';
+            window.history.replaceState(null, '', clean + window.location.search + window.location.hash);
+        }
+    })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | MySecurity Scores - Cybersecurity Support &amp; Consulting</title>
@@ -8,13 +19,13 @@
     <meta name="keywords" content="contact cybersecurity experts, security consulting, vulnerability reporting, cybersecurity support, mysecurityscores contact">
     <meta name="author" content="MySecurity Scores">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://mysecurityscores.com/contact.html">
+    <link rel="canonical" href="https://mysecurityscores.com/contact">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Contact Us | MySecurity Scores">
     <meta property="og:description" content="Get in touch with the MySecurity Scores team for cybersecurity support, consulting, partnerships, and media inquiries.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://mysecurityscores.com/contact.html">
+    <meta property="og:url" content="https://mysecurityscores.com/contact">
     <meta property="og:site_name" content="MySecurity Scores">
 
     <!-- Favicon -->
@@ -23,7 +34,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
     <!-- Shared Stylesheet -->
     <link rel="stylesheet" href="styles.css">
@@ -48,7 +59,7 @@
         "@type": "ContactPage",
         "name": "Contact MySecurity Scores",
         "description": "Contact the MySecurity Scores team for cybersecurity support, security consulting, partnership inquiries, vulnerability reporting, and media requests.",
-        "url": "https://mysecurityscores.com/contact.html",
+        "url": "https://mysecurityscores.com/contact",
         "mainEntity": {
             "@type": "Organization",
             "name": "MySecurity Scores",
@@ -87,7 +98,7 @@
     <!-- Navigation -->
     <nav class="main-nav">
         <div class="nav-container">
-            <a href="index.html" class="nav-logo" style="text-decoration: none;">
+            <a href="/" class="nav-logo" style="text-decoration: none;">
                 <span>🛡️</span>
                 <span>MySecurity Scores</span>
             </a>
@@ -97,32 +108,32 @@
                 <span></span>
             </button>
             <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li>
-                    <a href="security-guide.html">Guides</a>
+                    <a href="/security-guide">Guides</a>
                     <ul class="nav-dropdown">
-                        <li><a href="security-guide.html">Security Guide</a></li>
-                        <li><a href="ssl-certificates.html">SSL Certificates</a></li>
-                        <li><a href="compliance-guide.html">Compliance Guide</a></li>
-                        <li><a href="security-best-practices.html">Best Practices</a></li>
-                        <li><a href="threat-intelligence.html">Threat Intelligence</a></li>
-                        <li><a href="password-security.html">Password Security</a></li>
-                        <li><a href="incident-response.html">Incident Response</a></li>
-                        <li><a href="cloud-security.html">Cloud Security</a></li>
+                        <li><a href="/security-guide">Security Guide</a></li>
+                        <li><a href="/ssl-certificates">SSL Certificates</a></li>
+                        <li><a href="/compliance-guide">Compliance Guide</a></li>
+                        <li><a href="/security-best-practices">Best Practices</a></li>
+                        <li><a href="/threat-intelligence">Threat Intelligence</a></li>
+                        <li><a href="/password-security">Password Security</a></li>
+                        <li><a href="/incident-response">Incident Response</a></li>
+                        <li><a href="/cloud-security">Cloud Security</a></li>
                     </ul>
                 </li>
-                <li><a href="security-news.html">News</a></li>
-                <li><a href="security-quiz.html">Quiz</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="/security-news">News</a></li>
+                <li><a href="/security-quiz">Quiz</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/faq">FAQ</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- Breadcrumbs -->
     <div class="breadcrumbs">
-        <a href="index.html">Home</a>
+        <a href="/">Home</a>
         <span>&raquo;</span>
         <strong>Contact Us</strong>
     </div>
@@ -176,7 +187,7 @@
             <!-- Contact Form -->
             <h2>Send Us a Message</h2>
 
-            <p>Use the form below to send your inquiry directly to the appropriate team. Select the subject category that best matches your request, and provide as much context as possible so we can deliver a thorough and helpful response. All form submissions are encrypted in transit and handled in accordance with our <a href="privacy.html">Privacy Policy</a>. We do not share your contact information with third parties, and your data is used exclusively to respond to your inquiry.</p>
+            <p>Use the form below to send your inquiry directly to the appropriate team. Select the subject category that best matches your request, and provide as much context as possible so we can deliver a thorough and helpful response. All form submissions are encrypted in transit and handled in accordance with our <a href="/privacy">Privacy Policy</a>. We do not share your contact information with third parties, and your data is used exclusively to respond to your inquiry.</p>
 
             <form class="contact-form" id="contactForm" action="#" method="POST">
                 <div class="form-row">
@@ -290,7 +301,7 @@
             <div class="faq-item">
                 <button class="faq-question">What data do you collect when I use the site?</button>
                 <div class="faq-answer">
-                    <p>We collect only the minimum data necessary to operate our platform effectively and improve your experience. This includes standard web analytics data such as page views, session duration, and general geographic region (through Google Analytics), as well as any information you voluntarily provide through our contact forms. We do not sell your personal data to third parties, and we do not use tracking technologies to build advertising profiles. For a complete breakdown of our data collection and handling practices, please review our <a href="privacy.html">Privacy Policy</a>, which is written in plain language for easy understanding.</p>
+                    <p>We collect only the minimum data necessary to operate our platform effectively and improve your experience. This includes standard web analytics data such as page views, session duration, and general geographic region (through Google Analytics), as well as any information you voluntarily provide through our contact forms. We do not sell your personal data to third parties, and we do not use tracking technologies to build advertising profiles. For a complete breakdown of our data collection and handling practices, please review our <a href="/privacy">Privacy Policy</a>, which is written in plain language for easy understanding.</p>
                 </div>
             </div>
 
@@ -325,7 +336,7 @@
             <div class="faq-item">
                 <button class="faq-question">Do you sell my personal data to third parties?</button>
                 <div class="faq-answer">
-                    <p>No, absolutely not. We have a strict policy against selling, renting, or trading user data with third parties for marketing or any other purpose. Your personal information, including any data submitted through our contact forms, assessment tools, or newsletter subscriptions, is used exclusively to provide you with the services you requested and to improve our platform. We use industry-standard encryption for data in transit and at rest, and we follow data minimization principles to ensure we only retain what is necessary. Our complete data handling practices are documented in our <a href="privacy.html">Privacy Policy</a>.</p>
+                    <p>No, absolutely not. We have a strict policy against selling, renting, or trading user data with third parties for marketing or any other purpose. Your personal information, including any data submitted through our contact forms, assessment tools, or newsletter subscriptions, is used exclusively to provide you with the services you requested and to improve our platform. We use industry-standard encryption for data in transit and at rest, and we follow data minimization principles to ensure we only retain what is necessary. Our complete data handling practices are documented in our <a href="/privacy">Privacy Policy</a>.</p>
                 </div>
             </div>
 
@@ -383,7 +394,7 @@
             <div class="cta-box">
                 <h3>Ready to Strengthen Your Security Posture?</h3>
                 <p>Whether you need answers, guidance, or expert consultation, our team is here to support your cybersecurity journey. Do not hesitate to reach out.</p>
-                <a href="index.html" class="btn-primary">Explore Our Security Guides</a>
+                <a href="/" class="btn-primary">Explore Our Security Guides</a>
             </div>
 
         </div>
@@ -395,30 +406,30 @@
             <div class="footer-col">
                 <h4>Security Guides</h4>
                 <ul>
-                    <li><a href="security-guide.html">Security Guide</a></li>
-                    <li><a href="ssl-certificates.html">SSL Certificates</a></li>
-                    <li><a href="compliance-guide.html">Compliance Guide</a></li>
-                    <li><a href="security-best-practices.html">Best Practices</a></li>
+                    <li><a href="/security-guide">Security Guide</a></li>
+                    <li><a href="/ssl-certificates">SSL Certificates</a></li>
+                    <li><a href="/compliance-guide">Compliance Guide</a></li>
+                    <li><a href="/security-best-practices">Best Practices</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Resources</h4>
                 <ul>
-                    <li><a href="threat-intelligence.html">Threat Intelligence</a></li>
-                    <li><a href="password-security.html">Password Security</a></li>
-                    <li><a href="incident-response.html">Incident Response</a></li>
-                    <li><a href="cloud-security.html">Cloud Security</a></li>
-                    <li><a href="security-news.html">Security News</a></li>
-                    <li><a href="security-quiz.html">Security Quiz</a></li>
+                    <li><a href="/threat-intelligence">Threat Intelligence</a></li>
+                    <li><a href="/password-security">Password Security</a></li>
+                    <li><a href="/incident-response">Incident Response</a></li>
+                    <li><a href="/cloud-security">Cloud Security</a></li>
+                    <li><a href="/security-news">Security News</a></li>
+                    <li><a href="/security-quiz">Security Quiz</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Company</h4>
                 <ul>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
-                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/faq">FAQ</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -434,9 +445,9 @@
         <div class="footer-bottom">
             <p>&copy; 2026 MySecurity Scores. All rights reserved.</p>
             <div class="footer-bottom-links">
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="terms.html">Terms of Service</a>
-                <a href="contact.html">Contact</a>
+                <a href="/privacy">Privacy Policy</a>
+                <a href="/terms">Terms of Service</a>
+                <a href="/contact">Contact</a>
             </div>
         </div>
     </footer>
@@ -444,7 +455,7 @@
     <!-- Cookie Consent Banner -->
     <div class="cookie-banner" id="cookieBanner">
         <div class="cookie-content">
-            <p>We use cookies to enhance your browsing experience, analyze site traffic, and serve relevant content. By clicking "Accept," you consent to our use of cookies as described in our <a href="privacy.html">Privacy Policy</a>.</p>
+            <p>We use cookies to enhance your browsing experience, analyze site traffic, and serve relevant content. By clicking "Accept," you consent to our use of cookies as described in our <a href="/privacy">Privacy Policy</a>.</p>
             <div class="cookie-buttons">
                 <button class="cookie-btn cookie-btn-reject" id="cookieReject">Reject</button>
                 <button class="cookie-btn cookie-btn-accept" id="cookieAccept">Accept</button>

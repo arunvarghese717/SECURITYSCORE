@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+    // Clean URL - remove .html extension from browser address bar
+    (function(){
+        var path = window.location.pathname;
+        if (path.endsWith('.html')) {
+            var clean = path.slice(0, -5);
+            if (clean === '/index') clean = '/';
+            window.history.replaceState(null, '', clean + window.location.search + window.location.hash);
+        }
+    })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy | MySecurity Scores</title>
@@ -79,11 +90,11 @@
 </head>
 <body>
     <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="security-guide.html">Security Guide</a>
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
+        <a href="/">Home</a>
+        <a href="/security-guide">Security Guide</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
     </nav>
 
     <article>
@@ -141,13 +152,13 @@
         <div class="cta-box">
             <h3 style="color: #fff; margin-top: 0;">Have Questions about your Data?</h3>
             <p>We believe in full transparency regarding your data. If you have any concerns or wish to exercise your data rights, please reach out directly.</p>
-            <a href="contact.html" class="cta-button">Contact Our Privacy Officer</a>
+            <a href="/contact" class="cta-button">Contact Our Privacy Officer</a>
         </div>
     </article>
 
     <footer style="margin-top: 60px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center;">
         <p style="color: #666;">© 2026 MySecurity Scores. All rights reserved.</p>
-        <p><a href="privacy.html" style="color: #0066FF;">Privacy Policy</a> | <a href="terms.html" style="color: #0066FF;">Terms</a> | <a href="contact.html" style="color: #0066FF;">Contact</a></p>
+        <p><a href="/privacy" style="color: #0066FF;">Privacy Policy</a> | <a href="/terms" style="color: #0066FF;">Terms</a> | <a href="/contact" style="color: #0066FF;">Contact</a></p>
     </footer>
 </body>
 </html>

@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+    // Clean URL - remove .html extension from browser address bar
+    (function(){
+        var path = window.location.pathname;
+        if (path.endsWith('.html')) {
+            var clean = path.slice(0, -5);
+            if (clean === '/index') clean = '/';
+            window.history.replaceState(null, '', clean + window.location.search + window.location.hash);
+        }
+    })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Frequently Asked Questions About Cybersecurity | MySecurity Scores</title>
@@ -8,7 +19,7 @@
     <meta name="keywords" content="cybersecurity FAQ, security questions, SSL FAQ, compliance FAQ, SOC 2 questions, GDPR FAQ, cybersecurity education, MySecurity Scores">
     <meta name="author" content="MySecurity Scores">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://mysecurityscores.com/faq.html">
+    <link rel="canonical" href="https://mysecurityscores.com/faq">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
@@ -16,7 +27,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
     <!-- Shared Stylesheet -->
     <link rel="stylesheet" href="styles.css">
@@ -291,7 +302,7 @@
     <!-- Navigation -->
     <nav class="main-nav">
         <div class="nav-container">
-            <a href="index.html" class="nav-logo" style="text-decoration: none;">
+            <a href="/" class="nav-logo" style="text-decoration: none;">
                 <span>🛡️</span>
                 <span>MySecurity Scores</span>
             </a>
@@ -301,32 +312,32 @@
                 <span></span>
             </button>
             <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li>
-                    <a href="security-guide.html">Guides ▾</a>
+                    <a href="/security-guide">Guides ▾</a>
                     <ul class="nav-dropdown">
-                        <li><a href="security-guide.html">Website Security Guide</a></li>
-                        <li><a href="ssl-certificates.html">SSL Certificates</a></li>
-                        <li><a href="compliance-guide.html">Compliance Guide</a></li>
-                        <li><a href="security-best-practices.html">Security Best Practices</a></li>
-                        <li><a href="threat-intelligence.html">Threat Intelligence</a></li>
-                        <li><a href="password-security.html">Password Security</a></li>
-                        <li><a href="incident-response.html">Incident Response</a></li>
-                        <li><a href="cloud-security.html">Cloud Security</a></li>
+                        <li><a href="/security-guide">Website Security Guide</a></li>
+                        <li><a href="/ssl-certificates">SSL Certificates</a></li>
+                        <li><a href="/compliance-guide">Compliance Guide</a></li>
+                        <li><a href="/security-best-practices">Security Best Practices</a></li>
+                        <li><a href="/threat-intelligence">Threat Intelligence</a></li>
+                        <li><a href="/password-security">Password Security</a></li>
+                        <li><a href="/incident-response">Incident Response</a></li>
+                        <li><a href="/cloud-security">Cloud Security</a></li>
                     </ul>
                 </li>
-                <li><a href="security-news.html">News</a></li>
-                <li><a href="security-quiz.html">Quiz</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="faq.html" class="active">FAQ</a></li>
+                <li><a href="/security-news">News</a></li>
+                <li><a href="/security-quiz">Quiz</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/faq" class="active">FAQ</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- Breadcrumbs -->
     <div class="breadcrumbs">
-        <a href="index.html">Home</a>
+        <a href="/">Home</a>
         <span>›</span>
         FAQ
     </div>
@@ -354,7 +365,7 @@
             <div class="faq-item">
                 <button class="faq-question">What is MySecurity Scores?</button>
                 <div class="faq-answer">
-                    <p>MySecurity Scores is a free cybersecurity education platform that provides comprehensive guides, tutorials, and resources to help businesses and individuals understand and improve their security posture. We cover topics ranging from <a href="ssl-certificates.html">SSL/TLS certificates</a> and security headers to compliance frameworks like SOC 2 and ISO 27001. Our mission is to make professional-grade cybersecurity knowledge accessible to everyone, regardless of their technical background or budget. Every piece of content on our site is written and reviewed by experienced security professionals to ensure accuracy and practical value.</p>
+                    <p>MySecurity Scores is a free cybersecurity education platform that provides comprehensive guides, tutorials, and resources to help businesses and individuals understand and improve their security posture. We cover topics ranging from <a href="/ssl-certificates">SSL/TLS certificates</a> and security headers to compliance frameworks like SOC 2 and ISO 27001. Our mission is to make professional-grade cybersecurity knowledge accessible to everyone, regardless of their technical background or budget. Every piece of content on our site is written and reviewed by experienced security professionals to ensure accuracy and practical value.</p>
                 </div>
             </div>
 
@@ -368,7 +379,7 @@
             <div class="faq-item">
                 <button class="faq-question">How often is the content updated?</button>
                 <div class="faq-answer">
-                    <p>We review and update our content on a regular basis to ensure it reflects the latest cybersecurity threats, best practices, and compliance requirements. Major guides such as our <a href="security-guide.html">Website Security Guide</a> and <a href="compliance-guide.html">Compliance Guide</a> are reviewed quarterly, and we publish new content weekly. When significant security events or vulnerability disclosures occur, we prioritize updating relevant content immediately. Each article displays a "last updated" date so you always know how current the information is. The cybersecurity landscape evolves rapidly, and we are committed to keeping our content ahead of emerging threats.</p>
+                    <p>We review and update our content on a regular basis to ensure it reflects the latest cybersecurity threats, best practices, and compliance requirements. Major guides such as our <a href="/security-guide">Website Security Guide</a> and <a href="/compliance-guide">Compliance Guide</a> are reviewed quarterly, and we publish new content weekly. When significant security events or vulnerability disclosures occur, we prioritize updating relevant content immediately. Each article displays a "last updated" date so you always know how current the information is. The cybersecurity landscape evolves rapidly, and we are committed to keeping our content ahead of emerging threats.</p>
                 </div>
             </div>
 
@@ -382,14 +393,14 @@
             <div class="faq-item">
                 <button class="faq-question">Can I contribute content or suggest topics?</button>
                 <div class="faq-answer">
-                    <p>Absolutely. We welcome contributions from cybersecurity professionals and enthusiasts alike. If you have expertise in a particular area of information security and would like to write a guest article, or if you have a topic suggestion that you think would benefit our readers, please reach out through our <a href="contact.html">contact page</a>. We review all submissions for accuracy, originality, and quality before publishing. Contributors receive full attribution and a link to their professional profiles. Community input is one of the best ways to ensure we are addressing the topics that matter most to our audience.</p>
+                    <p>Absolutely. We welcome contributions from cybersecurity professionals and enthusiasts alike. If you have expertise in a particular area of information security and would like to write a guest article, or if you have a topic suggestion that you think would benefit our readers, please reach out through our <a href="/contact">contact page</a>. We review all submissions for accuracy, originality, and quality before publishing. Contributors receive full attribution and a link to their professional profiles. Community input is one of the best ways to ensure we are addressing the topics that matter most to our audience.</p>
                 </div>
             </div>
 
             <div class="faq-item">
                 <button class="faq-question">Do you offer professional security consulting?</button>
                 <div class="faq-answer">
-                    <p>While our primary focus is providing free educational content, we do partner with vetted cybersecurity consulting firms for organizations that need hands-on assistance. If you need help with a security audit, compliance preparation, incident response, or penetration testing, <a href="contact.html">contact us</a> and we can connect you with a trusted partner. Our educational guides are designed to give you the foundational knowledge to work effectively with any security consultant, ask the right questions, and evaluate the quality of the services you receive. We do not charge a referral fee, and our recommendations are based solely on the quality of the provider.</p>
+                    <p>While our primary focus is providing free educational content, we do partner with vetted cybersecurity consulting firms for organizations that need hands-on assistance. If you need help with a security audit, compliance preparation, incident response, or penetration testing, <a href="/contact">contact us</a> and we can connect you with a trusted partner. Our educational guides are designed to give you the foundational knowledge to work effectively with any security consultant, ask the right questions, and evaluate the quality of the services you receive. We do not charge a referral fee, and our recommendations are based solely on the quality of the provider.</p>
                 </div>
             </div>
 
@@ -402,14 +413,14 @@
             <div class="faq-item">
                 <button class="faq-question">What is cybersecurity and why does it matter?</button>
                 <div class="faq-answer">
-                    <p>Cybersecurity is the practice of protecting computer systems, networks, programs, and data from digital attacks, unauthorized access, and damage. It encompasses a wide range of technologies, processes, and practices designed to safeguard information assets. Cybersecurity matters because virtually every aspect of modern life depends on digital infrastructure, from banking and healthcare to communication and commerce. A successful cyberattack can result in financial losses, stolen personal information, disrupted business operations, and lasting reputational damage. In 2026, with the average data breach costing businesses over $4.5 million and cyberattacks increasing in both volume and sophistication, investing in cybersecurity is not optional — it is a fundamental business requirement. Our <a href="security-guide.html">comprehensive security guide</a> provides a deeper exploration of these topics.</p>
+                    <p>Cybersecurity is the practice of protecting computer systems, networks, programs, and data from digital attacks, unauthorized access, and damage. It encompasses a wide range of technologies, processes, and practices designed to safeguard information assets. Cybersecurity matters because virtually every aspect of modern life depends on digital infrastructure, from banking and healthcare to communication and commerce. A successful cyberattack can result in financial losses, stolen personal information, disrupted business operations, and lasting reputational damage. In 2026, with the average data breach costing businesses over $4.5 million and cyberattacks increasing in both volume and sophistication, investing in cybersecurity is not optional — it is a fundamental business requirement. Our <a href="/security-guide">comprehensive security guide</a> provides a deeper exploration of these topics.</p>
                 </div>
             </div>
 
             <div class="faq-item">
                 <button class="faq-question">What are the most common types of cyber attacks?</button>
                 <div class="faq-answer">
-                    <p>The most common types of cyber attacks include <strong>phishing</strong> (fraudulent emails or messages designed to steal credentials or deliver malware), <strong>ransomware</strong> (malware that encrypts files and demands payment for decryption), <strong>SQL injection</strong> (exploiting database vulnerabilities in web applications to access or manipulate data), <strong>cross-site scripting (XSS)</strong> (injecting malicious scripts into websites viewed by other users), <strong>distributed denial-of-service (DDoS)</strong> attacks (overwhelming servers with traffic to disrupt availability), and <strong>man-in-the-middle attacks</strong> (intercepting communications between two parties). Social engineering, which manipulates people rather than technology, remains the most prevalent initial attack vector across all industries. Understanding these attack types is the first step toward defending against them, which is covered in detail in our <a href="threat-intelligence.html">threat intelligence guide</a>.</p>
+                    <p>The most common types of cyber attacks include <strong>phishing</strong> (fraudulent emails or messages designed to steal credentials or deliver malware), <strong>ransomware</strong> (malware that encrypts files and demands payment for decryption), <strong>SQL injection</strong> (exploiting database vulnerabilities in web applications to access or manipulate data), <strong>cross-site scripting (XSS)</strong> (injecting malicious scripts into websites viewed by other users), <strong>distributed denial-of-service (DDoS)</strong> attacks (overwhelming servers with traffic to disrupt availability), and <strong>man-in-the-middle attacks</strong> (intercepting communications between two parties). Social engineering, which manipulates people rather than technology, remains the most prevalent initial attack vector across all industries. Understanding these attack types is the first step toward defending against them, which is covered in detail in our <a href="/threat-intelligence">threat intelligence guide</a>.</p>
                 </div>
             </div>
 
@@ -423,7 +434,7 @@
             <div class="faq-item">
                 <button class="faq-question">How do I know if my website has been hacked?</button>
                 <div class="faq-answer">
-                    <p>Common signs that your website has been hacked include unexpected changes to your website content or appearance, unfamiliar user accounts appearing in your admin panel, your site redirecting visitors to suspicious URLs, search engines flagging your site as unsafe or containing malware, a sudden drop in traffic or unusual spikes in server resource usage, and your hosting provider or security tools sending alerts. You may also notice strange outbound network traffic, new files or directories you did not create, or modifications to core system files. We recommend implementing continuous monitoring, maintaining file integrity checking, and regularly reviewing server access logs. Our <a href="security-best-practices.html">security best practices guide</a> provides a detailed checklist for detecting and responding to compromises before they cause significant damage.</p>
+                    <p>Common signs that your website has been hacked include unexpected changes to your website content or appearance, unfamiliar user accounts appearing in your admin panel, your site redirecting visitors to suspicious URLs, search engines flagging your site as unsafe or containing malware, a sudden drop in traffic or unusual spikes in server resource usage, and your hosting provider or security tools sending alerts. You may also notice strange outbound network traffic, new files or directories you did not create, or modifications to core system files. We recommend implementing continuous monitoring, maintaining file integrity checking, and regularly reviewing server access logs. Our <a href="/security-best-practices">security best practices guide</a> provides a detailed checklist for detecting and responding to compromises before they cause significant damage.</p>
                 </div>
             </div>
 
@@ -450,14 +461,14 @@
             <div class="faq-item">
                 <button class="faq-question">What is an SSL certificate and do I need one?</button>
                 <div class="faq-answer">
-                    <p>An SSL (Secure Sockets Layer) certificate is a digital certificate that authenticates a website's identity and enables an encrypted connection between a web server and a browser. When a site has an SSL certificate, the URL begins with <code>https://</code> and browsers display a padlock icon. In 2026, the answer is unequivocally yes — you need one. Every modern web browser marks sites without SSL as "Not Secure," which erodes visitor trust and increases bounce rates. Additionally, Google uses HTTPS as a ranking signal, meaning sites without SSL certificates may rank lower in search results. Free SSL certificates are available through providers like Let's Encrypt, so there is no cost barrier to securing your site. Our <a href="ssl-certificates.html">SSL certificates guide</a> walks through the entire setup process step by step.</p>
+                    <p>An SSL (Secure Sockets Layer) certificate is a digital certificate that authenticates a website's identity and enables an encrypted connection between a web server and a browser. When a site has an SSL certificate, the URL begins with <code>https://</code> and browsers display a padlock icon. In 2026, the answer is unequivocally yes — you need one. Every modern web browser marks sites without SSL as "Not Secure," which erodes visitor trust and increases bounce rates. Additionally, Google uses HTTPS as a ranking signal, meaning sites without SSL certificates may rank lower in search results. Free SSL certificates are available through providers like Let's Encrypt, so there is no cost barrier to securing your site. Our <a href="/ssl-certificates">SSL certificates guide</a> walks through the entire setup process step by step.</p>
                 </div>
             </div>
 
             <div class="faq-item">
                 <button class="faq-question">What is the difference between SSL and TLS?</button>
                 <div class="faq-answer">
-                    <p><strong>SSL</strong> (Secure Sockets Layer) and <strong>TLS</strong> (Transport Layer Security) are both cryptographic protocols designed to secure communications over a network. TLS is the successor to SSL and is significantly more secure. SSL versions 2.0 and 3.0 have been deprecated due to known vulnerabilities such as POODLE and DROWN, and modern browsers no longer support them. When people say "SSL" today, they almost always mean TLS — the term "SSL" persists largely due to brand familiarity. The current recommended version is TLS 1.3, which offers improved performance through a streamlined handshake process and stronger security by removing support for legacy cryptographic algorithms. Our <a href="ssl-certificates.html">SSL certificates guide</a> covers the technical differences in greater detail.</p>
+                    <p><strong>SSL</strong> (Secure Sockets Layer) and <strong>TLS</strong> (Transport Layer Security) are both cryptographic protocols designed to secure communications over a network. TLS is the successor to SSL and is significantly more secure. SSL versions 2.0 and 3.0 have been deprecated due to known vulnerabilities such as POODLE and DROWN, and modern browsers no longer support them. When people say "SSL" today, they almost always mean TLS — the term "SSL" persists largely due to brand familiarity. The current recommended version is TLS 1.3, which offers improved performance through a streamlined handshake process and stronger security by removing support for legacy cryptographic algorithms. Our <a href="/ssl-certificates">SSL certificates guide</a> covers the technical differences in greater detail.</p>
                 </div>
             </div>
 
@@ -471,7 +482,7 @@
             <div class="faq-item">
                 <button class="faq-question">What are security headers and why are they important?</button>
                 <div class="faq-answer">
-                    <p>Security headers are HTTP response headers that instruct the browser on how to behave when handling your website's content. They are a critical and often overlooked layer of defense against common web attacks. Key security headers include <strong>Content-Security-Policy</strong> (prevents XSS and data injection attacks), <strong>Strict-Transport-Security</strong> (enforces HTTPS connections and prevents protocol downgrade attacks), <strong>X-Content-Type-Options</strong> (prevents MIME-type sniffing), <strong>X-Frame-Options</strong> (prevents clickjacking by controlling iframe embedding), and <strong>Referrer-Policy</strong> (controls what referrer information is sent with requests). Implementing proper security headers is one of the easiest and most effective ways to improve your website's security posture, often requiring only a few lines in your server configuration. Our <a href="security-best-practices.html">security best practices guide</a> walks through configuring each header with practical examples.</p>
+                    <p>Security headers are HTTP response headers that instruct the browser on how to behave when handling your website's content. They are a critical and often overlooked layer of defense against common web attacks. Key security headers include <strong>Content-Security-Policy</strong> (prevents XSS and data injection attacks), <strong>Strict-Transport-Security</strong> (enforces HTTPS connections and prevents protocol downgrade attacks), <strong>X-Content-Type-Options</strong> (prevents MIME-type sniffing), <strong>X-Frame-Options</strong> (prevents clickjacking by controlling iframe embedding), and <strong>Referrer-Policy</strong> (controls what referrer information is sent with requests). Implementing proper security headers is one of the easiest and most effective ways to improve your website's security posture, often requiring only a few lines in your server configuration. Our <a href="/security-best-practices">security best practices guide</a> walks through configuring each header with practical examples.</p>
                 </div>
             </div>
 
@@ -498,14 +509,14 @@
             <div class="faq-item">
                 <button class="faq-question">What is SOC 2 and who needs it?</button>
                 <div class="faq-answer">
-                    <p><strong>SOC 2</strong> (Service Organization Control 2) is an auditing framework developed by the American Institute of CPAs (AICPA) that evaluates how a service organization manages customer data based on five Trust Services Criteria: security, availability, processing integrity, confidentiality, and privacy. Any company that stores, processes, or transmits customer data in the cloud — particularly SaaS companies, cloud hosting providers, managed service providers, and data processors — should strongly consider pursuing SOC 2 compliance. Enterprise customers increasingly require SOC 2 Type II reports as a precondition before signing contracts or sharing sensitive data. The security criterion is mandatory for all SOC 2 audits, while the other four criteria are optional based on your business needs. Our <a href="compliance-guide.html">compliance guide</a> provides a detailed roadmap for achieving SOC 2 certification, including estimated timelines and costs.</p>
+                    <p><strong>SOC 2</strong> (Service Organization Control 2) is an auditing framework developed by the American Institute of CPAs (AICPA) that evaluates how a service organization manages customer data based on five Trust Services Criteria: security, availability, processing integrity, confidentiality, and privacy. Any company that stores, processes, or transmits customer data in the cloud — particularly SaaS companies, cloud hosting providers, managed service providers, and data processors — should strongly consider pursuing SOC 2 compliance. Enterprise customers increasingly require SOC 2 Type II reports as a precondition before signing contracts or sharing sensitive data. The security criterion is mandatory for all SOC 2 audits, while the other four criteria are optional based on your business needs. Our <a href="/compliance-guide">compliance guide</a> provides a detailed roadmap for achieving SOC 2 certification, including estimated timelines and costs.</p>
                 </div>
             </div>
 
             <div class="faq-item">
                 <button class="faq-question">What is the difference between SOC 2 and ISO 27001?</button>
                 <div class="faq-answer">
-                    <p><strong>SOC 2</strong> is an auditing standard primarily recognized in North America that evaluates specific trust service criteria through an attestation report issued by a licensed CPA firm. <strong>ISO 27001</strong> is an international standard for establishing, implementing, maintaining, and continually improving an Information Security Management System (ISMS), resulting in a formal certification issued by an accredited certification body. SOC 2 is more prescriptive about what to audit, while ISO 27001 is more flexible and takes a risk-based approach that allows organizations to tailor controls to their specific context. Many organizations pursuing global business relationships choose to obtain both certifications, as SOC 2 is preferred by North American clients and ISO 27001 is recognized and preferred internationally. Our <a href="compliance-guide.html">compliance guide</a> includes a detailed comparison table to help you determine which path is right for your organization.</p>
+                    <p><strong>SOC 2</strong> is an auditing standard primarily recognized in North America that evaluates specific trust service criteria through an attestation report issued by a licensed CPA firm. <strong>ISO 27001</strong> is an international standard for establishing, implementing, maintaining, and continually improving an Information Security Management System (ISMS), resulting in a formal certification issued by an accredited certification body. SOC 2 is more prescriptive about what to audit, while ISO 27001 is more flexible and takes a risk-based approach that allows organizations to tailor controls to their specific context. Many organizations pursuing global business relationships choose to obtain both certifications, as SOC 2 is preferred by North American clients and ISO 27001 is recognized and preferred internationally. Our <a href="/compliance-guide">compliance guide</a> includes a detailed comparison table to help you determine which path is right for your organization.</p>
                 </div>
             </div>
 
@@ -546,7 +557,7 @@
             <div class="faq-item">
                 <button class="faq-question">What data does MySecurity Scores collect?</button>
                 <div class="faq-answer">
-                    <p>MySecurity Scores collects minimal data necessary to operate the website and improve user experience. This includes standard web analytics data such as page views, session duration, referral source, and general geographic location (country and region level) through Google Analytics. We also collect any information you voluntarily provide through our <a href="contact.html">contact form</a>, such as your name, email address, and message content. We do not collect sensitive personal information, financial data, or health data, and we do not use invasive tracking technologies beyond essential analytics cookies. For full transparency, our <a href="privacy.html">privacy policy</a> provides a detailed and comprehensive breakdown of all data collection practices, data retention periods, and third-party services used.</p>
+                    <p>MySecurity Scores collects minimal data necessary to operate the website and improve user experience. This includes standard web analytics data such as page views, session duration, referral source, and general geographic location (country and region level) through Google Analytics. We also collect any information you voluntarily provide through our <a href="/contact">contact form</a>, such as your name, email address, and message content. We do not collect sensitive personal information, financial data, or health data, and we do not use invasive tracking technologies beyond essential analytics cookies. For full transparency, our <a href="/privacy">privacy policy</a> provides a detailed and comprehensive breakdown of all data collection practices, data retention periods, and third-party services used.</p>
                 </div>
             </div>
 
@@ -560,14 +571,14 @@
             <div class="faq-item">
                 <button class="faq-question">How can I request deletion of my data?</button>
                 <div class="faq-answer">
-                    <p>You can request deletion of your personal data at any time by contacting us through our <a href="contact.html">contact page</a> or by emailing <strong>support@mysecurityscores.com</strong> with the subject line "Data Deletion Request." We will acknowledge your request within 48 hours and complete the deletion process within 30 days. This includes any contact form submissions, email correspondence, and associated records stored in our systems. Upon completion, we will send you a confirmation email verifying that your data has been removed. Please note that anonymized, aggregated analytics data that cannot be linked back to any individual is retained for statistical purposes, as this data poses no privacy risk and helps us improve our content for all users.</p>
+                    <p>You can request deletion of your personal data at any time by contacting us through our <a href="/contact">contact page</a> or by emailing <strong>support@mysecurityscores.com</strong> with the subject line "Data Deletion Request." We will acknowledge your request within 48 hours and complete the deletion process within 30 days. This includes any contact form submissions, email correspondence, and associated records stored in our systems. Upon completion, we will send you a confirmation email verifying that your data has been removed. Please note that anonymized, aggregated analytics data that cannot be linked back to any individual is retained for statistical purposes, as this data poses no privacy risk and helps us improve our content for all users.</p>
                 </div>
             </div>
 
             <div class="faq-item">
                 <button class="faq-question">What cookies does this site use?</button>
                 <div class="faq-answer">
-                    <p>MySecurity Scores uses a limited number of cookies for essential functionality and analytics. These include <strong>Google Analytics cookies</strong> (<code>_ga</code>, <code>_gid</code>, <code>_gat</code>) for understanding site traffic patterns and user behavior in aggregate, <strong>Google AdSense cookies</strong> for serving relevant advertisements that support our free content, and a <strong>cookie consent preference cookie</strong> to remember your cookie choices so you are not asked repeatedly. We do not use cookies for individual user profiling, cross-site tracking beyond what is standard with Google Analytics, or any form of fingerprinting. You can manage, disable, or delete cookies at any time through your browser settings, though disabling analytics cookies may affect some features. Our <a href="privacy.html">privacy policy</a> contains the complete list of cookies and their purposes.</p>
+                    <p>MySecurity Scores uses a limited number of cookies for essential functionality and analytics. These include <strong>Google Analytics cookies</strong> (<code>_ga</code>, <code>_gid</code>, <code>_gat</code>) for understanding site traffic patterns and user behavior in aggregate, <strong>Google AdSense cookies</strong> for serving relevant advertisements that support our free content, and a <strong>cookie consent preference cookie</strong> to remember your cookie choices so you are not asked repeatedly. We do not use cookies for individual user profiling, cross-site tracking beyond what is standard with Google Analytics, or any form of fingerprinting. You can manage, disable, or delete cookies at any time through your browser settings, though disabling analytics cookies may affect some features. Our <a href="/privacy">privacy policy</a> contains the complete list of cookies and their purposes.</p>
                 </div>
             </div>
 
@@ -583,45 +594,45 @@
                  ============================================ -->
             <h2 id="still-have-questions">Still Have Questions?</h2>
             <p>We are always happy to hear from our readers. If your question was not answered on this page, or if you need further clarification on any topic, please do not hesitate to get in touch with our team. We typically respond within 24 to 48 hours.</p>
-            <p><a href="contact.html" class="btn-primary" style="margin-top: 0.5rem;">Contact Our Team</a></p>
+            <p><a href="/contact" class="btn-primary" style="margin-top: 0.5rem;">Contact Our Team</a></p>
 
             <!-- CTA Box -->
             <div class="cta-box">
                 <h3>Explore Our In-Depth Security Guides</h3>
                 <p>Our FAQ provides quick answers, but our guides go much deeper. Explore step-by-step tutorials, detailed frameworks, practical checklists, and expert recommendations across every area of cybersecurity.</p>
-                <a href="security-guide.html" class="btn-primary">Browse All Guides</a>
+                <a href="/security-guide" class="btn-primary">Browse All Guides</a>
             </div>
 
             <!-- Related Section -->
             <div class="related-section">
                 <h3 class="related-title">Popular Guides and Resources</h3>
                 <div class="related-grid">
-                    <a href="security-guide.html" class="related-card">
+                    <a href="/security-guide" class="related-card">
                         <div class="related-card-icon">🔒</div>
                         <h4>Website Security Guide</h4>
                         <p>Comprehensive guide covering SSL, firewalls, security headers, and everything you need to protect your website in 2026.</p>
                     </a>
-                    <a href="ssl-certificates.html" class="related-card">
+                    <a href="/ssl-certificates" class="related-card">
                         <div class="related-card-icon">📜</div>
                         <h4>SSL Certificates Explained</h4>
                         <p>Learn how SSL/TLS works, choose the right certificate type, and configure HTTPS for your domain step by step.</p>
                     </a>
-                    <a href="compliance-guide.html" class="related-card">
+                    <a href="/compliance-guide" class="related-card">
                         <div class="related-card-icon">✅</div>
                         <h4>SOC 2 vs ISO 27001</h4>
                         <p>Navigate security compliance frameworks with our detailed comparison of SOC 2, ISO 27001, GDPR, and PCI DSS.</p>
                     </a>
-                    <a href="security-best-practices.html" class="related-card">
+                    <a href="/security-best-practices" class="related-card">
                         <div class="related-card-icon">🛡️</div>
                         <h4>Security Best Practices</h4>
                         <p>10 essential cybersecurity best practices every business should implement today to protect against modern threats.</p>
                     </a>
-                    <a href="threat-intelligence.html" class="related-card">
+                    <a href="/threat-intelligence" class="related-card">
                         <div class="related-card-icon">🔍</div>
                         <h4>Threat Intelligence</h4>
                         <p>Understand the threat landscape, common attack vectors, and how to use threat intelligence to strengthen your defenses.</p>
                     </a>
-                    <a href="password-security.html" class="related-card">
+                    <a href="/password-security" class="related-card">
                         <div class="related-card-icon">🔑</div>
                         <h4>Password Security</h4>
                         <p>Best practices for password creation, management, multi-factor authentication, and protecting user credentials.</p>
@@ -638,46 +649,46 @@
             <div class="footer-col">
                 <h4>MySecurity Scores</h4>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/faq">FAQ</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Security Guides</h4>
                 <ul>
-                    <li><a href="security-guide.html">Website Security</a></li>
-                    <li><a href="ssl-certificates.html">SSL Certificates</a></li>
-                    <li><a href="compliance-guide.html">Compliance Guide</a></li>
-                    <li><a href="security-best-practices.html">Best Practices</a></li>
+                    <li><a href="/security-guide">Website Security</a></li>
+                    <li><a href="/ssl-certificates">SSL Certificates</a></li>
+                    <li><a href="/compliance-guide">Compliance Guide</a></li>
+                    <li><a href="/security-best-practices">Best Practices</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>More Resources</h4>
                 <ul>
-                    <li><a href="threat-intelligence.html">Threat Intelligence</a></li>
-                    <li><a href="password-security.html">Password Security</a></li>
-                    <li><a href="incident-response.html">Incident Response</a></li>
-                    <li><a href="cloud-security.html">Cloud Security</a></li>
-                    <li><a href="security-news.html">Security News</a></li>
-                    <li><a href="security-quiz.html">Security Quiz</a></li>
+                    <li><a href="/threat-intelligence">Threat Intelligence</a></li>
+                    <li><a href="/password-security">Password Security</a></li>
+                    <li><a href="/incident-response">Incident Response</a></li>
+                    <li><a href="/cloud-security">Cloud Security</a></li>
+                    <li><a href="/security-news">Security News</a></li>
+                    <li><a href="/security-quiz">Security Quiz</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Legal</h4>
                 <ul>
-                    <li><a href="privacy.html">Privacy Policy</a></li>
-                    <li><a href="terms.html">Terms of Service</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                    <li><a href="/terms">Terms of Service</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
             <p>&copy; 2026 MySecurity Scores. All rights reserved. Educational content for information security professionals.</p>
             <div class="footer-bottom-links">
-                <a href="privacy.html">Privacy</a>
-                <a href="terms.html">Terms</a>
-                <a href="contact.html">Contact</a>
+                <a href="/privacy">Privacy</a>
+                <a href="/terms">Terms</a>
+                <a href="/contact">Contact</a>
             </div>
         </div>
     </footer>
@@ -685,7 +696,7 @@
     <!-- Cookie Consent Banner -->
     <div class="cookie-banner" id="cookieBanner">
         <div class="cookie-content">
-            <p>We use cookies to improve your experience and analyze site traffic. By continuing to browse, you agree to our use of cookies. Read our <a href="privacy.html">Privacy Policy</a> for more information.</p>
+            <p>We use cookies to improve your experience and analyze site traffic. By continuing to browse, you agree to our use of cookies. Read our <a href="/privacy">Privacy Policy</a> for more information.</p>
             <div class="cookie-buttons">
                 <button class="cookie-btn cookie-btn-accept" id="cookieAccept">Accept</button>
                 <button class="cookie-btn cookie-btn-reject" id="cookieReject">Reject</button>

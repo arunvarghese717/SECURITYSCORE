@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+    // Clean URL - remove .html extension from browser address bar
+    (function(){
+        var path = window.location.pathname;
+        if (path.endsWith('.html')) {
+            var clean = path.slice(0, -5);
+            if (clean === '/index') clean = '/';
+            window.history.replaceState(null, '', clean + window.location.search + window.location.hash);
+        }
+    })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Understanding SSL/TLS Certificates: The Complete HTTPS Guide for 2026 | MySecurity Scores</title>
@@ -8,7 +19,7 @@
     <meta name="keywords" content="SSL certificate, TLS certificate, HTTPS guide, TLS 1.3, Let's Encrypt, certificate authority, HSTS, post-quantum cryptography, SSL configuration, website encryption">
     <meta name="author" content="MySecurity Scores Editorial Team">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://mysecurityscores.com/ssl-certificates.html">
+    <link rel="canonical" href="https://mysecurityscores.com/ssl-certificates">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔒</text></svg>">
@@ -16,7 +27,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
     <!-- Shared Stylesheet -->
     <link rel="stylesheet" href="styles.css">
@@ -60,7 +71,7 @@
       "dateModified": "2026-02-18",
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://mysecurityscores.com/ssl-certificates.html"
+        "@id": "https://mysecurityscores.com/ssl-certificates"
       },
       "keywords": ["SSL certificate", "TLS certificate", "HTTPS", "TLS 1.3", "Let's Encrypt", "certificate authority", "HSTS", "post-quantum cryptography"],
       "articleSection": "Encryption & Certificates",
@@ -83,7 +94,7 @@
     <!-- Navigation -->
     <nav class="main-nav">
         <div class="nav-container">
-            <a href="index.html" class="nav-logo">&#128737; MySecurity Scores</a>
+            <a href="/" class="nav-logo">&#128737; MySecurity Scores</a>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
                 <span></span>
                 <span></span>
@@ -93,30 +104,30 @@
                 <li>
                     <a href="#" class="active">Guides &#9662;</a>
                     <ul class="nav-dropdown">
-                        <li><a href="security-guide.html">Security Guide</a></li>
-                        <li><a href="ssl-certificates.html">SSL Certificates</a></li>
-                        <li><a href="compliance-guide.html">Compliance Guide</a></li>
-                        <li><a href="security-best-practices.html">Best Practices</a></li>
-                        <li><a href="threat-intelligence.html">Threat Intelligence</a></li>
-                        <li><a href="password-security.html">Password Security</a></li>
-                        <li><a href="incident-response.html">Incident Response</a></li>
-                        <li><a href="cloud-security.html">Cloud Security</a></li>
+                        <li><a href="/security-guide">Security Guide</a></li>
+                        <li><a href="/ssl-certificates">SSL Certificates</a></li>
+                        <li><a href="/compliance-guide">Compliance Guide</a></li>
+                        <li><a href="/security-best-practices">Best Practices</a></li>
+                        <li><a href="/threat-intelligence">Threat Intelligence</a></li>
+                        <li><a href="/password-security">Password Security</a></li>
+                        <li><a href="/incident-response">Incident Response</a></li>
+                        <li><a href="/cloud-security">Cloud Security</a></li>
                     </ul>
                 </li>
-                <li><a href="security-news.html">News</a></li>
-                <li><a href="security-quiz.html">Quiz</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="/security-news">News</a></li>
+                <li><a href="/security-quiz">Quiz</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/faq">FAQ</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- Breadcrumbs -->
     <div class="breadcrumbs">
-        <a href="index.html">Home</a>
+        <a href="/">Home</a>
         <span>&#8250;</span>
-        <a href="security-guide.html">Guides</a>
+        <a href="/security-guide">Guides</a>
         <span>&#8250;</span>
         SSL/TLS Certificates
     </div>
@@ -364,24 +375,24 @@
             <div class="cta-box">
                 <h3>Validate Your SSL/TLS Configuration Now</h3>
                 <p>Get a comprehensive, free security assessment of your website's SSL/TLS setup, including certificate validity, protocol support, cipher strength, and HSTS compliance. Our platform checks over 30 configuration parameters and provides actionable remediation guidance.</p>
-                <a href="index.html" class="btn-primary">Start Free SSL Assessment</a>
+                <a href="/" class="btn-primary">Start Free SSL Assessment</a>
             </div>
 
             <!-- Related Section -->
             <div class="related-section">
                 <h3 class="related-title">Related Guides</h3>
                 <div class="related-grid">
-                    <a href="security-guide.html" class="related-card">
+                    <a href="/security-guide" class="related-card">
                         <div class="related-card-icon">&#128737;</div>
                         <h4>Complete Website Security Guide</h4>
                         <p>A comprehensive overview of website security fundamentals, from firewalls and audits to compliance and emerging threats.</p>
                     </a>
-                    <a href="compliance-guide.html" class="related-card">
+                    <a href="/compliance-guide" class="related-card">
                         <div class="related-card-icon">&#128203;</div>
                         <h4>SOC 2 vs ISO 27001 Comparison</h4>
                         <p>Understand the differences between the two leading compliance frameworks and determine which certification your business needs.</p>
                     </a>
-                    <a href="security-best-practices.html" class="related-card">
+                    <a href="/security-best-practices" class="related-card">
                         <div class="related-card-icon">&#9989;</div>
                         <h4>10 Essential Cybersecurity Best Practices</h4>
                         <p>An actionable checklist of the most impactful security measures every organization should implement today.</p>
@@ -398,47 +409,47 @@
             <div class="footer-col">
                 <h4>MySecurity Scores</h4>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/faq">FAQ</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Security Guides</h4>
                 <ul>
-                    <li><a href="security-guide.html">Security Guide</a></li>
-                    <li><a href="ssl-certificates.html">SSL Certificates</a></li>
-                    <li><a href="compliance-guide.html">Compliance Guide</a></li>
-                    <li><a href="security-best-practices.html">Best Practices</a></li>
+                    <li><a href="/security-guide">Security Guide</a></li>
+                    <li><a href="/ssl-certificates">SSL Certificates</a></li>
+                    <li><a href="/compliance-guide">Compliance Guide</a></li>
+                    <li><a href="/security-best-practices">Best Practices</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Resources</h4>
                 <ul>
-                    <li><a href="threat-intelligence.html">Threat Intelligence</a></li>
-                    <li><a href="password-security.html">Password Security</a></li>
-                    <li><a href="incident-response.html">Incident Response</a></li>
-                    <li><a href="cloud-security.html">Cloud Security</a></li>
-                    <li><a href="security-news.html">Security News</a></li>
-                    <li><a href="security-quiz.html">Security Quiz</a></li>
+                    <li><a href="/threat-intelligence">Threat Intelligence</a></li>
+                    <li><a href="/password-security">Password Security</a></li>
+                    <li><a href="/incident-response">Incident Response</a></li>
+                    <li><a href="/cloud-security">Cloud Security</a></li>
+                    <li><a href="/security-news">Security News</a></li>
+                    <li><a href="/security-quiz">Security Quiz</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Legal</h4>
                 <ul>
-                    <li><a href="privacy.html">Privacy Policy</a></li>
-                    <li><a href="terms.html">Terms of Service</a></li>
-                    <li><a href="contact.html">Report a Vulnerability</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                    <li><a href="/terms">Terms of Service</a></li>
+                    <li><a href="/contact">Report a Vulnerability</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
             <p>&copy; 2026 MySecurity Scores. All rights reserved.</p>
             <div class="footer-bottom-links">
-                <a href="privacy.html">Privacy</a>
-                <a href="terms.html">Terms</a>
-                <a href="contact.html">Contact</a>
+                <a href="/privacy">Privacy</a>
+                <a href="/terms">Terms</a>
+                <a href="/contact">Contact</a>
             </div>
         </div>
     </footer>
@@ -446,7 +457,7 @@
     <!-- Cookie Consent Banner -->
     <div class="cookie-banner" id="cookieBanner">
         <div class="cookie-content">
-            <p>We use cookies to enhance your browsing experience, analyze site traffic, and serve relevant content. By clicking "Accept," you consent to our use of cookies. Read our <a href="privacy.html">Privacy Policy</a> for more information.</p>
+            <p>We use cookies to enhance your browsing experience, analyze site traffic, and serve relevant content. By clicking "Accept," you consent to our use of cookies. Read our <a href="/privacy">Privacy Policy</a> for more information.</p>
             <div class="cookie-buttons">
                 <button class="cookie-btn cookie-btn-accept" id="cookieAccept">Accept</button>
                 <button class="cookie-btn cookie-btn-reject" id="cookieReject">Reject</button>

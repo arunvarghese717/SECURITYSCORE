@@ -7,35 +7,44 @@
    CSS VARIABLES & DESIGN TOKENS
    ============================================ */
 :root {
-    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --accent-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-    --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-    --warning-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    /* PurpleQuarter-Inspired Gradients */
+    --primary-gradient: linear-gradient(135deg, #5B21B6 0%, #7C3AED 100%);
+    --accent-gradient: linear-gradient(135deg, #F97316 0%, #FB923C 100%);
+    --success-gradient: linear-gradient(135deg, #10B981 0%, #34D399 100%);
+    --warning-gradient: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%);
 
-    --deep-navy: #0f1419;
-    --rich-purple: #6366f1;
-    --electric-blue: #3b82f6;
-    --cyber-cyan: #06b6d4;
+    /* Deep Purple Professional Colors */
+    --deep-navy: #0A0118;
+    --rich-purple: #7C3AED;
+    --electric-blue: #8B5CF6;
+    --cyber-cyan: #A78BFA;
     --neon-green: #10b981;
-    --coral-pink: #f43f5e;
-    --amber-gold: #f59e0b;
+    --coral-pink: #F97316;
+    --amber-gold: #FB923C;
 
-    --slate-900: #0f172a;
-    --slate-800: #1e293b;
-    --slate-700: #334155;
-    --slate-600: #475569;
-    --slate-500: #64748b;
-    --slate-400: #94a3b8;
-    --slate-300: #cbd5e1;
-    --slate-200: #e2e8f0;
-    --slate-100: #f1f5f9;
+    /* Purple-Tinted Neutrals */
+    --slate-900: #0A0118;
+    --slate-800: #1A0B2E;
+    --slate-700: #2D1B4E;
+    --slate-600: #4C3575;
+    --slate-500: #6D5A8A;
+    --slate-400: #A78BFA;
+    --slate-300: #C4B5FD;
+    --slate-200: #DDD6FE;
+    --slate-100: #F5F3FF;
 
-    --glass-bg: rgba(255, 255, 255, 0.05);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    /* Glass Morphism - Purple Tinted */
+    --glass-bg: rgba(124, 58, 237, 0.08);
+    --glass-border: rgba(167, 139, 250, 0.15);
+    --glass-shadow: 0 8px 32px 0 rgba(91, 33, 182, 0.37);
 
-    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    /* Typography - Figtree (PurpleQuarter) */
+    --font-primary: 'Figtree', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+    /* Orange Accent */
+    --accent-orange: #F97316;
+    --accent-orange-light: #FB923C;
 
     --max-width: 1400px;
     --content-width: 900px;
@@ -315,7 +324,7 @@ a:hover {
     font-weight: 800;
     line-height: 1.2;
     margin-bottom: 1rem;
-    background: linear-gradient(135deg, #ffffff 0%, #667eea 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #C4B5FD 60%, #F97316 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
