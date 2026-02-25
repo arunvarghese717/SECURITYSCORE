@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+    // Clean URL - remove .html extension from browser address bar
+    (function(){
+        var path = window.location.pathname;
+        if (path.endsWith('.html')) {
+            var clean = path.slice(0, -5);
+            if (clean === '/index') clean = '/';
+            window.history.replaceState(null, '', clean + window.location.search + window.location.hash);
+        }
+    })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Knowledge Quiz - Test Your Security Skills | MySecurity Scores</title>
+    <meta name="description" content="Test your cybersecurity knowledge with our free 15-question interactive quiz covering passwords, MFA, phishing, encryption, firewalls, ransomware, VPNs, cloud security, and more. Updated February 2026.">
+    <meta name="keywords" content="cybersecurity quiz, security knowledge test, cyber awareness quiz, security skills assessment, phishing quiz, password security test, cybersecurity certification practice, security awareness training quiz 2026">
+    <meta name="author" content="MySecurity Scores">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mysecurityscores.com/security-quiz">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Cybersecurity Knowledge Quiz - Test Your Security Skills | MySecurity Scores">
+    <meta property="og:description" content="Test your cybersecurity knowledge with our free 15-question interactive quiz. Covers passwords, phishing, encryption, compliance, and more.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mysecurityscores.com/security-quiz">
+    <meta property="og:site_name" content="MySecurity Scores">
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cybersecurity Knowledge Quiz - Test Your Security Skills | MySecurity Scores">
+    <meta name="twitter:description" content="Test your cybersecurity knowledge with our free 15-question interactive quiz. Covers passwords, phishing, encryption, compliance, and more.">
+
+    <!-- JSON-LD Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Quiz",
+        "name": "Cybersecurity Knowledge Quiz",
+        "description": "A 15-question interactive quiz testing your knowledge of cybersecurity fundamentals including passwords, MFA, phishing, encryption, firewalls, ransomware, VPNs, cloud security, incident response, and compliance.",
+        "url": "https://mysecurityscores.com/security-quiz",
+        "educationalLevel": "Beginner to Intermediate",
+        "about": {
+            "@type": "Thing",
+            "name": "Cybersecurity"
+        },
+        "provider": {
+            "@type": "Organization",
+            "name": "MySecurity Scores",
+            "url": "https://mysecurityscores.com"
+        },
+        "hasPart": [
+            {
+                "@type": "Question",
+                "name": "Password Security",
+                "text": "Which of the following is the most important characteristic of a strong password?"
+            },
+            {
+                "@type": "Question",
+                "name": "Multi-Factor Authentication",
+                "text": "What does multi-factor authentication (MFA) require?"
+            },
+            {
+                "@type": "Question",
+                "name": "Phishing Awareness",
+                "text": "Which of the following is the most reliable indicator that an email is a phishing attempt?"
+            }
+        ],
+        "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://mysecurityscores.com/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Security Quiz",
+                    "item": "https://mysecurityscores.com/security-quiz"
+                }
+            ]
+        }
+    }
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Shared Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SV8LBXML45"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-SV8LBXML45');
+    </script>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4820225613195679"
+         crossorigin="anonymous"></script>
+
+    <!-- Quiz-Specific Styles -->
+    <style>
+    /* ============================================
+       QUIZ PROGRESS TRACKER (sticky top bar)
+       ============================================ */
+    .quiz-progress {
+        background: rgba(15, 23, 42, 0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 16px;
+        padding: 1.25rem 1.75rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+        position: sticky;
+        top: 80px;
+        z-index: 50;
+        flex-wrap: wrap;
+    }
+    .quiz-progress-stats {
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .quiz-stat {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.2rem;
+    }
+    .quiz-stat-value {
+        font-size: 1.5rem;
+        font-weight: 800;
+        font-family: 'JetBrains Mono', monospace;
+        color: #fff;
+    }
+    .quiz-stat-value.correct { color: #22c55e; }
+    .quiz-stat-value.incorrect { color: #f43f5e; }
+    .quiz-stat-label {
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--slate-400, #94a3b8);
+    }
+    .quiz-progress-bar-container {
+        flex: 1;
+        min-width: 120px;
+        max-width: 400px;
+    }
+    .quiz-progress-bar {
+        width: 100%;
+        height: 8px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 99px;
+        overflow: hidden;
+    }
+    .quiz-progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #667eea, #764ba2);
+        border-radius: 99px;
+        transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        width: 0%;
+    }
+    .quiz-progress-text {
+        text-align: center;
+        font-size: 0.75rem;
+        color: var(--slate-400, #94a3b8);
+        margin-top: 0.35rem;
+        font-weight: 500;
+    }
+
+    /* ============================================
+       QUIZ CONTAINER
+       ============================================ */
+    .quiz-container {
+        max-width: 850px;
+        margin: 0 auto;
+    }
+
+    /* ============================================
+       QUIZ QUESTION CARD
+       ============================================ */
+    .quiz-question {
+        background: rgba(15, 23, 42, 0.65);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 20px;
+        padding: 2.5rem;
+        margin-bottom: 1.5rem;
+        animation: quizSlideIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    @keyframes quizSlideIn {
+        from { opacity: 0; transform: translateY(24px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .quiz-question-number {
+        display: inline-block;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #667eea;
+        background: rgba(102, 126, 234, 0.12);
+        border: 1px solid rgba(102, 126, 234, 0.2);
+        border-radius: 8px;
+        padding: 0.3rem 0.75rem;
+        margin-bottom: 1rem;
+    }
+    .quiz-question-text {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #fff;
+        line-height: 1.5;
+        margin-bottom: 1.75rem;
+    }
+    .quiz-question-topic {
+        display: inline-block;
+        font-size: 0.7rem;
+        font-weight: 600;
+        color: var(--slate-400, #94a3b8);
+        background: rgba(255, 255, 255, 0.04);
+        border-radius: 6px;
+        padding: 0.2rem 0.6rem;
+        margin-bottom: 1rem;
+        margin-left: 0.5rem;
+    }
+
+    /* ============================================
+       QUIZ OPTIONS (grid of 4)
+       ============================================ */
+    .quiz-options {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+    @media (max-width: 640px) {
+        .quiz-options {
+            grid-template-columns: 1fr;
+        }
+        .quiz-question {
+            padding: 1.5rem;
+        }
+        .quiz-progress {
+            flex-direction: column;
+            text-align: center;
+            top: 60px;
+        }
+    }
+
+    /* ============================================
+       QUIZ OPTION (clickable card)
+       ============================================ */
+    .quiz-option {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 14px;
+        padding: 1.15rem 1.25rem;
+        cursor: pointer;
+        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        align-items: flex-start;
+        gap: 0.85rem;
+        position: relative;
+        overflow: hidden;
+    }
+    .quiz-option::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 14px;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+    .quiz-option:hover:not(.disabled) {
+        border-color: rgba(102, 126, 234, 0.4);
+        background: rgba(102, 126, 234, 0.08);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(102, 126, 234, 0.12);
+    }
+    .quiz-option-letter {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        min-width: 32px;
+        border-radius: 10px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        font-family: 'JetBrains Mono', monospace;
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--slate-300, #cbd5e1);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s;
+    }
+    .quiz-option-text {
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: var(--slate-200, #e2e8f0);
+        line-height: 1.5;
+        padding-top: 0.2rem;
+    }
+
+    /* Correct state */
+    .quiz-option.correct {
+        border-color: rgba(34, 197, 94, 0.5);
+        background: rgba(34, 197, 94, 0.1);
+        box-shadow: 0 0 30px rgba(34, 197, 94, 0.15), inset 0 0 30px rgba(34, 197, 94, 0.05);
+        animation: quizCorrectPulse 0.6s ease;
+    }
+    .quiz-option.correct .quiz-option-letter {
+        background: #22c55e;
+        color: #fff;
+        border-color: #22c55e;
+    }
+    @keyframes quizCorrectPulse {
+        0% { transform: scale(1); }
+        30% { transform: scale(1.03); }
+        100% { transform: scale(1); }
+    }
+
+    /* Incorrect state */
+    .quiz-option.incorrect {
+        border-color: rgba(244, 63, 94, 0.5);
+        background: rgba(244, 63, 94, 0.1);
+        box-shadow: 0 0 30px rgba(244, 63, 94, 0.15), inset 0 0 30px rgba(244, 63, 94, 0.05);
+        animation: quizIncorrectShake 0.5s ease;
+    }
+    .quiz-option.incorrect .quiz-option-letter {
+        background: #f43f5e;
+        color: #fff;
+        border-color: #f43f5e;
+    }
+    @keyframes quizIncorrectShake {
+        0%, 100% { transform: translateX(0); }
+        20% { transform: translateX(-6px); }
+        40% { transform: translateX(6px); }
+        60% { transform: translateX(-4px); }
+        80% { transform: translateX(4px); }
+    }
+
+    /* Disabled state (after answering) */
+    .quiz-option.disabled {
+        cursor: default;
+        opacity: 0.5;
+        pointer-events: none;
+    }
+    .quiz-option.disabled.correct,
+    .quiz-option.disabled.incorrect {
+        opacity: 1;
+    }
+    /* Show the correct answer even when user picked wrong */
+    .quiz-option.show-correct {
+        border-color: rgba(34, 197, 94, 0.4);
+        background: rgba(34, 197, 94, 0.06);
+        opacity: 1;
+    }
+    .quiz-option.show-correct .quiz-option-letter {
+        background: rgba(34, 197, 94, 0.3);
+        color: #22c55e;
+        border-color: rgba(34, 197, 94, 0.5);
+    }
+
+    /* ============================================
+       QUIZ EXPLANATION
+       ============================================ */
+    .quiz-explanation {
+        margin-top: 1.5rem;
+        padding: 1.25rem 1.5rem;
+        border-radius: 14px;
+        border-left: 4px solid #667eea;
+        background: rgba(102, 126, 234, 0.06);
+        animation: quizSlideIn 0.4s ease;
+    }
+    .quiz-explanation-title {
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: #667eea;
+        margin-bottom: 0.5rem;
+    }
+    .quiz-explanation-text {
+        font-size: 0.92rem;
+        color: var(--slate-300, #cbd5e1);
+        line-height: 1.7;
+    }
+    .quiz-explanation-link {
+        display: inline-block;
+        margin-top: 0.75rem;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #667eea;
+        text-decoration: none;
+        transition: color 0.2s;
+    }
+    .quiz-explanation-link:hover {
+        color: #818cf8;
+        text-decoration: underline;
+    }
+
+    /* ============================================
+       QUIZ NEXT BUTTON
+       ============================================ */
+    .quiz-next-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 1.5rem;
+        padding: 0.85rem 2rem;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: #fff;
+        border: none;
+        border-radius: 12px;
+        font-size: 0.95rem;
+        font-weight: 700;
+        font-family: 'Figtree', sans-serif;
+        cursor: pointer;
+        transition: all 0.25s;
+        box-shadow: 0 4px 16px rgba(102, 126, 234, 0.3);
+    }
+    .quiz-next-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
+    }
+    .quiz-next-btn:active {
+        transform: translateY(0);
+    }
+
+    /* ============================================
+       QUIZ RESULTS SCREEN
+       ============================================ */
+    .quiz-results {
+        text-align: center;
+        padding: 3rem 2rem;
+        background: rgba(15, 23, 42, 0.65);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 24px;
+        animation: quizSlideIn 0.6s ease;
+    }
+    .quiz-results-title {
+        font-size: 1.8rem;
+        font-weight: 900;
+        color: #fff;
+        margin-bottom: 0.5rem;
+    }
+    .quiz-results-subtitle {
+        font-size: 1rem;
+        color: var(--slate-400, #94a3b8);
+        margin-bottom: 2rem;
+    }
+
+    /* ============================================
+       QUIZ SCORE CIRCLE (animated SVG ring)
+       ============================================ */
+    .quiz-score-circle {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        margin: 0 auto 2rem;
+    }
+    .quiz-score-circle svg {
+        width: 200px;
+        height: 200px;
+        transform: rotate(-90deg);
+    }
+    .quiz-score-circle .bg-ring {
+        fill: none;
+        stroke: rgba(255, 255, 255, 0.06);
+        stroke-width: 10;
+    }
+    .quiz-score-circle .score-ring {
+        fill: none;
+        stroke-width: 10;
+        stroke-linecap: round;
+        stroke-dasharray: 565.48;
+        stroke-dashoffset: 565.48;
+        transition: stroke-dashoffset 1.5s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.3s;
+    }
+    .quiz-score-circle .score-inner {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .quiz-score-percent {
+        font-size: 3rem;
+        font-weight: 900;
+        font-family: 'JetBrains Mono', monospace;
+        color: #fff;
+        line-height: 1;
+    }
+    .quiz-score-grade {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-top: 0.25rem;
+        letter-spacing: 0.05em;
+    }
+    .grade-a { color: #22c55e; }
+    .grade-b { color: #3b82f6; }
+    .grade-c { color: #f59e0b; }
+    .grade-d { color: #f97316; }
+    .grade-f { color: #f43f5e; }
+
+    /* Results breakdown */
+    .quiz-results-breakdown {
+        display: flex;
+        justify-content: center;
+        gap: 2.5rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+    }
+    .quiz-results-stat {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.3rem;
+    }
+    .quiz-results-stat-value {
+        font-size: 2rem;
+        font-weight: 800;
+        font-family: 'JetBrains Mono', monospace;
+    }
+    .quiz-results-stat-label {
+        font-size: 0.78rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--slate-400, #94a3b8);
+    }
+
+    /* Results recommendations */
+    .quiz-results-recommendations {
+        text-align: left;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 16px;
+        padding: 1.75rem;
+        margin: 2rem auto 1.5rem;
+        max-width: 600px;
+    }
+    .quiz-results-recommendations h3 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 1rem;
+    }
+    .quiz-results-recommendations p {
+        font-size: 0.92rem;
+        color: var(--slate-300, #cbd5e1);
+        line-height: 1.7;
+        margin-bottom: 1rem;
+    }
+    .quiz-results-links {
+        list-style: none;
+        padding: 0;
+        margin: 1rem 0 0;
+    }
+    .quiz-results-links li {
+        margin-bottom: 0.5rem;
+    }
+    .quiz-results-links a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #667eea;
+        text-decoration: none;
+        transition: color 0.2s;
+    }
+    .quiz-results-links a:hover {
+        color: #818cf8;
+        text-decoration: underline;
+    }
+
+    .quiz-restart-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 1.5rem;
+        padding: 0.85rem 2.5rem;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: #fff;
+        border: none;
+        border-radius: 12px;
+        font-size: 1rem;
+        font-weight: 700;
+        font-family: 'Figtree', sans-serif;
+        cursor: pointer;
+        transition: all 0.25s;
+        box-shadow: 0 4px 16px rgba(102, 126, 234, 0.3);
+    }
+    .quiz-restart-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
+    }
+
+    /* ============================================
+       EDUCATIONAL SECTION BELOW QUIZ
+       ============================================ */
+    .quiz-education-section {
+        margin-top: 3rem;
+    }
+    </style>
+</head>
+<body>
+
+    <!-- Reading Progress Bar -->
+    <div class="reading-progress" id="readingProgress"></div>
+
+    <!-- Animated Background -->
+    <div class="background-animation">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="/" class="nav-logo" style="text-decoration: none;">
+                <span>🛡️</span>
+                <span>MySecurity Scores</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/">Home</a></li>
+                <li>
+                    <a href="/security-guide">Guides ▾</a>
+                    <ul class="nav-dropdown">
+                        <li><a href="/security-guide">Website Security Guide</a></li>
+                        <li><a href="/ssl-certificates">SSL Certificates</a></li>
+                        <li><a href="/compliance-guide">Compliance Guide</a></li>
+                        <li><a href="/security-best-practices">Security Best Practices</a></li>
+                        <li><a href="/threat-intelligence">Threat Intelligence</a></li>
+                        <li><a href="/password-security">Password Security</a></li>
+                        <li><a href="/incident-response">Incident Response</a></li>
+                        <li><a href="/cloud-security">Cloud Security</a></li>
+                    </ul>
+                </li>
+                <li><a href="/security-news">News</a></li>
+                <li><a href="/security-quiz" class="active">Quiz</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/faq">FAQ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <a href="/">Home</a>
+        <span>›</span>
+        Security Quiz
+    </div>
+
+    <!-- Main Content -->
+    <main class="page-content">
+        <header class="page-header">
+            <h1 class="page-title">Cybersecurity Knowledge Quiz - Test Your Security Skills</h1>
+            <div class="page-meta">
+                <span class="page-meta-item">Updated February 2026</span>
+                <span class="page-meta-item">15 Questions</span>
+                <span class="page-meta-item">~10 Minutes</span>
+            </div>
+        </header>
+
+        <div class="article-body">
+
+            <p>Understanding cybersecurity is no longer optional for anyone who uses the internet, whether you are a business owner responsible for protecting customer data, an IT professional managing critical infrastructure, or an everyday user navigating an increasingly hostile digital landscape. This interactive quiz tests your knowledge across 15 fundamental cybersecurity topics, from password security and phishing awareness to encryption, incident response, and regulatory compliance. Each question includes a detailed explanation to help reinforce your learning, regardless of whether you answer correctly or incorrectly. Your results are processed entirely in your browser and are never sent to our servers.</p>
+
+            <!-- Quiz Progress Tracker -->
+            <div class="quiz-progress" id="quizProgress">
+                <div class="quiz-progress-stats">
+                    <div class="quiz-stat">
+                        <span class="quiz-stat-value" id="quizAnswered">0</span>
+                        <span class="quiz-stat-label">Answered</span>
+                    </div>
+                    <div class="quiz-stat">
+                        <span class="quiz-stat-value correct" id="quizCorrect">0</span>
+                        <span class="quiz-stat-label">Correct</span>
+                    </div>
+                    <div class="quiz-stat">
+                        <span class="quiz-stat-value incorrect" id="quizIncorrect">0</span>
+                        <span class="quiz-stat-label">Incorrect</span>
+                    </div>
+                </div>
+                <div class="quiz-progress-bar-container">
+                    <div class="quiz-progress-bar">
+                        <div class="quiz-progress-fill" id="quizProgressFill"></div>
+                    </div>
+                    <div class="quiz-progress-text" id="quizProgressText">0 of 15 complete</div>
+                </div>
+            </div>
+
+            <!-- Quiz Container -->
+            <div class="quiz-container" id="quizContainer">
+                <!-- Questions are rendered by JavaScript -->
+            </div>
+
+            <!-- Quiz Results (hidden initially) -->
+            <div class="quiz-results" id="quizResults" style="display: none;">
+                <!-- Results rendered by JavaScript -->
+            </div>
+
+            <!-- Educational Section Below Quiz -->
+            <div class="quiz-education-section">
+                <h2 id="why-cybersecurity-knowledge-matters">Why Cybersecurity Knowledge Matters</h2>
+
+                <p>The cybersecurity threat landscape in 2026 is more complex and consequential than at any point in history. Ransomware attacks now cost the global economy an estimated $265 billion annually, with the average ransom demand exceeding $1.5 million. Data breaches expose hundreds of millions of records each year, and the average cost of a breach has risen to over $4.88 million according to IBM's Cost of a Data Breach Report. Perhaps most concerning, the time between a vulnerability being disclosed and being actively exploited has shrunk to an average of just 15 days, down from 45 days five years ago. These numbers underscore a critical truth: cybersecurity is not just an IT problem, it is a fundamental business and personal safety issue.</p>
+
+                <p>For individuals, cybersecurity literacy is the first line of defense against attacks that target people rather than systems. <strong>Social engineering remains the most common initial attack vector</strong>, accounting for over 70% of successful breaches according to multiple industry reports. Phishing emails have become extraordinarily sophisticated, leveraging AI-generated content that mimics the writing style of trusted contacts and organizations. Understanding how to identify suspicious communications, use strong authentication methods, and protect personal data is no longer a nice-to-have skill; it is essential digital literacy for the modern world.</p>
+
+                <p>For businesses, the consequences of a cybersecurity failure extend far beyond the immediate financial impact. Regulatory penalties under frameworks like GDPR, HIPAA, and PCI DSS can add millions of dollars to breach costs. Customer trust, once lost, is extraordinarily difficult to rebuild: studies consistently show that over 60% of consumers will stop doing business with a company that suffers a significant data breach. Business disruption from ransomware can halt operations for days or weeks, with small and medium-sized businesses being particularly vulnerable as they often lack the redundancy and incident response capabilities of larger organizations. An organization-wide culture of security awareness, built through education and reinforced through regular testing, is one of the most cost-effective investments any business can make in reducing its risk profile.</p>
+
+                <p>This quiz is designed to serve as both an assessment and a learning tool. The 15 questions cover the most critical areas of cybersecurity knowledge that every person and organization should understand. Whether you scored perfectly or identified gaps in your knowledge, the explanations provided with each question offer actionable insights you can apply immediately. We encourage you to explore the linked guides for deeper dives into any topics where you want to strengthen your understanding. Cybersecurity is not a destination; it is an ongoing practice that requires continuous learning and adaptation as threats evolve.</p>
+
+                <h3>Key Areas Covered in This Quiz</h3>
+
+                <ul>
+                    <li><strong>Password Security:</strong> Understanding what makes a password strong and how to manage credentials effectively is the foundation of personal cybersecurity. Our <a href="/password-security">Password Security Guide</a> provides comprehensive coverage of password policies, manager tools, and passkey adoption.</li>
+                    <li><strong>Multi-Factor Authentication (MFA):</strong> MFA is widely regarded as one of the single most effective controls for preventing unauthorized account access, blocking an estimated 99.9% of automated attacks according to Microsoft.</li>
+                    <li><strong>Phishing and Social Engineering:</strong> Learning to identify fraudulent communications is essential because no technical control can fully protect against a user who willingly provides their credentials to an attacker.</li>
+                    <li><strong>Encryption:</strong> Understanding how encryption protects data in transit and at rest is fundamental to making informed decisions about data security architecture and evaluating vendor security claims.</li>
+                    <li><strong>Network Security:</strong> Knowledge of firewalls, VPNs, and network monitoring enables organizations to implement layered defenses that make it significantly harder for attackers to move through their environments.</li>
+                    <li><strong>Malware and Ransomware:</strong> Recognizing the different categories of malicious software and understanding how they propagate helps users avoid infection vectors and respond appropriately when threats are detected.</li>
+                    <li><strong>Cloud Security:</strong> As organizations migrate critical workloads to cloud environments, understanding the shared responsibility model and cloud-specific risks is essential for maintaining security posture.</li>
+                    <li><strong>Incident Response:</strong> Having a plan for when things go wrong is not pessimistic; it is pragmatic. Organizations that have tested incident response plans reduce breach costs by an average of $2.66 million compared to those that do not.</li>
+                    <li><strong>Compliance:</strong> Navigating regulatory requirements like GDPR, HIPAA, SOC 2, and PCI DSS is increasingly important as governments worldwide strengthen data protection legislation.</li>
+                </ul>
+            </div>
+
+            <!-- CTA Box -->
+            <div class="cta-box">
+                <h3>Go Deeper: Free Security Assessment</h3>
+                <p>Now that you have tested your knowledge, take the next step. Our comprehensive security assessment evaluates your organization's security posture and provides a prioritized remediation roadmap tailored to your specific environment.</p>
+                <a href="/" class="btn-primary">Start Your Free Assessment</a>
+            </div>
+
+            <!-- Related Section -->
+            <div class="related-section">
+                <h3 class="related-title">Explore Our Security Guides</h3>
+                <div class="related-grid">
+                    <a href="/security-guide" class="related-card">
+                        <div class="related-card-icon">🔒</div>
+                        <h4>Website Security Guide</h4>
+                        <p>Comprehensive guide covering SSL, firewalls, security headers, and everything you need to protect your website in 2026.</p>
+                    </a>
+                    <a href="/password-security" class="related-card">
+                        <div class="related-card-icon">🔑</div>
+                        <h4>Password Security</h4>
+                        <p>Best practices for password creation, management, multi-factor authentication, and protecting user credentials.</p>
+                    </a>
+                    <a href="/threat-intelligence" class="related-card">
+                        <div class="related-card-icon">🔍</div>
+                        <h4>Threat Intelligence</h4>
+                        <p>Understand the threat landscape, common attack vectors, and how to use threat intelligence to strengthen your defenses.</p>
+                    </a>
+                    <a href="/compliance-guide" class="related-card">
+                        <div class="related-card-icon">✅</div>
+                        <h4>Compliance Guide</h4>
+                        <p>Navigate SOC 2, ISO 27001, GDPR, HIPAA, and PCI DSS with our detailed comparison and implementation roadmap.</p>
+                    </a>
+                    <a href="/security-best-practices" class="related-card">
+                        <div class="related-card-icon">🛡️</div>
+                        <h4>Security Best Practices</h4>
+                        <p>10 essential cybersecurity best practices every business should implement today to protect against modern threats.</p>
+                    </a>
+                    <a href="/cloud-security" class="related-card">
+                        <div class="related-card-icon">☁️</div>
+                        <h4>Cloud Security</h4>
+                        <p>Secure your cloud workloads with guidance on IAM, encryption, monitoring, and the shared responsibility model.</p>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>MySecurity Scores</h4>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Security Guides</h4>
+                <ul>
+                    <li><a href="/security-guide">Website Security</a></li>
+                    <li><a href="/ssl-certificates">SSL Certificates</a></li>
+                    <li><a href="/compliance-guide">Compliance Guide</a></li>
+                    <li><a href="/security-best-practices">Best Practices</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>More Resources</h4>
+                <ul>
+                    <li><a href="/threat-intelligence">Threat Intelligence</a></li>
+                    <li><a href="/password-security">Password Security</a></li>
+                    <li><a href="/incident-response">Incident Response</a></li>
+                    <li><a href="/cloud-security">Cloud Security</a></li>
+                    <li><a href="/security-news">Security News</a></li>
+                    <li><a href="/security-quiz">Security Quiz</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                    <li><a href="/terms">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 MySecurity Scores. All rights reserved. Educational content for information security professionals.</p>
+            <div class="footer-bottom-links">
+                <a href="/privacy">Privacy</a>
+                <a href="/terms">Terms</a>
+                <a href="/contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-content">
+            <p>We use cookies to improve your experience and analyze site traffic. By continuing to browse, you agree to our use of cookies. Read our <a href="/privacy">Privacy Policy</a> for more information.</p>
+            <div class="cookie-buttons">
+                <button class="cookie-btn cookie-btn-accept" id="cookieAccept">Accept</button>
+                <button class="cookie-btn cookie-btn-reject" id="cookieReject">Reject</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">&uarr;</button>
+
+    <!-- JavaScript -->
+    <script>
+        // ============================================
+        // COOKIE CONSENT
+        // ============================================
+        (function() {
+            var cookieBanner = document.getElementById('cookieBanner');
+            var cookieAccept = document.getElementById('cookieAccept');
+            var cookieReject = document.getElementById('cookieReject');
+
+            if (!localStorage.getItem('cookieConsent')) {
+                cookieBanner.classList.add('show');
+            }
+
+            cookieAccept.addEventListener('click', function() {
+                localStorage.setItem('cookieConsent', 'accepted');
+                cookieBanner.classList.remove('show');
+            });
+
+            cookieReject.addEventListener('click', function() {
+                localStorage.setItem('cookieConsent', 'rejected');
+                cookieBanner.classList.remove('show');
+            });
+        })();
+
+        // ============================================
+        // BACK TO TOP BUTTON
+        // ============================================
+        (function() {
+            var backToTop = document.getElementById('backToTop');
+
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 400) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+
+            backToTop.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        })();
+
+        // ============================================
+        // READING PROGRESS BAR
+        // ============================================
+        (function() {
+            var progressBar = document.getElementById('readingProgress');
+
+            window.addEventListener('scroll', function() {
+                var scrollTop = window.scrollY;
+                var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                var progress = (scrollTop / docHeight) * 100;
+                progressBar.style.width = progress + '%';
+            });
+        })();
+
+        // ============================================
+        // MOBILE NAV TOGGLE
+        // ============================================
+        (function() {
+            var navToggle = document.getElementById('navToggle');
+            var navLinks = document.getElementById('navLinks');
+
+            navToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+
+            var dropdownParents = navLinks.querySelectorAll('li');
+            dropdownParents.forEach(function(item) {
+                var dropdown = item.querySelector('.nav-dropdown');
+                if (dropdown) {
+                    item.querySelector('a').addEventListener('click', function(e) {
+                        if (window.innerWidth <= 768) {
+                            e.preventDefault();
+                            item.classList.toggle('open');
+                        }
+                    });
+                }
+            });
+        })();
+
+        // ============================================
+        // INTERACTIVE QUIZ ENGINE
+        // ============================================
+        (function() {
+            // ----- QUIZ DATA: 15 Questions -----
+            var quizData = [
+                {
+                    id: 1,
+                    topic: 'Password Security',
+                    question: 'Which of the following is the most important characteristic of a strong password?',
+                    options: [
+                        'It contains at least one uppercase letter and one number',
+                        'It is changed every 30 days regardless of compromise',
+                        'It is long (16+ characters) and unique to each account',
+                        'It uses a common word with special character substitutions (e.g., P@ssw0rd)'
+                    ],
+                    correct: 2,
+                    explanation: 'Password length and uniqueness are the most critical factors in password strength. NIST SP 800-63B guidelines recommend long passphrases over complex but short passwords, and explicitly discourage mandatory periodic rotation unless a compromise is suspected. Character substitution patterns like "P@ssw0rd" are well-known to attackers and are among the first patterns tested in brute-force attacks. A 16-character random passphrase provides significantly more entropy than an 8-character password with complexity requirements.',
+                    link: '/password-security',
+                    linkText: 'Read our Password Security Guide'
+                },
+                {
+                    id: 2,
+                    topic: 'Multi-Factor Authentication',
+                    question: 'What does multi-factor authentication (MFA) require?',
+                    options: [
+                        'Two different passwords entered in sequence',
+                        'Verification from two or more distinct categories: something you know, something you have, or something you are',
+                        'A password that meets at least two complexity requirements',
+                        'Authentication from two different devices simultaneously'
+                    ],
+                    correct: 1,
+                    explanation: 'Multi-factor authentication requires verification using at least two different categories of authentication factors: something you know (a password or PIN), something you have (a phone, hardware token, or smart card), or something you are (biometric data like a fingerprint or facial recognition). Using two passwords would still be single-factor authentication because both factors are from the same category. Microsoft estimates that MFA blocks 99.9% of automated account compromise attacks, making it one of the most effective security controls available.',
+                    link: '/password-security',
+                    linkText: 'Learn more about MFA in our Password Security Guide'
+                },
+                {
+                    id: 3,
+                    topic: 'Phishing Awareness',
+                    question: 'Which of the following is the most reliable indicator that an email is a phishing attempt?',
+                    options: [
+                        'The email contains spelling and grammar errors',
+                        'The email creates a sense of urgency demanding immediate action',
+                        'The sender\'s actual email domain does not match the organization they claim to represent',
+                        'The email contains a link to a website'
+                    ],
+                    correct: 2,
+                    explanation: 'While urgency, grammatical errors, and suspicious links can all be phishing indicators, the most reliable indicator is a mismatch between the sender\'s claimed identity and their actual email domain. Modern AI-powered phishing campaigns produce grammatically flawless content, and legitimate organizations do create urgent communications. However, an attacker cannot send email from the genuine domain of the organization they are impersonating unless they have compromised it. Always verify the actual sender address (not just the display name) by examining the full email header.',
+                    link: '/threat-intelligence',
+                    linkText: 'Explore our Threat Intelligence Guide'
+                },
+                {
+                    id: 4,
+                    topic: 'Encryption',
+                    question: 'What is the primary difference between symmetric and asymmetric encryption?',
+                    options: [
+                        'Symmetric encryption is faster but uses the same key for encryption and decryption, while asymmetric uses a public-private key pair',
+                        'Symmetric encryption can only encrypt text, while asymmetric can encrypt any file type',
+                        'Asymmetric encryption is older and less secure than symmetric encryption',
+                        'Symmetric encryption requires an internet connection, while asymmetric does not'
+                    ],
+                    correct: 0,
+                    explanation: 'Symmetric encryption (e.g., AES-256) uses a single shared key for both encryption and decryption, making it very fast and suitable for encrypting large volumes of data. Asymmetric encryption (e.g., RSA, ECC) uses a mathematically related key pair: a public key for encryption and a private key for decryption. Asymmetric encryption solves the key distribution problem but is significantly slower. In practice, modern protocols like TLS use both: asymmetric encryption to securely exchange a symmetric session key, then symmetric encryption for the actual data transfer. This hybrid approach combines the security benefits of asymmetric key exchange with the performance of symmetric encryption.',
+                    link: '/ssl-certificates',
+                    linkText: 'Learn more in our SSL Certificates Guide'
+                },
+                {
+                    id: 5,
+                    topic: 'HTTPS and SSL/TLS',
+                    question: 'What does HTTPS protect against that HTTP does not?',
+                    options: [
+                        'Malware infections from visiting websites',
+                        'Eavesdropping on data transmitted between the browser and server, and verification of server identity',
+                        'Denial-of-service attacks against the web server',
+                        'SQL injection attacks on the website\'s database'
+                    ],
+                    correct: 1,
+                    explanation: 'HTTPS (HTTP over TLS) provides two critical security functions that plain HTTP lacks: encryption of data in transit, which prevents eavesdroppers from reading the content being exchanged between your browser and the web server, and server authentication, which verifies that you are actually communicating with the intended server and not an impostor conducting a man-in-the-middle attack. HTTPS does not protect against malware, DDoS attacks, or application-layer vulnerabilities like SQL injection, which require separate security controls.',
+                    link: '/ssl-certificates',
+                    linkText: 'Read our SSL/TLS Certificates Guide'
+                },
+                {
+                    id: 6,
+                    topic: 'Firewall Security',
+                    question: 'What is the primary function of a network firewall?',
+                    options: [
+                        'Encrypting all data stored on the network',
+                        'Scanning files for viruses and malware',
+                        'Monitoring and controlling incoming and outgoing network traffic based on predetermined security rules',
+                        'Backing up data to prevent loss during an attack'
+                    ],
+                    correct: 2,
+                    explanation: 'A firewall\'s primary function is to monitor and control network traffic based on a defined set of security rules, acting as a barrier between a trusted internal network and untrusted external networks. Firewalls examine packets and decide whether to allow or block them based on source and destination IP addresses, ports, and protocols. While modern next-generation firewalls (NGFWs) may include additional features like intrusion detection and deep packet inspection, the fundamental purpose remains traffic filtering and access control. Encryption, antivirus scanning, and data backup are separate security functions handled by different tools.',
+                    link: '/security-best-practices',
+                    linkText: 'Explore our Security Best Practices Guide'
+                },
+                {
+                    id: 7,
+                    topic: 'Social Engineering',
+                    question: 'Which social engineering technique involves an attacker creating a fabricated scenario to steal information?',
+                    options: [
+                        'Phishing',
+                        'Pretexting',
+                        'Baiting',
+                        'Tailgating'
+                    ],
+                    correct: 1,
+                    explanation: 'Pretexting involves an attacker creating a fabricated scenario (the "pretext") to manipulate a victim into divulging information or performing an action. For example, an attacker might impersonate an IT support technician and call an employee, claiming they need their login credentials to resolve a system issue. Phishing uses fraudulent electronic communications (usually email) to trick victims. Baiting involves leaving infected physical media (like USB drives) for victims to find and use. Tailgating involves physically following an authorized person through a secure entrance. All four are forms of social engineering, but pretexting specifically relies on an invented scenario to build trust.',
+                    link: '/threat-intelligence',
+                    linkText: 'Learn more in our Threat Intelligence Guide'
+                },
+                {
+                    id: 8,
+                    topic: 'Malware',
+                    question: 'What distinguishes a Trojan horse from a virus in cybersecurity?',
+                    options: [
+                        'A Trojan is more destructive than a virus',
+                        'A Trojan disguises itself as legitimate software and does not self-replicate, while a virus attaches to files and self-replicates',
+                        'A virus only targets mobile devices, while a Trojan targets computers',
+                        'A Trojan can only be spread through email attachments'
+                    ],
+                    correct: 1,
+                    explanation: 'The key distinction between a Trojan horse and a virus lies in how they spread and operate. A Trojan disguises itself as legitimate or desirable software to trick users into installing it, but it does not self-replicate or attach itself to other files. It relies entirely on social engineering for distribution. A virus, by contrast, attaches itself to legitimate programs or files and self-replicates by inserting its code into other programs when the infected file is executed. Understanding these distinctions matters for defense: anti-malware tools detect different threat types using different methods, and user awareness training addresses each vector differently.',
+                    link: '/threat-intelligence',
+                    linkText: 'Read our Threat Intelligence Guide'
+                },
+                {
+                    id: 9,
+                    topic: 'Ransomware',
+                    question: 'What is the recommended first action when a ransomware infection is detected on a networked computer?',
+                    options: [
+                        'Immediately pay the ransom to minimize data loss',
+                        'Shut down the computer completely and wait for IT support',
+                        'Isolate the infected machine from the network immediately to prevent lateral spread',
+                        'Run a full antivirus scan on the infected machine before taking any other action'
+                    ],
+                    correct: 2,
+                    explanation: 'The recommended first action upon detecting ransomware is to immediately isolate the infected machine from the network by disconnecting it from Ethernet and Wi-Fi. This is critical because modern ransomware strains actively scan for and encrypt network shares, mapped drives, and other connected systems. Lateral movement can happen within minutes, turning a single-machine incident into an organization-wide catastrophe. Paying the ransom is strongly discouraged by the FBI, CISA, and most security experts because it funds criminal operations and does not guarantee data recovery. Running a scan is useful but secondary to containment. A proper incident response plan, as outlined in NIST SP 800-61, prioritizes containment above all other initial actions.',
+                    link: '/incident-response',
+                    linkText: 'Read our Incident Response Guide'
+                },
+                {
+                    id: 10,
+                    topic: 'Zero-Day Vulnerabilities',
+                    question: 'What makes a "zero-day" vulnerability particularly dangerous?',
+                    options: [
+                        'It can only be exploited for a single day before it is automatically patched',
+                        'It exists in software that is zero days old (brand new releases)',
+                        'It is a vulnerability that is unknown to the software vendor and has no available patch when it is first exploited',
+                        'It affects zero users because it is discovered before the software is released'
+                    ],
+                    correct: 2,
+                    explanation: 'A zero-day vulnerability is particularly dangerous because it is unknown to the software vendor at the time it is being exploited by attackers, meaning no patch or official fix exists. The term "zero-day" refers to the fact that the vendor has had zero days to address the vulnerability. Defenders are at a significant disadvantage because signature-based detection tools cannot identify an unknown threat. Zero-day exploits are highly valued on the black market and are often used in targeted attacks against high-value targets. Defense-in-depth strategies, behavioral detection, and robust monitoring are critical for mitigating zero-day risk, as you cannot patch what you do not know exists.',
+                    link: '/threat-intelligence',
+                    linkText: 'Explore our Threat Intelligence Guide'
+                },
+                {
+                    id: 11,
+                    topic: 'VPN Security',
+                    question: 'What is the primary security benefit of using a VPN (Virtual Private Network)?',
+                    options: [
+                        'It makes your computer immune to all malware and viruses',
+                        'It creates an encrypted tunnel for your internet traffic, protecting data from interception on untrusted networks',
+                        'It permanently hides your identity from all websites and online services',
+                        'It speeds up your internet connection by routing traffic through optimized servers'
+                    ],
+                    correct: 1,
+                    explanation: 'A VPN\'s primary security benefit is creating an encrypted tunnel between your device and the VPN server, which protects your data from interception, particularly on untrusted networks such as public Wi-Fi hotspots. This prevents attackers on the same network from eavesdropping on your traffic through man-in-the-middle attacks. However, a VPN does not protect against malware, does not guarantee complete anonymity (the VPN provider can still see your traffic, and websites use many tracking methods beyond IP addresses), and typically introduces some latency that slightly decreases connection speed. A VPN is one layer in a defense-in-depth strategy, not a complete security solution.',
+                    link: '/security-best-practices',
+                    linkText: 'Read our Security Best Practices Guide'
+                },
+                {
+                    id: 12,
+                    topic: 'Cloud Security',
+                    question: 'In the cloud shared responsibility model, who is typically responsible for securing customer data stored in the cloud?',
+                    options: [
+                        'The cloud service provider is responsible for all aspects of security',
+                        'The customer is responsible for securing their data, access controls, and application configuration',
+                        'Security is shared equally with no clear delineation between provider and customer',
+                        'A third-party auditor is responsible for ensuring data security in the cloud'
+                    ],
+                    correct: 1,
+                    explanation: 'Under the shared responsibility model used by all major cloud providers (AWS, Azure, GCP), the customer is responsible for security "in" the cloud, which includes their data, identity and access management, application-level security, and operating system configuration. The cloud provider is responsible for security "of" the cloud, meaning the physical infrastructure, hypervisor, network fabric, and foundational services. This distinction is critical because many organizations mistakenly assume that migrating to the cloud transfers all security responsibility to the provider. In reality, the majority of cloud security incidents are caused by customer misconfiguration, not provider failures.',
+                    link: '/cloud-security',
+                    linkText: 'Read our Cloud Security Guide'
+                },
+                {
+                    id: 13,
+                    topic: 'Data Backup',
+                    question: 'What does the "3-2-1 backup rule" recommend?',
+                    options: [
+                        'Back up data 3 times a day, to 2 different folders, with 1 copy on a USB drive',
+                        'Keep 3 copies of your data, on 2 different types of storage media, with 1 copy stored offsite',
+                        'Use 3 different encryption algorithms, 2 backup software tools, and 1 cloud provider',
+                        'Retain backups for 3 months, test them every 2 weeks, and keep 1 master recovery plan'
+                    ],
+                    correct: 1,
+                    explanation: 'The 3-2-1 backup rule is a widely endorsed data protection strategy that recommends maintaining 3 total copies of your data (the original plus 2 backups), storing them on 2 different types of storage media (e.g., local disk and cloud, or disk and tape) to protect against media-specific failures, and keeping at least 1 copy offsite or in the cloud to protect against physical disasters like fire, flood, or theft. Some security experts now advocate for a "3-2-1-1-0" extension that adds 1 immutable (unchangeable) copy to protect against ransomware and requires 0 errors in backup verification testing. Regular testing of backup restoration is essential because a backup that cannot be restored is worthless.',
+                    link: '/security-best-practices',
+                    linkText: 'Learn more in our Security Best Practices Guide'
+                },
+                {
+                    id: 14,
+                    topic: 'Incident Response',
+                    question: 'According to the NIST incident response framework, what are the four phases of incident response?',
+                    options: [
+                        'Prevention, Detection, Elimination, Recovery',
+                        'Preparation, Detection and Analysis, Containment/Eradication/Recovery, Post-Incident Activity',
+                        'Identification, Classification, Remediation, Documentation',
+                        'Alert, Investigate, Resolve, Report'
+                    ],
+                    correct: 1,
+                    explanation: 'The NIST SP 800-61 Computer Security Incident Handling Guide defines four phases of incident response: (1) Preparation, which involves establishing and training the incident response team, creating playbooks, and deploying monitoring tools before incidents occur; (2) Detection and Analysis, which covers identifying and confirming that a security event is a genuine incident; (3) Containment, Eradication, and Recovery, which involves stopping the spread of the incident, removing the threat, and restoring systems to normal operations; and (4) Post-Incident Activity, which includes lessons learned, documentation, and process improvements. These phases are not strictly linear; organizations often cycle through detection, containment, and analysis multiple times during a single incident.',
+                    link: '/incident-response',
+                    linkText: 'Read our Incident Response Guide'
+                },
+                {
+                    id: 15,
+                    topic: 'Compliance',
+                    question: 'Which compliance framework is specifically designed for organizations that process, store, or transmit credit card data?',
+                    options: [
+                        'SOC 2 (Service Organization Control 2)',
+                        'HIPAA (Health Insurance Portability and Accountability Act)',
+                        'PCI DSS (Payment Card Industry Data Security Standard)',
+                        'GDPR (General Data Protection Regulation)'
+                    ],
+                    correct: 2,
+                    explanation: 'PCI DSS (Payment Card Industry Data Security Standard) is the compliance framework specifically created for organizations that process, store, or transmit credit card information. It was established by the major card brands (Visa, Mastercard, American Express, Discover, and JCB) through the PCI Security Standards Council. PCI DSS defines 12 main requirements covering areas such as network security, data protection, vulnerability management, access control, monitoring, and security policy. SOC 2 evaluates trust service criteria for service organizations, HIPAA governs protected health information in healthcare, and GDPR protects personal data of EU/EEA residents. Organizations may need to comply with multiple frameworks depending on their industry and the data they handle.',
+                    link: '/compliance-guide',
+                    linkText: 'Explore our Compliance Guide'
+                }
+            ];
+
+            // ----- Quiz State -----
+            var currentQuestion = 0;
+            var answered = 0;
+            var correctCount = 0;
+            var incorrectCount = 0;
+            var userAnswers = []; // track which questions user got wrong for recommendations
+            var quizComplete = false;
+
+            // ----- DOM References -----
+            var quizContainer = document.getElementById('quizContainer');
+            var quizResults = document.getElementById('quizResults');
+            var quizAnsweredEl = document.getElementById('quizAnswered');
+            var quizCorrectEl = document.getElementById('quizCorrect');
+            var quizIncorrectEl = document.getElementById('quizIncorrect');
+            var quizProgressFill = document.getElementById('quizProgressFill');
+            var quizProgressText = document.getElementById('quizProgressText');
+
+            // ----- Render Current Question -----
+            function renderQuestion(index) {
+                if (index >= quizData.length) {
+                    showResults();
+                    return;
+                }
+
+                var q = quizData[index];
+                var letters = ['A', 'B', 'C', 'D'];
+
+                var html = '<div class="quiz-question" id="question-' + q.id + '">';
+                html += '<span class="quiz-question-number">Question ' + (index + 1) + ' of ' + quizData.length + '</span>';
+                html += '<span class="quiz-question-topic">' + q.topic + '</span>';
+                html += '<div class="quiz-question-text">' + q.question + '</div>';
+                html += '<div class="quiz-options">';
+
+                for (var i = 0; i < q.options.length; i++) {
+                    html += '<div class="quiz-option" data-index="' + i + '" tabindex="0" role="button" aria-label="Option ' + letters[i] + ': ' + q.options[i] + '">';
+                    html += '<span class="quiz-option-letter">' + letters[i] + '</span>';
+                    html += '<span class="quiz-option-text">' + q.options[i] + '</span>';
+                    html += '</div>';
+                }
+
+                html += '</div>';
+                html += '<div id="explanation-' + q.id + '"></div>';
+                html += '<div id="nextBtn-' + q.id + '"></div>';
+                html += '</div>';
+
+                quizContainer.innerHTML = html;
+
+                // Attach click events to options
+                var options = quizContainer.querySelectorAll('.quiz-option');
+                options.forEach(function(option) {
+                    option.addEventListener('click', function() {
+                        handleAnswer(index, parseInt(this.getAttribute('data-index')));
+                    });
+                    option.addEventListener('keydown', function(e) {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            handleAnswer(index, parseInt(this.getAttribute('data-index')));
+                        }
+                    });
+                });
+
+                // Scroll quiz into view smoothly
+                if (index > 0) {
+                    quizContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }
+
+            // ----- Handle Answer Selection -----
+            function handleAnswer(questionIndex, selectedIndex) {
+                var q = quizData[questionIndex];
+                var options = quizContainer.querySelectorAll('.quiz-option');
+                var isCorrect = selectedIndex === q.correct;
+
+                // Prevent re-answering
+                if (quizContainer.querySelector('.quiz-option.disabled')) return;
+
+                // Record answer
+                userAnswers.push({
+                    questionIndex: questionIndex,
+                    selectedIndex: selectedIndex,
+                    correct: isCorrect,
+                    topic: q.topic,
+                    link: q.link,
+                    linkText: q.linkText
+                });
+
+                answered++;
+                if (isCorrect) {
+                    correctCount++;
+                } else {
+                    incorrectCount++;
+                }
+
+                // Update progress tracker
+                updateProgress();
+
+                // Disable all options and highlight correct/incorrect
+                options.forEach(function(option, i) {
+                    option.classList.add('disabled');
+                    if (i === selectedIndex && isCorrect) {
+                        option.classList.add('correct');
+                    } else if (i === selectedIndex && !isCorrect) {
+                        option.classList.add('incorrect');
+                    }
+                    if (i === q.correct && !isCorrect) {
+                        option.classList.add('show-correct');
+                    }
+                });
+
+                // Show explanation
+                var explanationContainer = document.getElementById('explanation-' + q.id);
+                var expHtml = '<div class="quiz-explanation">';
+                expHtml += '<div class="quiz-explanation-title">' + (isCorrect ? 'Correct!' : 'Incorrect') + ' — Explanation</div>';
+                expHtml += '<div class="quiz-explanation-text">' + q.explanation + '</div>';
+                if (q.link) {
+                    expHtml += '<a href="' + q.link + '" class="quiz-explanation-link">' + q.linkText + ' &rarr;</a>';
+                }
+                expHtml += '</div>';
+                explanationContainer.innerHTML = expHtml;
+
+                // Show Next button (or Show Results for last question)
+                var nextContainer = document.getElementById('nextBtn-' + q.id);
+                var isLast = (questionIndex === quizData.length - 1);
+                var btnLabel = isLast ? 'View Your Results' : 'Next Question';
+                var btnArrow = isLast ? '&check;' : '&rarr;';
+                nextContainer.innerHTML = '<button class="quiz-next-btn" id="nextQuestionBtn">' + btnLabel + ' ' + btnArrow + '</button>';
+
+                document.getElementById('nextQuestionBtn').addEventListener('click', function() {
+                    if (isLast) {
+                        showResults();
+                    } else {
+                        currentQuestion++;
+                        renderQuestion(currentQuestion);
+                    }
+                });
+            }
+
+            // ----- Update Progress Bar -----
+            function updateProgress() {
+                quizAnsweredEl.textContent = answered;
+                quizCorrectEl.textContent = correctCount;
+                quizIncorrectEl.textContent = incorrectCount;
+                var pct = (answered / quizData.length) * 100;
+                quizProgressFill.style.width = pct + '%';
+                quizProgressText.textContent = answered + ' of ' + quizData.length + ' complete';
+            }
+
+            // ----- Show Results -----
+            function showResults() {
+                quizComplete = true;
+                quizContainer.style.display = 'none';
+                quizResults.style.display = 'block';
+
+                var pct = Math.round((correctCount / quizData.length) * 100);
+                var grade, gradeClass, gradeMessage;
+
+                if (pct >= 90) {
+                    grade = 'A';
+                    gradeClass = 'grade-a';
+                    gradeMessage = 'Outstanding! You have an excellent grasp of cybersecurity fundamentals. Your knowledge level suggests you are well-equipped to identify and respond to most common security threats. Continue building on this strong foundation by exploring advanced topics and staying current with the evolving threat landscape.';
+                } else if (pct >= 80) {
+                    grade = 'B';
+                    gradeClass = 'grade-b';
+                    gradeMessage = 'Great job! You have a solid understanding of cybersecurity principles. There are a few areas where you could deepen your knowledge to achieve a comprehensive security understanding. Review the topics you missed and explore the linked guides for more detailed coverage of those subjects.';
+                } else if (pct >= 70) {
+                    grade = 'C';
+                    gradeClass = 'grade-c';
+                    gradeMessage = 'Good effort! You have a reasonable baseline of security knowledge, but there are some important gaps that could leave you or your organization vulnerable. We recommend reviewing the explanations for the questions you missed and working through the corresponding guides to build stronger foundations in those areas.';
+                } else if (pct >= 60) {
+                    grade = 'D';
+                    gradeClass = 'grade-d';
+                    gradeMessage = 'You have some cybersecurity awareness, but several critical knowledge gaps were identified. In the current threat landscape, these gaps represent real risk. We strongly recommend investing time in our security guides, particularly in the areas where you answered incorrectly. Even 30 minutes of focused reading could significantly improve your security posture.';
+                } else {
+                    grade = 'F';
+                    gradeClass = 'grade-f';
+                    gradeMessage = 'Your results indicate significant gaps in cybersecurity knowledge. This is not uncommon — many people have not had the opportunity to learn about these topics. The good news is that all the information you need is available in our free guides. We recommend starting with our comprehensive Security Guide and working through each topic area systematically. Every concept you learn is a step toward better protecting yourself and your organization.';
+                }
+
+                // Determine stroke color for the SVG ring
+                var strokeColor;
+                if (pct >= 90) strokeColor = '#22c55e';
+                else if (pct >= 80) strokeColor = '#3b82f6';
+                else if (pct >= 70) strokeColor = '#f59e0b';
+                else if (pct >= 60) strokeColor = '#f97316';
+                else strokeColor = '#f43f5e';
+
+                // Circumference = 2 * PI * 90 = 565.48
+                var circumference = 565.48;
+                var offset = circumference - (pct / 100) * circumference;
+
+                // Build incorrect topics for recommendations
+                var wrongTopics = [];
+                var wrongLinksHTML = '';
+                var seenLinks = {};
+                userAnswers.forEach(function(answer) {
+                    if (!answer.correct && answer.link && !seenLinks[answer.link]) {
+                        seenLinks[answer.link] = true;
+                        wrongTopics.push(answer.topic);
+                        wrongLinksHTML += '<li><a href="' + answer.link + '">' + answer.linkText + ' (' + answer.topic + ') &rarr;</a></li>';
+                    }
+                });
+
+                var html = '';
+                html += '<div class="quiz-results-title">Quiz Complete!</div>';
+                html += '<div class="quiz-results-subtitle">Here is how you performed across 15 cybersecurity topics</div>';
+
+                // Score circle
+                html += '<div class="quiz-score-circle">';
+                html += '<svg viewBox="0 0 200 200">';
+                html += '<circle class="bg-ring" cx="100" cy="100" r="90"></circle>';
+                html += '<circle class="score-ring" id="scoreRing" cx="100" cy="100" r="90" style="stroke: ' + strokeColor + '; stroke-dashoffset: ' + circumference + ';"></circle>';
+                html += '</svg>';
+                html += '<div class="score-inner">';
+                html += '<span class="quiz-score-percent" id="scorePercent">0%</span>';
+                html += '<span class="quiz-score-grade ' + gradeClass + '">Grade: ' + grade + '</span>';
+                html += '</div>';
+                html += '</div>';
+
+                // Breakdown stats
+                html += '<div class="quiz-results-breakdown">';
+                html += '<div class="quiz-results-stat"><span class="quiz-results-stat-value" style="color: #22c55e;">' + correctCount + '</span><span class="quiz-results-stat-label">Correct</span></div>';
+                html += '<div class="quiz-results-stat"><span class="quiz-results-stat-value" style="color: #f43f5e;">' + incorrectCount + '</span><span class="quiz-results-stat-label">Incorrect</span></div>';
+                html += '<div class="quiz-results-stat"><span class="quiz-results-stat-value" style="color: #fff;">' + quizData.length + '</span><span class="quiz-results-stat-label">Total Questions</span></div>';
+                html += '</div>';
+
+                // Personalized recommendations
+                html += '<div class="quiz-results-recommendations">';
+                html += '<h3>Your Personalized Assessment</h3>';
+                html += '<p>' + gradeMessage + '</p>';
+                if (wrongLinksHTML) {
+                    html += '<p><strong>Based on the questions you missed, we recommend reviewing these guides:</strong></p>';
+                    html += '<ul class="quiz-results-links">' + wrongLinksHTML + '</ul>';
+                } else {
+                    html += '<p><strong>You answered every question correctly!</strong> To continue building your expertise, explore our advanced guides on <a href="/threat-intelligence" style="color: #667eea;">Threat Intelligence</a>, <a href="/incident-response" style="color: #667eea;">Incident Response</a>, and <a href="/compliance-guide" style="color: #667eea;">Compliance Frameworks</a>.</p>';
+                }
+                html += '</div>';
+
+                // Restart button
+                html += '<button class="quiz-restart-btn" id="restartQuiz">Retake Quiz &circlearrowleft;</button>';
+
+                quizResults.innerHTML = html;
+
+                // Animate the score circle after rendering
+                requestAnimationFrame(function() {
+                    setTimeout(function() {
+                        var ring = document.getElementById('scoreRing');
+                        if (ring) {
+                            ring.style.strokeDashoffset = offset;
+                        }
+                        // Animate percentage number
+                        animateCounter(document.getElementById('scorePercent'), 0, pct, 1200);
+                    }, 100);
+                });
+
+                // Restart button event
+                document.getElementById('restartQuiz').addEventListener('click', function() {
+                    currentQuestion = 0;
+                    answered = 0;
+                    correctCount = 0;
+                    incorrectCount = 0;
+                    userAnswers = [];
+                    quizComplete = false;
+                    updateProgress();
+                    quizResults.style.display = 'none';
+                    quizContainer.style.display = 'block';
+                    renderQuestion(0);
+                    quizContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+
+                // Scroll to results
+                quizResults.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+
+            // ----- Animate Counter -----
+            function animateCounter(element, start, end, duration) {
+                var range = end - start;
+                var startTime = null;
+
+                function step(timestamp) {
+                    if (!startTime) startTime = timestamp;
+                    var progress = Math.min((timestamp - startTime) / duration, 1);
+                    var eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+                    var current = Math.round(start + range * eased);
+                    element.textContent = current + '%';
+                    if (progress < 1) {
+                        requestAnimationFrame(step);
+                    }
+                }
+
+                requestAnimationFrame(step);
+            }
+
+            // ----- Initialize Quiz -----
+            renderQuestion(0);
+
+        })();
+    </script>
+
+</body>
+</html>
