@@ -56,6 +56,9 @@
     <!-- Shared Styles -->
     <link rel="stylesheet" href="styles.css">
 
+    <!-- Auto-Updating News and Video Feed Styles -->
+    <link rel="stylesheet" href="/css/news-videos.css">
+
     <style>
     /* ============================================
        THREAT TICKER BAR
@@ -828,6 +831,14 @@
         </div>
     </section>
 
+    <!-- Featured Security Videos Section -->
+    <section class="featured-videos">
+        <h2>🎬 Featured Security Videos</h2>
+        <div class="video-grid" id="videoGrid">
+            <!-- Auto-populated with real-time security videos -->
+        </div>
+    </section>
+
     <!-- Security Statistics Dashboard -->
     <section class="stats-dashboard">
         <div class="section-label">Threat Landscape Snapshot</div>
@@ -1255,6 +1266,9 @@
 
     })();
     </script>
+
+    <!-- Auto-Updating Security News and Video Feed System -->
+    <script src="/js/auto-news-feed.js"></script>
 
 </body>
 </html>
